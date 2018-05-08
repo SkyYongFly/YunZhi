@@ -1,4 +1,4 @@
-package com.skylaker.wenda.exception;
+package com.skylaker.yunzhi.exception;
 
 /**
  * 系统异常基类

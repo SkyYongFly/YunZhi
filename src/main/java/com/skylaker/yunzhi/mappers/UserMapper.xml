@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->  
-<mapper namespace="com.skylaker.wenda.mappers.UserMapper">
+<mapper namespace="com.skylaker.yunzhi.mappers.UserMapper">
 	<!-- 根据用户ID获取用户信息 -->
 	<select id="getUserById" parameterType="int" resultType="user">
 		select * from user where id = #{id}

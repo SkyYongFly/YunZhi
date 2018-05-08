@@ -9,11 +9,11 @@
 
 	<!--Spring扫描注册包-->
 	<!--配置包-->
-	<context:component-scan base-package="com.skylaker.wenda.config"/>
+	<context:component-scan base-package="com.skylaker.yunzhi.config"/>
 	<!--业务处理包-->
-	<context:component-scan base-package="com.skylaker.wenda.service"/>
+	<context:component-scan base-package="com.skylaker.yunzhi.service"/>
 	<!--异常处理包-->
-	<context:component-scan base-package="com.skylaker.wenda.exception"/>
+	<context:component-scan base-package="com.skylaker.yunzhi.exception"/>
 
 	<!-- 配置数据源连接配置文件 -->
 	<context:property-placeholder	location="classpath:database.properties"/>
@@ -36,7 +36,7 @@
 	
 	<!-- 注册Mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.skylaker.wenda.mappers"></property>
+		<property name="basePackage" value="com.skylaker.yunzhi.mappers"></property>
 	</bean>
 	
 	

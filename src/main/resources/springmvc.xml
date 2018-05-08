@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	
 	<!-- 配置SpringMVC自动扫描包 -->
-	<context:component-scan base-package="com.skylaker.wenda.controller"></context:component-scan>
+	<context:component-scan base-package="com.skylaker.yunzhi.controller"></context:component-scan>
 
     <!--设置配置方案 (注册RequestMappingHandlerMapping与RequestMappingHandlerAdapter两个Bean)-->
 	<mvc:annotation-driven/>

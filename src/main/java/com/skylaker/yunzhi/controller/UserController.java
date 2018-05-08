@@ -1,7 +1,7 @@
-package com.skylaker.wenda.controller;
+package com.skylaker.yunzhi.controller;
 
-import com.skylaker.wenda.pojo.User;
-import com.skylaker.wenda.service.UserService;
+import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

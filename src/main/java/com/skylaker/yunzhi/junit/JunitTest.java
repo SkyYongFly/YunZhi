@@ -1,4 +1,4 @@
-package com.skylaker.wenda.junit;
+package com.skylaker.yunzhi.junit;
 
 import java.io.IOException;
 

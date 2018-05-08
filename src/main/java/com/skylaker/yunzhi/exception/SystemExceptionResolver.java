@@ -1,4 +1,4 @@
-package com.skylaker.wenda.exception;
+package com.skylaker.yunzhi.exception;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;

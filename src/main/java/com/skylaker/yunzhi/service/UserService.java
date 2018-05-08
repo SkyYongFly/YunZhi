@@ -1,7 +1,7 @@
-package com.skylaker.wenda.service;
+package com.skylaker.yunzhi.service;
 
-import com.skylaker.wenda.mappers.UserMapper;
-import com.skylaker.wenda.pojo.User;
+import com.skylaker.yunzhi.mappers.UserMapper;
+import com.skylaker.yunzhi.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

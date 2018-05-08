@@ -1,4 +1,4 @@
-package com.skylaker.wenda.pojo;
+package com.skylaker.yunzhi.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

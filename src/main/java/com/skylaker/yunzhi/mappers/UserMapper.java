@@ -1,8 +1,8 @@
-package com.skylaker.wenda.mappers;
+package com.skylaker.yunzhi.mappers;
 
 import java.util.List;
 
-import com.skylaker.wenda.pojo.User;
+import com.skylaker.yunzhi.pojo.User;
 
 /**
  * User 相关SQL操作Mapper接口
