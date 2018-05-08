@@ -1,15 +1,15 @@
 package com.skylaker.wenda.exception;
 
 /**
- * �Զ����쳣��SpringMVC��������з�����Ԥ���쳣���״��쳣
+ * 系统异常基类
  * 
  * @author zhuyong
  */
-public class CustomException extends Exception{
-	//�쳣��Ϣ
+public class SystemBaseException extends Exception{
+	//异常打印信息
 	private String message;
 	
-	public CustomException(String message) {
+	public SystemBaseException(String message) {
 		this.message = message;
 	}
 

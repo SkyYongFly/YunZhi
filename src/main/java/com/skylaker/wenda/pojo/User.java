@@ -13,55 +13,87 @@ import org.apache.ibatis.type.Alias;
 @Alias("user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
-	private Integer id;
-	private String name;
-	private String address;
-	private Integer age;
-	private Date birth;
-	
-	public User() {
-		super();
+
+	//用户表主键ID
+	private Integer	uid;
+
+	//用户名称（昵称）
+	private String 	name;
+
+	//用户账号
+	private String  account;
+
+	//账号密码
+	private String 	password;
+
+	//用户创建时间
+	private Date 	createtime;
+
+	//用户信息修改时间
+	private Date 	updatetime;
+
+	public User(){
+
 	}
 
-	public User(Integer id, String name, String address, Integer age, Date birth) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		this.age = age;
-		this.birth = birth;
+
+	public Integer getUid() {
+		return uid;
 	}
-	
-	public Integer getId() {
-		return id;
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getAccount() {
+		return account;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setAccount(String account) {
+		this.account = account;
 	}
-	public Integer getAge() {
-		return age;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setAge(Integer age) {
-		this.age = age;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public Date getBirth() {
-		return birth;
+
+	public Date getCreatetime() {
+		return createtime;
 	}
-	public void setBirth(Date birth) {
-		this.birth = birth;
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
-	
+
+	public Date getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"uid=" + uid +
+				", name='" + name + '\'' +
+				", account='" + account + '\'' +
+				", password='" + password + '\'' +
+				", createtime=" + createtime +
+				", updatetime=" + updatetime +
+				'}';
+	}
 }
