@@ -1,0 +1,34 @@
+package com.skylaker.wenda.controller;
+
+import com.skylaker.wenda.pojo.User;
+import com.skylaker.wenda.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+/**
+ * 用户相关请求处理逻辑类
+ * 
+ * @author sky
+ */
+@Controller
+@RequestMapping("/user")
+public class UserController {
+	@Autowired
+	private UserService userService;
+
+	/**
+	 * 获取所有用户
+	 *
+	 * @return 所有用户JSON
+	 */
+	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+	public @ResponseBody List<User> getAllUsers(){
+		return userService.getAllUsers();
+	}
+	
+}
