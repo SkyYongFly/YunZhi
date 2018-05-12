@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.skylaker</groupId>
-  <artifactId>WenDa</artifactId>
+  <artifactId>YunZhi</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>WenDa Maven Webapp</name>
+  <name>YunZhi Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -21,6 +21,7 @@
     <mysql.version>5.1.37</mysql.version>
     <spring.version>5.0.0.RELEASE</spring.version>
     <jackson.version>2.9.1</jackson.version>
+    <shiro.version>1.2.2</shiro.version>
   </properties>
 
   <dependencies>
@@ -200,10 +201,16 @@
       <version>1.2.5</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
-    <finalName>WenDa</finalName>
+    <finalName>YunZhi</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

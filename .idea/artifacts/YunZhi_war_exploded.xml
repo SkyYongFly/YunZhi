@@ -1,0 +1,51 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="YunZhi:war exploded">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="YunZhi" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: junit:junit:4.11" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.1" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.6" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.37" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.0" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.3.0" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.3" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.9.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.9.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.7.3" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.5" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.2" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="YunZhi/web/Web" />
+    </root>
+  </artifact>
+</component>

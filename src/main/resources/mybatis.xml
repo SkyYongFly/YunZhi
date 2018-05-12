@@ -7,6 +7,6 @@
  <configuration>
  	<!-- 为POJO定义别名 -->
  	<typeAliases>
- 		<package name="com.skylaker.wenda.pojo"/>
+ 		<package name="com.skylaker.yunzhi.pojo"/>
  	</typeAliases>
  </configuration> 
