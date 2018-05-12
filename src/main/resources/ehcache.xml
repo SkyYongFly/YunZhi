@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="shirocache">
+    <diskStore path="java.io.tmpdir" />
+
+    <!-- Login Cache Locked 10m -->
+    <cache name="passwordRetryCache" eternal="false"
+           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authorizationCache" eternal="false"
+           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authenticationCache" eternal="false"
+           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="shiro-activeSessionCache" eternal="false"
+           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+           statistics="true">
+    </cache>
+</ehcache>

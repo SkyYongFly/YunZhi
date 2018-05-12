@@ -1,9 +1,9 @@
 package com.skylaker.yunzhi.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import org.apache.ibatis.type.Alias;
 
 /**
  * User POJO对象
@@ -17,14 +17,14 @@ public class User implements Serializable{
 	//用户表主键ID
 	private Integer	uid;
 
-	//用户名称（昵称）
-	private String 	name;
-
-	//用户账号
-	private String  account;
+	//用户名/账号
+	private String 	username;
 
 	//账号密码
 	private String 	password;
+
+	//用户昵称
+	private String  nickname;
 
 	//用户创建时间
 	private Date 	createtime;
@@ -32,10 +32,28 @@ public class User implements Serializable{
 	//用户信息修改时间
 	private Date 	updatetime;
 
+	//用户是否被锁定
+	private boolean locked;
+
+	//用户锁定时间
+	private Date lockedtime;
+
+	//用户密码加盐
+	private String salt;
+
+
 	public User(){
 
 	}
 
+	/**
+	 * 获取用户密码加密盐，默认使用用户名以及设置的盐混合
+	 *
+	 * @return
+	 */
+	public String getCredentialsSalt(){
+		return username + salt;
+	}
 
 	public Integer getUid() {
 		return uid;
@@ -45,20 +63,12 @@ public class User implements Serializable{
 		this.uid = uid;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAccount() {
-		return account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -67,6 +77,14 @@ public class User implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public Date getCreatetime() {
@@ -85,15 +103,37 @@ public class User implements Serializable{
 		this.updatetime = updatetime;
 	}
 
+	public boolean isLocked() {
+		return locked;
+	}
+
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+
+	public Date getLockedtime() {
+		return lockedtime;
+	}
+
+	public void setLockedtime(Date lockedtime) {
+		this.lockedtime = lockedtime;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
 				"uid=" + uid +
-				", name='" + name + '\'' +
-				", account='" + account + '\'' +
+				", username='" + username + '\'' +
 				", password='" + password + '\'' +
-				", createtime=" + createtime +
-				", updatetime=" + updatetime +
+				", nickname='" + nickname + '\'' +
 				'}';
 	}
 }

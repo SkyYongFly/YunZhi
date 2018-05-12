@@ -12,16 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-<script>
-    $.ajax({
-        url:"http://localhost:8080/WenDa/user/getAllUsers",
-        method:"GET",
-        contentType:"applocation/json",
-        success:function (data) {
-            alert(data);
-        }
-    });
-
-</script>
+    欢迎来到云知！
 </body>
 </html>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author zhuyong
  */
 @Component
-public class SystemExceptionResolver implements HandlerExceptionResolver{
+public class ExceptionResolver implements HandlerExceptionResolver{
 
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, 
@@ -21,15 +21,15 @@ public class SystemExceptionResolver implements HandlerExceptionResolver{
 		//异常输出
 		exception.printStackTrace();
 		
-		SystemBaseException systemBaseException = null;
-		if(exception instanceof SystemBaseException) {
-			systemBaseException = (SystemBaseException) exception;
+		BaseException BaseException = null;
+		if(exception instanceof BaseException) {
+			BaseException = (BaseException) exception;
 		}else {
-			systemBaseException = new SystemBaseException("服务器发生异常！");
+			BaseException = new BaseException("服务器发生异常！");
 		}
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("errormsg", systemBaseException.getMessage());
+		modelAndView.addObject("errormsg", BaseException.getMessage());
 		modelAndView.setViewName("error");
 		
 		return modelAndView;

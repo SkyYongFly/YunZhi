@@ -15,7 +15,7 @@ public class Role implements Serializable {
     private int     rid;
 
     //角色名称
-    private String  name;
+    private String  rolename;
 
     //角色描述
     private String  description;
@@ -39,12 +39,12 @@ public class Role implements Serializable {
         this.rid = rid;
     }
 
-    public String getName() {
-        return name;
+    public String getRolename() {
+        return rolename;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
     }
 
     public String getDescription() {
@@ -75,7 +75,7 @@ public class Role implements Serializable {
     public String toString() {
         return "Role{" +
                 "rid=" + rid +
-                ", name='" + name + '\'' +
+                ", name='" + rolename + '\'' +
                 ", description='" + description + '\'' +
                 ", createtime=" + createtime +
                 ", updatetime=" + updatetime +

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--缓存管理器：Ehcache-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!--Ehcache缓存配置文件路径-->
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+    </bean>
+
+    <!--凭证匹配器-->
+    <bean id="credentialsMatcher" class="com.skylaker.yunzhi.config.CredentialsMatcher">
+        <!--注入缓存管理器-->
+        <constructor-arg ref="cacheManager"/>
+        <!--密码加密方法-->
+        <property name="hashAlgorithmName" value="md5"/>
+        <!--密码加密几次-->
+        <property name="hashIterations" value="3"/>
+        <!--是否存储散列后的密码为16进制-->
+        <property name="storedCredentialsHexEncoded" value="true"/>
+    </bean>
+
+    <!--Realm实现-->
+    <bean id="userRealm" class="com.skylaker.yunzhi.config.UserRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <!--安全管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+    </bean>
+
+    <!-- Shiro的web过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/" />
+        <property name="unauthorizedUrl" value="/"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /admin/** = roles[admin]
+            </value>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+</beans>

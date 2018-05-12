@@ -5,11 +5,11 @@ package com.skylaker.yunzhi.exception;
  * 
  * @author zhuyong
  */
-public class SystemBaseException extends Exception{
+public class BaseException extends Exception{
 	//异常打印信息
 	private String message;
 	
-	public SystemBaseException(String message) {
+	public BaseException(String message) {
 		this.message = message;
 	}
 

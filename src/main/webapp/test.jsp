@@ -14,11 +14,11 @@
 <body>
     <script>
         $.ajax({
-            url:"http://localhost:8080/WenDa/user/getAllUsers",
+            url:"http://localhost:8080/YunZhi/user/getAllUsers.do",
             method:"GET",
             contentType:"applocation/json",
             success:function (data) {
-                alert(data);
+                alert(data.length);
             }
         });
 

@@ -21,7 +21,7 @@
     <mysql.version>5.1.37</mysql.version>
     <spring.version>5.0.0.RELEASE</spring.version>
     <jackson.version>2.9.1</jackson.version>
-    <shiro.version>1.2.2</shiro.version>
+    <shiro.version>1.4.0</shiro.version>
   </properties>
 
   <dependencies>
@@ -201,11 +201,38 @@
       <version>1.2.5</version>
     </dependency>
 
+    <!--Spring Shiro集成-->
     <dependency>
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-core</artifactId>
       <version>${shiro.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-web</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+
+    <!-- ehcache 支持-->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-ehcache</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-core</artifactId>
+      <version>2.6.11</version>
+    </dependency>
+
 
   </dependencies>
 

@@ -3,13 +3,14 @@
   <display-name>YunZhi</display-name>
   <!-- 欢迎首页 -->
   <welcome-file-list>
-    <welcome-file>welcome.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- 加载Spring配置文件位置 -->
+  <!-- 加载配置文件位置 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring.xml</param-value>
+    <!-- Spring配置文件 ，Shiro配置文件 -->
+    <param-value>classpath:spring.xml,classpath:shiro.xml</param-value>
   </context-param>
   
   <!-- 初始化监听器，用于应用启动时加载配置文件进而启动Spring框架 -->
@@ -33,12 +34,29 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
-  <!--静态资源处理-->
+  <!--静态资源处理，默认不拦截-->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.js</url-pattern>
     <url-pattern>*.css</url-pattern>
     <url-pattern>/assets/*"</url-pattern>
   </servlet-mapping>
+
+
+  <!-- Shiro配置 -->
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <async-supported>true</async-supported>
+    <init-param>
+      <param-name>targetFilterLifecycle</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/</url-pattern>
+  </filter-mapping>
   
 </web-app>
