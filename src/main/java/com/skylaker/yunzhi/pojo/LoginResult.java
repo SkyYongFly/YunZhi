@@ -5,7 +5,7 @@ package com.skylaker.yunzhi.pojo;
  * User: zhuyong
  * Date: 2018/5/12
  * Time: 12:52
- * Description:
+ * Description: 用户登录结果返回状态
  */
 public enum LoginResult {
     //成功
@@ -18,7 +18,10 @@ public enum LoginResult {
     TO_MUCH_ERROR("输错密码达5次", 3),
 
     //账号不存在
-    NO_ACCOUNT("账号不存在", 4);
+    NO_ACCOUNT("账号不存在", 4),
+
+    //账号或密码为空
+    NULL_NAME_PWD("账号或密码为空", 5);
 
     //结果信息
     private  String message;

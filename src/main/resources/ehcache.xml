@@ -1,25 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache name="shirocache">
-    <diskStore path="java.io.tmpdir" />
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
+
+    <!-- 磁盘缓存位置 -->
+    <diskStore path="java.io.tmpdir/ehcache" />
+
+    <!--默认缓存-->
+    <defaultCache
+        maxEntriesLocalHeap="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        maxEntriesLocalDisk="10000000"
+        diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU">
+            
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+
+    <!--
+         name	                 Cache的名称，必须是唯一的(ehcache会把这个cache放到HashMap里)
+         maxElementsInMemory	 内存中保持的对象数量
+         maxElementsOnDisk	     DiskStore中保持的对象数量，默认值为0，表示不限制
+         eternal	             是否是永恒数据，如果是，则它的超时设置会被忽略
+         overflowToDisk	         如果内存中数据数量超过maxElementsInMemory限制，是否要缓存到磁盘上
+         timeToIdleSeconds	     对象空闲时间，指对象在多长时间没有被访问就会失效。只对eternal为false的有效。默认值0，表示一直可以访问
+         timeToLiveSeconds	     对象存活时间，指对象从创建到失效所需要的时间。只对eternal为false的有效。默认值0，表示一直可以访问
+         diskPersistent	         是否在磁盘上持久化。指重启jvm后，数据是否有效。默认为false
+         diskExpiryThreadIntervalSeconds	 对象检测线程运行时间间隔。标识对象状态的线程多长时间运行一次
+         diskSpoolBufferSizeMB	             DiskStore使用的磁盘大小，默认值30MB。每个cache使用各自的DiskStore
+         memoryStoreEvictionPolicy	         如果内存中数据超过内存限制，向磁盘缓存时的策略。默认值LRU，可选FIFO、LFU
+    -->
 
     <!-- Login Cache Locked 10m -->
-    <cache name="passwordRetryCache" eternal="false"
-           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+    <cache name="passwordRetryCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
            statistics="true">
     </cache>
 
-    <cache name="authorizationCache" eternal="false"
-           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+    <cache name="authorizationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
            statistics="true">
     </cache>
 
-    <cache name="authenticationCache" eternal="false"
-           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+    <cache name="authenticationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
            statistics="true">
     </cache>
 
-    <cache name="shiro-activeSessionCache" eternal="false"
-           timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+    
+    <cache name="shiro_cache"
+           maxElementsInMemory="2000"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           maxElementsOnDisk="0"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="FIFO"
            statistics="true">
     </cache>
 </ehcache>

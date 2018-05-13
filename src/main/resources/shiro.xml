@@ -31,14 +31,47 @@
         <property name="realm" ref="userRealm"/>
     </bean>
 
+    <!--记住我设置管理器-->
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="rememberMeCookie"/>
+    </bean>
+
+    <!--记住我cookie-->
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <!--cookie名称-->
+        <constructor-arg value="REMEMBERME"/>
+        <!--有效时间，单位秒 这里设置一周-->
+        <property name="maxAge" value="604800"/>
+    </bean>
+
     <!-- Shiro的web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--管理器-->
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/" />
-        <property name="unauthorizedUrl" value="/"/>
+        <!--拦截跳转到的地址-->
+        <property name="loginUrl" value="/index.jsp" />
+        <!--没有权限操作时指定路径-->
+        <property name="unauthorizedUrl" value="/login.do"/>
+        <!--资源请求拦截配置-->
         <property name="filterChainDefinitions">
             <value>
                 /admin/** = roles[admin]
+                /user/** = roles[user]
+
+                <!--静态资源匿名访问-->
+                /assets/** = anon
+
+                <!--登录页面不拦截-->
+                /login.jsp = anon
+
+                <!--系统首页不拦截-->
+                /index.jsp = anon
+
+                <!--请求注销地址，shiro清除session-->
+                /logout.do = logout
+
+                <!--所有URL都必须认证通过才可以访问-->
+                /** = authc
             </value>
         </property>
     </bean>

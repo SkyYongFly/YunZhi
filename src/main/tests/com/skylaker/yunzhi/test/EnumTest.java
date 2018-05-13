@@ -1,6 +1,7 @@
 package com.skylaker.yunzhi.test;
 
 import com.skylaker.yunzhi.pojo.LoginResult;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -14,5 +15,11 @@ public class EnumTest {
     @Test
     public void testEnum(){
         System.out.println(LoginResult.getMessage(2));
+    }
+
+    @Test
+    public void testEnum2(){
+        System.out.println(LoginResult.SUCCESS);
+        System.out.println(LoginResult.SUCCESS == LoginResult.SUCCESS);
     }
 }

@@ -27,7 +27,7 @@ public class UserRealm  extends AuthorizingRealm {
     private UserService userService;
 
     /**
-     * 根据用户信息返回权限信息，权限信息通过角色来管理
+     * 授权：根据用户信息返回权限信息，权限信息通过角色来管理
      *
      * @param principals
      * @return
@@ -62,7 +62,7 @@ public class UserRealm  extends AuthorizingRealm {
     }
 
     /**
-     * 根据用户信息返回认证信息
+     * 认证：根据用户信息返回认证信息
      *
      * @param token
      * @return

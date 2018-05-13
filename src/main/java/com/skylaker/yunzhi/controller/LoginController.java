@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
+import com.skylaker.yunzhi.utils.StrUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,8 +30,52 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 系统登录请求控制器
+     *
+     * @param username
+     * @param password
+     * @return  成功返回系统首页，失败登陆页面
+     */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public @ResponseBody LoginResult login(@RequestParam("username")String username, @RequestParam("password")String password){
+    public String  login(@RequestParam("username")String username, @RequestParam("password")String password){
+        LoginResult loginResult = userPwdValidate(username, password);
+
+        //登录成功返回首页
+        if(LoginResult.SUCCESS == loginResult){
+            return "redirect:/index.jsp";
+        }
+
+        //返回码
+        ModelAndView modelAndView = new ModelAndView();
+        //返回页面，默认失败返回登录页面
+        modelAndView.addObject(loginResult);
+        return "login";
+    }
+
+    /**
+     * 获取用户登录验证结果
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/loginValidate", method = RequestMethod.GET)
+    public @ResponseBody LoginResult loginValidate(@RequestParam("username")String username, @RequestParam("password")String password){
+        return  userPwdValidate(username, password);
+    }
+
+    /**
+     * 用户名、密码验证
+     * @param username
+     * @param password
+     * @return
+     */
+    private LoginResult userPwdValidate(String username, String password){
+        if(StrUtil.isNullOrEmpty(username) || StrUtil.isNullOrEmpty(password)){
+            return LoginResult.NULL_NAME_PWD;
+        }
+
         //获取验证token
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 

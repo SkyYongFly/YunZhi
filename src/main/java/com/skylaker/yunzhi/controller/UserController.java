@@ -21,14 +21,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-//	/**
-//	 * 获取所有用户
-//	 *
-//	 * @return 所有用户JSON
-//	 */
-//	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
-//	public @ResponseBody List<User> getAllUsers(){
-//		return userService.getAllUsers();
-//	}
+	/**
+	 * 获取所有用户
+	 *
+	 * @return 所有用户JSON
+	 */
+	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+	public @ResponseBody List<User> getAllUsers(){
+		return null;
+	}
 
 }
