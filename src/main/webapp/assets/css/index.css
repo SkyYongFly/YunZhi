@@ -1,0 +1,23 @@
+/**
+* 首页样式
+ */
+
+body{
+    background-color: #F0F0F0;
+}
+
+#header{
+    background-color: white;
+}
+
+#center{
+    margin-top: 5px;
+}
+
+#main{
+    margin-top: 20px;
+}
+
+.td_text{
+    text-align: center;
+}
