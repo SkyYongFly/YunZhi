@@ -1,6 +1,5 @@
 package com.skylaker.yunzhi.config;
 
-import com.skylaker.yunzhi.pojo.Permission;
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
@@ -50,13 +49,13 @@ public class UserRealm  extends AuthorizingRealm {
         authorizationInfo.setRoles(roleNames);
 
         //获取用户权限信息
-        Set<Permission> permissions = userService.getUserPermissions(username);
-        Set<String> permissionNames = new HashSet<>();
-        for(Permission permission : permissions){
-            permissionNames.add(permission.getPername());
-        }
-        //将权限信息名称提供给权限管理对象
-        authorizationInfo.setStringPermissions(permissionNames);
+//        Set<Permission> permissions = userService.getUserPermissions(username);
+//        Set<String> permissionNames = new HashSet<>();
+//        for(Permission permission : permissions){
+//            permissionNames.add(permission.getPername());
+//        }
+//        //将权限信息名称提供给权限管理对象
+//        authorizationInfo.setStringPermissions(permissionNames);
 
         return authorizationInfo;
     }

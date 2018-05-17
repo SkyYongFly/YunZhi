@@ -1,7 +1,6 @@
 package com.skylaker.yunzhi.service;
 
 import com.skylaker.yunzhi.mappers.UserMapper;
-import com.skylaker.yunzhi.pojo.Permission;
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,16 +45,6 @@ public class UserService {
      * @return  {set}     角色信息集合
      */
     public Set<Role> getUserRoles(String username) {
-        //TODO
-        return null;
-    }
-
-    /**
-     * 获取用户拥有的权限信息
-     * @param   username  用户名
-     * @return  {set}     权限信息集合
-     */
-    public Set<Permission> getUserPermissions(String username) {
         //TODO
         return null;
     }

@@ -15,7 +15,7 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//用户表主键ID
-	private Integer	uid;
+	private Integer	id;
 
 	//用户名/账号
 	private String 	username;
@@ -23,8 +23,11 @@ public class User implements Serializable{
 	//账号密码
 	private String 	password;
 
-	//用户昵称
-	private String  nickname;
+	//手机号
+	private String  phone;
+
+	//签名
+	private String  signature;
 
 	//用户创建时间
 	private Date 	createtime;
@@ -35,11 +38,11 @@ public class User implements Serializable{
 	//用户是否被锁定
 	private boolean locked;
 
-	//用户锁定时间
-	private Date lockedtime;
-
 	//用户密码加盐
-	private String salt;
+	private String 	salt;
+
+	//角色ID
+	private String 	roleid;
 
 
 	public User(){
@@ -55,12 +58,12 @@ public class User implements Serializable{
 		return username + salt;
 	}
 
-	public Integer getUid() {
-		return uid;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -79,12 +82,20 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public String getNickname() {
-		return nickname;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 
 	public Date getCreatetime() {
@@ -111,14 +122,6 @@ public class User implements Serializable{
 		this.locked = locked;
 	}
 
-	public Date getLockedtime() {
-		return lockedtime;
-	}
-
-	public void setLockedtime(Date lockedtime) {
-		this.lockedtime = lockedtime;
-	}
-
 	public String getSalt() {
 		return salt;
 	}
@@ -127,13 +130,27 @@ public class User implements Serializable{
 		this.salt = salt;
 	}
 
+	public String getRoleid() {
+		return roleid;
+	}
+
+	public void setRoleid(String roleid) {
+		this.roleid = roleid;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
-				"uid=" + uid +
+				"id=" + id +
 				", username='" + username + '\'' +
 				", password='" + password + '\'' +
-				", nickname='" + nickname + '\'' +
+				", phone='" + phone + '\'' +
+				", signature='" + signature + '\'' +
+				", createtime=" + createtime +
+				", updatetime=" + updatetime +
+				", locked=" + locked +
+				", salt='" + salt + '\'' +
+				", roleid='" + roleid + '\'' +
 				'}';
 	}
 }

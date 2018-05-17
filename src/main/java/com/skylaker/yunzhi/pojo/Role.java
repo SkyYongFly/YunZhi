@@ -12,13 +12,13 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //角色表主键ID
-    private int     rid;
+    private int     roleid;
 
     //角色名称
     private String  rolename;
 
     //角色描述
-    private String  description;
+    private String  content;
 
     //角色创建时间
     private Date    createtime;
@@ -26,17 +26,20 @@ public class Role implements Serializable {
     //角色信息修改时间
     private Date 	updatetime;
 
+    //是否被锁定，0否1是
+    private boolean locked;
+
 
     public Role() {
 
     }
 
-    public int getRid() {
-        return rid;
+    public int getRoleid() {
+        return roleid;
     }
 
-    public void setRid(int rid) {
-        this.rid = rid;
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
     }
 
     public String getRolename() {
@@ -47,12 +50,12 @@ public class Role implements Serializable {
         this.rolename = rolename;
     }
 
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Date getCreatetime() {
@@ -71,14 +74,23 @@ public class Role implements Serializable {
         this.updatetime = updatetime;
     }
 
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
-                "rid=" + rid +
-                ", name='" + rolename + '\'' +
-                ", description='" + description + '\'' +
+                "roleid=" + roleid +
+                ", rolename='" + rolename + '\'' +
+                ", content='" + content + '\'' +
                 ", createtime=" + createtime +
                 ", updatetime=" + updatetime +
+                ", locked=" + locked +
                 '}';
     }
 }
