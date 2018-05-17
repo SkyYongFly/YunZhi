@@ -1,0 +1,29 @@
+
+
+#register{
+    margin-top: 100px;
+    text-align: center;
+}
+
+/*标语*/
+#solgan{
+    font-family:'jdzhonyuanjian1213553c171ce6f';
+    font-size:35px;
+    color:#1E9FFF;
+    text-align: center;
+}
+
+#recont{
+    margin-top: 40px;
+}
+
+/*注册登录等提示语*/
+.label{
+    font-family: Tahoma,Helvetica,"Microsoft Yahei","微软雅黑",Arial,STHeiti;
+    font-size: 25px;
+    color: #666;
+}
+
+.label2{
+   font: 15px Helvetica Neue,Helvetica,PingFang SC,微软雅黑,Tahoma,Arial,sans-serif;
+}
