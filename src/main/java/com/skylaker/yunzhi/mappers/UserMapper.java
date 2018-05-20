@@ -9,7 +9,7 @@ import com.skylaker.yunzhi.pojo.User;
  * 
  * @author sky
  */
-public interface UserMapper {
+public interface UserMapper{
 	/**
 	 * 根据用户ID获取用户信息
 	 * 

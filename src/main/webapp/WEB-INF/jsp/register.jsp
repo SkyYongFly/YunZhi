@@ -41,7 +41,7 @@
                 <p class="label">用户名</p>
             </div>
             <div class="layui-col-md4">
-                <input type="text" name="username" placeholder="请设置用户名" autocomplete="off" class="layui-input">
+                <input type="text" id="username" name="username" placeholder="请设置用户名" autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                 <p class="label">密&nbsp;&nbsp;&nbsp;码</p>
             </div>
             <div class="layui-col-md4">
-                <input type="text" name="password" placeholder="请设置您的密码" autocomplete="off" class="layui-input">
+                <input type="text" id="password" name="password" placeholder="请设置您的密码" autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -59,7 +59,7 @@
                 <p class="label">手机号</p>
             </div>
             <div class="layui-col-md4">
-                <input type="text" name="password" placeholder="请输入你的手机号" autocomplete="off" class="layui-input">
+                <input type="text" id="phone" name="phone" placeholder="请输入你的手机号" autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -68,10 +68,10 @@
                 <p class="label">验证码</p>
             </div>
             <div class="layui-col-md2">
-                <input type="text" name="password" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                <input type="text" id="vercode" name="vercode" placeholder="请输入验证码" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-col-md2">
-                <button class="layui-btn layui-btn-primary">获取验证码</button>
+                <button id="btncode" class="layui-btn layui-btn-primary" onclick="getVercode();">获取验证码</button>
             </div>
         </div>
 
@@ -79,7 +79,7 @@
             <div class="layui-col-md2 layui-col-md-offset2">
             </div>
             <div class="layui-col-md4">
-                <button class="layui-btn layui-btn-fluid  layui-btn-normal">注册</button>
+                <button class="layui-btn layui-btn-fluid  layui-btn-normal" onclick="register();">注册</button>
             </div>
         </div>
 
@@ -100,5 +100,33 @@
 
     </div>
 
+    <script type="text/javascript">
+        //获取验证码
+        function getVercode(){
+            var phone = $("#phone").val();
+
+            if(isNullOrEmpty(phone) || !isPhoneValidate(phone)){
+                layer.msg("请正确填写手机号");
+                return;
+            }
+
+            $.ajax({
+                url:  getBaseUrl() + "register/getVercode.do?phone=" + phone,
+                type: "GET",
+                dataType: "json",
+                success:function () {
+
+                },
+                complete:function () {
+                    $("#btncode").text("重新发送");
+                }
+            });
+        }
+
+        //用户注册
+        function register() {
+
+        }
+    </script>
 </body>
 </html>

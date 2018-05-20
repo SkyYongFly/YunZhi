@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
+	@Qualifier("userServiceImpl")
 	private UserService userService;
 
 	/**

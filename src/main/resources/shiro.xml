@@ -3,16 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--缓存管理器：Ehcache-->
-    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <!--Ehcache缓存配置文件路径-->
+    <!--shiro缓存管理器-->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
     </bean>
 
     <!--凭证匹配器-->
     <bean id="credentialsMatcher" class="com.skylaker.yunzhi.config.CredentialsMatcher">
         <!--注入缓存管理器-->
-        <constructor-arg ref="cacheManager"/>
+        <constructor-arg ref="shiroCacheManager"/>
         <!--密码加密方法-->
         <property name="hashAlgorithmName" value="md5"/>
         <!--密码加密几次-->
@@ -63,7 +62,8 @@
 
                 <!--登录页面、注册不拦截-->
                 /login.jsp = anon
-                /getPage.do = anon
+                /register/** = anon
+                /login/getLoginPage.do = anon
 
                 <!--系统首页不拦截-->
                 /index.jsp = anon

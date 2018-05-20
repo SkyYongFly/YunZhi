@@ -1,5 +1,6 @@
 package com.skylaker.yunzhi.test;
 
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -44,6 +45,11 @@ public class ShiroTest {
 
         //6、退出
         subject.logout();
+    }
+
+    @Test
+    public void testMd5(){
+        System.out.println(BaseUtil.getMD5("1234", 3));
     }
 
 }

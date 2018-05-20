@@ -3,7 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
-import com.skylaker.yunzhi.utils.StrUtil;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -11,6 +11,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,9 +27,21 @@ import org.springframework.web.servlet.ModelAndView;
  * Description: 用户登录管理
  */
 @Controller
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
+    @Qualifier("userServiceImpl")
     private UserService userService;
+
+    /**
+     * 获取登录页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getLoginPage", method = RequestMethod.GET)
+    public String getLoginPage(){
+        return "login";
+    }
 
     /**
      * 系统登录请求控制器
@@ -37,7 +50,7 @@ public class LoginController {
      * @param password
      * @return  成功返回系统首页，失败登陆页面
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/loginreq", method = RequestMethod.GET)
     public String  login(@RequestParam("username")String username, @RequestParam("password")String password){
         LoginResult loginResult = userPwdValidate(username, password);
 
@@ -72,7 +85,7 @@ public class LoginController {
      * @return
      */
     private LoginResult userPwdValidate(String username, String password){
-        if(StrUtil.isNullOrEmpty(username) || StrUtil.isNullOrEmpty(password)){
+        if(BaseUtil.isNullOrEmpty(username) || BaseUtil.isNullOrEmpty(password)){
             return LoginResult.NULL_NAME_PWD;
         }
 
