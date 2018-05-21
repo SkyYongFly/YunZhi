@@ -11,6 +11,8 @@ import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,7 @@ import java.util.Set;
  * @author sky
  */
 @Service("userServiceImpl")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl  implements UserService{
     @Autowired
     private UserMapper userMapper;
 
@@ -70,15 +72,18 @@ public class UserServiceImpl implements UserService {
      * @param registerInfo  注册用户信息
      */
     @Override
-    public void saveRegisterUser(RegisterInfo registerInfo) {
-        User user = new User();
-        user.setUsername(registerInfo.getUsername());
-        user.setPassword(BaseUtil.getMD5(registerInfo.getPassword(), GlobalConstant.PASSWORD_ENCRYPT_COUNT));
-        user.setPhone(registerInfo.getPhone());
-        user.setCreatetime(new Date());
-        user.setUpdatetime(new Date());
-        user.setLocked(false);
+    @Transactional
+    public void saveRegisterUser(RegisterInfo registerInfo) throws RuntimeException{
+        //加密密码
+        String password = BaseUtil.getMD5(registerInfo.getPassword(), GlobalConstant.PASSWORD_ENCRYPT_COUNT);
 
+        //获取保存用户实体
+        User user = new User.Builder(registerInfo.getPhone().trim())
+                .username(registerInfo.getUsername().trim())
+                .password(password.trim())
+                .build();
+
+        //保存用户
         userMapper.addUser(user);
     }
 }

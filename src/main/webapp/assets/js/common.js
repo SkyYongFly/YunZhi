@@ -19,6 +19,21 @@ function isNullOrEmpty(str){
 }
 
 /**
+ * 验证用户名格式
+ *
+ * @param   username     要验证的用户名
+ * @returns {boolean}   验证通过:true ; 不通过:false
+ */
+function validateUsername(username) {
+    var myreg = /^(?!_)(?!.*?_$)[a-zA-Z0-9_\u4e00-\u9fa5]{2,10}$/;
+    if (!myreg.test(username)) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
  * 判断是否为手机号
  *
  * @param   pone
@@ -42,6 +57,36 @@ function isPhoneValidate(pone) {
 function isTelValidate(tel) {
     var myreg = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
     if (!myreg.test(tel)) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * 验证密码格式
+ *
+ * @param   password     要验证的密码
+ * @returns {boolean}   验证通过:true ; 不通过:false
+ */
+function validatePassword(password) {
+    var myreg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+    if (!myreg.test(password)) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * 验证验证码格式
+ *
+ * @param   vercode     要验证的验证码
+ * @returns {boolean}   验证通过:true ; 不通过:false
+ */
+function isVercodeValidate(vercode) {
+    var myreg = /^[0-9]{6}$/;
+    if (!myreg.test(vercode)) {
         return false;
     }
 

@@ -20,11 +20,11 @@ public interface UserMapper{
 	
 	/**
 	 * 添加用户
-	 * 
+	 *
 	 * @param user	要添加的用户对象
 	 */
 	void addUser(User user);
-	
+
 	/**
 	 * 获取所用的用户
 	 * 

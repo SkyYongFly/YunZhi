@@ -31,7 +31,10 @@ public enum RegisterResult {
     INVALIDATE_PASSWORD("密码格式不正确", 6),
 
     //验证码不正确
-    INVALIDATE_VERCODE("验证码不正确", 7);
+    INVALIDATE_VERCODE("验证码不正确", 7),
+
+    //未知原因注册失败
+    REGISTER_FAILURE("服务器错误导致注册失败", 8);
 
 
 

@@ -15,6 +15,9 @@
 	<!--引入redis配置文件-->
 	<import resource="springredis.xml"/>
 
+	<!--引入缓存配置文件-->
+	<import resource="ehcache-config.xml"/>
+
 	<!--Spring扫描注册包-->
 	<!--配置包-->
 	<context:component-scan base-package="com.skylaker.yunzhi.config"/>
@@ -24,20 +27,6 @@
 	<context:component-scan base-package="com.skylaker.yunzhi.exception"/>
 	<!--工具包-->
 	<context:component-scan base-package="com.skylaker.yunzhi.utils"/>
-
-	<!--Ehcache配置-->
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="classpath:ehcache.xml"/>
-		<property name="shared" value="true"/>
-	</bean>
-
-	<!--缓存管理器：Ehcache-->
-	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-		<property name="cacheManager" ref="ehcache"/>
-	</bean>
-
-	<!--启用ehcache缓存注解-->
-	<cache:annotation-driven cache-manager="cacheManager"/>
 
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -58,6 +47,11 @@
 	<!-- 注册Mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.skylaker.yunzhi.mappers"></property>
+	</bean>
+
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.skylaker.yunzhi.mappers"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
 	</bean>
 	
 	

@@ -60,4 +60,14 @@ public class RedisUtil {
     public boolean existInSet(Object setKey, Object value) {
         return  redisTemplate.opsForSet().isMember(setKey, value);
     }
+
+    /**
+     * 往set中添加值
+     *
+     * @param setKey        目标set
+     * @param itemValue     要添加的值
+     */
+    public void addSetValue(Object setKey, Object itemValue){
+        redisTemplate.opsForSet().add(setKey, itemValue);
+    }
 }

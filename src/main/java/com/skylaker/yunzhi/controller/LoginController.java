@@ -40,6 +40,11 @@ public class LoginController {
      */
     @RequestMapping(value = "/getLoginPage", method = RequestMethod.GET)
     public String getLoginPage(){
+        return "redirect:loginPage.do";
+    }
+
+    @RequestMapping("/loginPage")
+    public String loginPage(){
         return "login";
     }
 

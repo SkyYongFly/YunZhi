@@ -5,7 +5,7 @@
 
     <!--shiro缓存管理器-->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+        <property name="cacheManager" ref="ehcacheManager"/>
     </bean>
 
     <!--凭证匹配器-->
@@ -64,6 +64,7 @@
                 /login.jsp = anon
                 /register/** = anon
                 /login/getLoginPage.do = anon
+                /login/loginPage.do = anon
 
                 <!--系统首页不拦截-->
                 /index.jsp = anon

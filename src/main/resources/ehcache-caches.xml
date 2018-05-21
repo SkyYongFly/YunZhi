@@ -2,6 +2,8 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
 
+    <!-- *************************** 缓存定义 *********************************** -->
+
     <!-- 磁盘缓存位置 -->
     <diskStore path="java.io.tmpdir/ehcache" />
 

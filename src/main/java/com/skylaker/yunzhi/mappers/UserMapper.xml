@@ -13,9 +13,9 @@
 	<!-- 添加用户 -->
 	<insert id="addUser" parameterType="user">
 		insert into 
-			user(id, name, address, age, birth) 
+			user(username, password, phone, createtime, updatetime, locked)
 		values
-			(#{id}, #{name}, #{address}, #{age}, #{birth})
+			(#{username}, #{password}, #{phone}, #{createtime}, #{updatetime}, #{locked})
 	</insert>
 	
 	<!-- 获取所有用户 -->

@@ -45,8 +45,49 @@ public class User implements Serializable{
 	private String 	roleid;
 
 
-	public User(){
+	public User(Builder builder){
+		this.username = builder.username;
+		this.password = builder.password;
+		this.phone = builder.phone;
+		this.signature = builder.signature;
+		this.createtime = builder.createtime;
+		this.updatetime = builder.updatetime;
+		this.locked = builder.locked;
+	}
 
+	public static class Builder{
+		private String 	username;
+		private String 	password;
+		private String  phone;
+		private String  signature;
+
+		//默认属性设置
+		private Date 	createtime = new Date();
+		private Date 	updatetime = new Date();
+		private boolean locked = false;
+
+		public 	Builder(String phone){
+			this.phone = phone;
+		}
+
+		public Builder username(String username){
+			this.username = username;
+			return this;
+		}
+
+		public Builder password(String password){
+			this.password = password;
+			return this;
+		}
+
+		public Builder signature(String signature){
+			this.signature = signature;
+			return this;
+		}
+
+		public User build(){
+			return new User(this);
+		}
 	}
 
 	/**
