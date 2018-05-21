@@ -7,6 +7,14 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
+	<!-- 配置数据源连接配置文件 -->
+	<context:property-placeholder	location="classpath:database.properties" ignore-unresolvable="true"/>
+	<!--引入redis配置文件-->
+	<context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
+
+	<!--引入redis配置文件-->
+	<import resource="springredis.xml"/>
+
 	<!--Spring扫描注册包-->
 	<!--配置包-->
 	<context:component-scan base-package="com.skylaker.yunzhi.config"/>
@@ -17,12 +25,10 @@
 	<!--工具包-->
 	<context:component-scan base-package="com.skylaker.yunzhi.utils"/>
 
-	<!--引入redis配置文件-->
-	<import resource="springredis.xml"/>
-
 	<!--Ehcache配置-->
 	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="classpath:ehcache.xml"/>
+		<property name="shared" value="true"/>
 	</bean>
 
 	<!--缓存管理器：Ehcache-->
@@ -33,9 +39,6 @@
 	<!--启用ehcache缓存注解-->
 	<cache:annotation-driven cache-manager="cacheManager"/>
 
-	<!-- 配置数据源连接配置文件 -->
-	<context:property-placeholder	location="classpath:database.properties"/>
-	
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />

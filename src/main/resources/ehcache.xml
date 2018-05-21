@@ -81,18 +81,6 @@
            statistics="true">
     </cache>
 
-    <cache name="shiro_cache"
-           maxElementsInMemory="2000"
-           maxEntriesLocalHeap="2000"
-           eternal="false"
-           timeToIdleSeconds="0"
-           timeToLiveSeconds="0"
-           maxElementsOnDisk="0"
-           overflowToDisk="false"
-           memoryStoreEvictionPolicy="FIFO"
-           statistics="true">
-    </cache>
-
     <!--用户信息缓存-->
     <cache name="userCache"
            maxElementsInMemory="2000"

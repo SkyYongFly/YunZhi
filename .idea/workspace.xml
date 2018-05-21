@@ -7,33 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaefc0ff-9bbb-4e1a-a3ea-58ef36c9f275" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/RegisterInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/RegisterResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/RegisterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/VercodeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/springredis.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/YunZhi_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/YunZhi_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/StrUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shiro.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/springredis.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/springredis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springredis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/RdisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/RdisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,100 +43,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GlobalConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="27" column="12" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1056">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRealm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="99" column="1" lean-forward="true" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shiro.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/shiro.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShiroTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding>
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1451#1452#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spring.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="360">
+              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+              <folding>
+                <element signature="e#2044#2060#0" expanded="true" />
+                <element signature="e#2093#2106#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java">
+      <file leaf-file-name="springredis.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/springredis.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="114">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding>
-                <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
+                <element signature="e#819#850#0" expanded="true" />
+                <element signature="e#919#951#0" expanded="true" />
+                <element signature="e#1123#1154#0" expanded="true" />
+                <element signature="e#1323#1345#0" expanded="true" />
+                <element signature="e#1384#1406#0" expanded="true" />
+                <element signature="e#1449#1475#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="226" selection-start-line="226" selection-end-line="226" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="redis.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="springmvc.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -163,8 +103,47 @@
       <file leaf-file-name="ehcache.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1182">
-              <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+            <state relative-caret-position="510">
+              <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shiro.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/shiro.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedisUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -192,6 +171,15 @@
       <find>YunZhi</find>
       <find>SystemBaseException</find>
       <find>beanutils</find>
+      <find>spring-expression</find>
+      <find>spring-data-commons</find>
+      <find>commons-beanutils</find>
+      <find>commons-collections</find>
+      <find>commons-logging</find>
+      <find>commons-pool2</find>
+      <find>spring-data-keyvalue</find>
+      <find>jedis</find>
+      <find>spring-context</find>
     </findStrings>
     <replaceStrings>
       <replace>SystemBaseExCEPTION</replace>
@@ -208,8 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResultCode.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/welcome.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/EnumTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/StrUtils.java" />
@@ -221,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/Role.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/Answer.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common.jsp" />
@@ -241,24 +226,27 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/RegisterService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/database.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/springredis.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/SerializableUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/CacheManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/RedisCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/ShiroCacheManager.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/springredis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/RegisterResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/RegisterServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/shiro.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" />
         <option value="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/springredis.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/springredis.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring.xml" />
       </list>
     </option>
   </component>
@@ -314,7 +302,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -472,6 +459,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -513,7 +501,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ShiroTest.testMd5">
+  <component name="RunManager" selected="Tomcat Server.YunZhi">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -820,10 +808,10 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32984033" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5788945" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5798995" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32931727" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4974722" visible="true" weight="0.17964073" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4974722" visible="true" weight="0.18113773" />
       <window_info id="Web" order="2" sideWeight="0.50252783" side_tool="true" weight="0.16816367" />
       <window_info anchor="right" id="Database" order="3" weight="0.32984033" />
       <window_info id="Structure" order="1" sideWeight="0.50252783" side_tool="true" weight="0.16816367" />
@@ -855,7 +843,8 @@
     <MESSAGE value="1、首页设计" />
     <MESSAGE value="1、添加注册页面" />
     <MESSAGE value="1、添加Spring Data Redis支持" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、添加Spring Data Redis支持" />
+    <MESSAGE value="1、注册" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、注册" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -867,23 +856,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -896,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="11" column="52" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1884">
-          <caret line="253" selection-start-line="253" selection-end-line="253" />
         </state>
       </provider>
     </entry>
@@ -926,9 +891,6 @@
           <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register2.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -972,10 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4560">
           <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
-          <folding>
-            <element signature="e#14572#14573#0" expanded="true" />
-            <element signature="e#14631#14632#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,13 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.5.RELEASE/spring-data-redis-2.0.5.RELEASE.jar!/org/springframework/data/redis/connection/RedisStringCommands.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1069,13 +1020,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/SerializableUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/SerializableUtil.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/cache/CacheManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1090,62 +1035,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/ShiroCacheManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/RedisCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#1212#1430#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springredis.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/ShiroCacheManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/RedisCache.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.5.RELEASE/spring-data-redis-2.0.5.RELEASE.jar!/org/springframework/data/redis/core/HashOperations.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springredis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1166,27 +1061,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1224,13 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/shiro.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
@@ -1252,13 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
@@ -1267,13 +1127,6 @@
             <element signature="e#803#804#0" expanded="true" />
             <element signature="e#819#820#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1182">
-          <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1304,10 +1157,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar!/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+        <state relative-caret-position="360">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springredis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding>
+            <element signature="e#819#850#0" expanded="true" />
+            <element signature="e#919#951#0" expanded="true" />
+            <element signature="e#1123#1154#0" expanded="true" />
+            <element signature="e#1323#1345#0" expanded="true" />
+            <element signature="e#1384#1406#0" expanded="true" />
+            <element signature="e#1449#1475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+          <folding>
+            <element signature="e#2044#2060#0" expanded="true" />
+            <element signature="e#2093#2106#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -6,18 +6,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <!--引入redis配置文件-->
-    <context:property-placeholder location="classpath:springredis.properties"/>
-
     <!-- 连接池配置 -->
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <!-- 连接池中最大空闲的连接数. -->
-        <property name="maxIdle" value="10"/>
+        <property name="maxIdle" value="${spring.redis.pool.max-idle}"/>
         <!-- 连接池中最大连接数-->
-        <property name="maxTotal" value="20"/>
+        <property name="maxTotal" value="${spring.redis.pool.max-total}"/>
         <property name="blockWhenExhausted" value="true"/>
         <!-- 当连接池资源耗尽时，调用者最大阻塞的时间，超时将跑出异常。单位，毫秒数;默认为-1.表示永不超时-->
-        <property name="maxWaitMillis" value="30000"/>
+        <property name="maxWaitMillis" value="${spring.redis.pool.max-wait}"/>
         <property name="testOnBorrow" value="true"/>
     </bean>
 
