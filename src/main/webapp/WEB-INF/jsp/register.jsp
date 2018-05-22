@@ -100,6 +100,9 @@
 
     </div>
 
+    <form id="form" method="post" action="">
+    </form>
+
     <script type="text/javascript">
         //获取验证码
         function getVercode(){
@@ -178,9 +181,11 @@
                         layer.msg("注册失败，请重试");
                     }else if("SUCCESS" == data){
                         layer.msg("注册成功！");
-                        setTimeout('',1000);
-                       // $.get(getBaseUrl() + "login/getLoginPage.do");
-                        window.location.href = "<%=request.getContextPath()%>/jsp/login.jsp";
+
+                        setTimeout(function() {
+                            $("#form").attr("action", getBaseUrl() + "login/getLoginPage.do");
+                            $("#form").submit();
+                        },2000);
                     }
                 }
             });

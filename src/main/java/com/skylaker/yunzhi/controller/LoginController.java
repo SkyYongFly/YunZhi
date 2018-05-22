@@ -38,14 +38,9 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/getLoginPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/getLoginPage", method = RequestMethod.POST)
     public String getLoginPage(){
-        return "redirect:loginPage.do";
-    }
-
-    @RequestMapping("/loginPage")
-    public String loginPage(){
-        return "login";
+        return "redirect:login";
     }
 
     /**
