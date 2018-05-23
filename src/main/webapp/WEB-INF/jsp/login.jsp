@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <form id="form" method="post" action="loginreq.do">
+        <form id="form" method="post" action="loginreq.do" onsubmit="return login()">
             <div id="recont" class="layui-row layui-col-space10">
                 <div class="layui-col-md2 layui-col-md-offset2">
                     <p class="label">手机号</p>
@@ -95,34 +95,17 @@
             var phone = $("#phone").val();
             if(isNullOrEmpty(phone) || !isPhoneValidate(phone)){
                 layer.msg("请正确填写手机号");
-                return;
+                return false;
             }
 
             //密码验证
             var password = $("#password").val();
             if(isNullOrEmpty(password) || !validatePassword(password)){
                 layer.msg("密码6到20位非重复数字、字母组成");
-                return;
+                return false;
             }
 
-            // $.ajax({
-            //     url:  getBaseUrl() + "login/loginreq.do",
-            //     type: "POST",
-            //     data:JSON.stringify({"phone": phone, "password": password}),
-            //     contentType:"application/json",
-            //     dataType: "json",
-            //     success:function (data) {
-            //         // if("INVALIDATE_PASSWORD" == data){
-            //         //     layer.msg("密码格式不正确");
-            //         // }else if("INVALIDATE_PHONE" == data){
-            //         //     layer.msg("手机号格式不正确");
-            //         // }else if("PHONE_HAS_REGISTER" == data){
-            //         //     layer.msg("手机已注册");
-            //         // }else if("SUCCESS" == data){
-            //         //     layer.msg("注册成功！");
-            //         // }
-            //     }
-            // });
+            return true;
         }
     </script>
 

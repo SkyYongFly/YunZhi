@@ -7,24 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaefc0ff-9bbb-4e1a-a3ea-58ef36c9f275" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/ExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/ExceptionResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shiro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,20 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="31" />
+            <state relative-caret-position="534">
+              <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="726">
+              <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -112,8 +95,8 @@
       <file leaf-file-name="LoginExceptionHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+            <state relative-caret-position="774">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,8 +107,8 @@
       <file leaf-file-name="LoginResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="120">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding>
                 <element signature="e#916#917#0" expanded="true" />
                 <element signature="e#946#947#0" expanded="true" />
@@ -255,8 +238,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/ExceptionResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
       </list>
     </option>
   </component>
@@ -865,7 +848,8 @@
     <MESSAGE value="1、修改配置冲突问题" />
     <MESSAGE value="1、注册逻辑" />
     <MESSAGE value="1、注册成功跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、注册成功跳转" />
+    <MESSAGE value="1、密码加密&#10;2、登录验证" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、密码加密&#10;2、登录验证" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1217,6 +1201,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/ExceptionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -1224,23 +1215,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        <state relative-caret-position="120">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="774">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1262,15 +1253,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="534">
+          <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
         </state>
       </provider>
     </entry>
