@@ -5,6 +5,7 @@ import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.service.VercodeService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public class VercodeServiceImpl implements VercodeService {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    AmqpTemplate rabbitTemplate;
 
     /**
      * 发送手机验证码
@@ -27,8 +30,7 @@ public class VercodeServiceImpl implements VercodeService {
      */
     @Override
     public void sendPhoneVercode(String phone) {
-        //TODO 采用MQ发送短信验证码
-        System.out.println("已发送验证码。。。");
+        rabbitTemplate.convertAndSend("exchange_direct_sms", "register_sms", "请发送短信~~~");
 
         //TODO 需要把手机号以及对应的验证码信息缓存到redis中 这里先用假数据
         //缓存手机号验证码的hash键名称

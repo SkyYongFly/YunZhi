@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <!-- ******************Rabbit 配置文件******************** -->
+
+    <!-- 配置Rabbit连接工厂 -->
+    <rabbit:connection-factory
+            id="connectionFactory"
+            username="${rabbit_username}"
+            password="${rabbit_password}"
+            host="${rabbit_host}"
+            port="${rabbit_port}"/>
+
+    <!--定义Spring Rabbit Template，相当于Rabbit操作对象-->
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"/>
+
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!--声明队列：发送注册短信-->
+    <rabbit:queue id="queue_sms" name="queue_sms" durable="true" auto-delete="false" exclusive="false"/>
+
+    <!-- exchange 声明 ， 路由模式 -->
+    <rabbit:direct-exchange name="exchange_direct_sms" durable="true" auto-delete="false">
+        <!--队列绑定-->
+        <rabbit:bindings>
+            <rabbit:binding queue="queue_sms" key="register_sms"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+
+    <!--消息接收者-->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <!--发送短信MQ队列消息处理者-->
+        <rabbit:listener ref="smsMqListener"  queues="queue_sms"/>
+    </rabbit:listener-container>
+</beans>

@@ -11,12 +11,17 @@
 	<context:property-placeholder	location="classpath:database.properties" ignore-unresolvable="true"/>
 	<!--引入redis配置文件-->
 	<context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
+	<!--引入rabbit配置文件-->
+	<context:property-placeholder location="classpath:rabbit.properties" ignore-unresolvable="true"/>
 
 	<!--引入redis配置文件-->
 	<import resource="springredis.xml"/>
 
 	<!--引入缓存配置文件-->
 	<import resource="ehcache-config.xml"/>
+
+	<!--引入rabbit配置文件-->
+	<import resource="springrabbit.xml"/>
 
 	<!--Spring扫描注册包-->
 	<!--配置包-->
@@ -27,6 +32,8 @@
 	<context:component-scan base-package="com.skylaker.yunzhi.exception"/>
 	<!--工具包-->
 	<context:component-scan base-package="com.skylaker.yunzhi.utils"/>
+	<!--MQ消息处理-->
+	<context:component-scan base-package="com.skylaker.yunzhi.listener"/>
 
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
