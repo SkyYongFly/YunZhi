@@ -32,4 +32,11 @@ public interface UserMapper{
 	 */
 	List<User> getAllUsers();
 
+	/**
+	 * 根据用户手机号获取对应的账号信息
+	 *
+	 * @param 	phone
+	 * @return
+	 */
+	User getUserByPhone(String phone);
 }

@@ -49,7 +49,6 @@ public class ShiroTest {
 
     @Test
     public void testMd5(){
-        System.out.println(BaseUtil.getMD5("1234", 3));
     }
 
 }

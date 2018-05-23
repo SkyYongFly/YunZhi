@@ -63,8 +63,7 @@
                 <!--登录页面、注册不拦截-->
                 /login.jsp = anon
                 /register/** = anon
-                /login/getLoginPage.do = anon
-                /login/loginPage.do = anon
+                /login/** = anon
 
                 <!--系统首页不拦截-->
                 /index.jsp = anon

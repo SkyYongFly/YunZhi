@@ -1,5 +1,9 @@
 package com.skylaker.yunzhi.utils;
 
+import com.skylaker.yunzhi.pojo.RegisterInfo;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.springframework.util.DigestUtils;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -73,55 +77,5 @@ public class BaseUtil {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
         return m.matches();
-    }
-
-    /**
-     * 对指定字符串MD5加密
-     *
-     * @param   str         需要加密的字符串
-     * @param   count       加密次数
-     * @return  {string}    加密后的16进制字符串
-     */
-    public static String getMD5(String str, int count){
-        if(BaseUtil.isNullOrEmpty(str) ||  count < 1){
-            return null;
-        }
-
-        try {
-            MessageDigest msgDigest = MessageDigest.getInstance("MD5");
-            byte[] md5Bytes = str.getBytes();
-
-            for(int i = 0; i < count; i++){
-                md5Bytes = msgDigest.digest(md5Bytes);
-            }
-
-            return parseByte2HexStr(md5Bytes);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /**
-     * 将二进制数组转成十六进制字符串
-     *
-     * @param   bytes
-     * @return
-     */
-    public static String  parseByte2HexStr(byte[] bytes) {
-        //TODO 先copy,需要自己重新写
-        StringBuffer hexStr = new StringBuffer();
-        int num;
-        for (int i = 0; i < bytes.length; i++) {
-            num = bytes[i];
-            if(num < 0) {
-                num += 256;
-            }
-            if(num < 16){
-                hexStr.append("0");
-            }
-            hexStr.append(Integer.toHexString(num));
-        }
-        return hexStr.toString().toUpperCase();
     }
 }

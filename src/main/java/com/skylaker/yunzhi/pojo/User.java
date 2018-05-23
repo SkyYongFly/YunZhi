@@ -1,9 +1,12 @@
 package com.skylaker.yunzhi.pojo;
 
+import com.skylaker.yunzhi.config.GlobalConstant;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * User POJO对象
@@ -45,6 +48,10 @@ public class User implements Serializable{
 	private String 	roleid;
 
 
+	public User(){
+
+	}
+
 	public User(Builder builder){
 		this.username = builder.username;
 		this.password = builder.password;
@@ -53,6 +60,7 @@ public class User implements Serializable{
 		this.createtime = builder.createtime;
 		this.updatetime = builder.updatetime;
 		this.locked = builder.locked;
+		this.salt = builder.salt;
 	}
 
 	public static class Builder{
@@ -60,6 +68,7 @@ public class User implements Serializable{
 		private String 	password;
 		private String  phone;
 		private String  signature;
+		private String  salt;
 
 		//默认属性设置
 		private Date 	createtime = new Date();
@@ -80,6 +89,11 @@ public class User implements Serializable{
 			return this;
 		}
 
+		public Builder salt(String salt){
+			this.salt = salt;
+			return this;
+		}
+
 		public Builder signature(String signature){
 			this.signature = signature;
 			return this;
@@ -88,15 +102,6 @@ public class User implements Serializable{
 		public User build(){
 			return new User(this);
 		}
-	}
-
-	/**
-	 * 获取用户密码加密盐，默认使用用户名以及设置的盐混合
-	 *
-	 * @return
-	 */
-	public String getCredentialsSalt(){
-		return username + salt;
 	}
 
 	public Integer getId() {

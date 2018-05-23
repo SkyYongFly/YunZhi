@@ -8,6 +8,7 @@ import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * 用户处理逻辑类
@@ -42,16 +44,20 @@ public class UserServiceImpl  implements UserService{
     }
 
     /**
-     * 根据用户名获取用户信息对象
+     * 根据手机号获取用户信息对象
      *
-     * @param username 用户名
+     * @param   phone 手机号
      * @return
      */
     @Override
-    @Cacheable(value = "userCache", key = "#User.id")
-    public User getUserByUserName(String username) {
-        //TODO
-        return null;
+    @Cacheable(value = "userCache")
+    public User getUserByPhone(String phone) {
+        if(BaseUtil.isNullOrEmpty(phone)){
+            return null;
+        }
+
+
+        return userMapper.getUserByPhone(phone);
     }
 
     /**
@@ -74,13 +80,18 @@ public class UserServiceImpl  implements UserService{
     @Override
     @Transactional
     public void saveRegisterUser(RegisterInfo registerInfo) throws RuntimeException{
-        //加密密码
-        String password = BaseUtil.getMD5(registerInfo.getPassword(), GlobalConstant.PASSWORD_ENCRYPT_COUNT);
+        //用户密码加盐
+        String salt = UUID.randomUUID().toString().replaceAll("-","");
 
-        //获取保存用户实体
+        //加密密码
+        SimpleHash simpleHash = new SimpleHash(GlobalConstant.PWD_MD5,
+                registerInfo.getPassword(), salt, GlobalConstant.PASSWORD_ENCRYPT_COUNT);
+
+        //构造用户实体
         User user = new User.Builder(registerInfo.getPhone().trim())
                 .username(registerInfo.getUsername().trim())
-                .password(password.trim())
+                .password(simpleHash.toHex())
+                .salt(salt)
                 .build();
 
         //保存用户

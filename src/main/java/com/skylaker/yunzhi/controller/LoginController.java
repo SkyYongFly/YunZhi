@@ -1,6 +1,7 @@
 package com.skylaker.yunzhi.controller;
 
 import com.skylaker.yunzhi.pojo.LoginResult;
+import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -12,11 +13,9 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -38,21 +37,30 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/getLoginPage", method = RequestMethod.POST)
+    @RequestMapping("/getLoginPage")
     public String getLoginPage(){
-        return "redirect:login";
+        return "redirect:/login/login.do";
+    }
+
+    /**
+     * 登录页面
+     *
+     * @return
+     */
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 
     /**
      * 系统登录请求控制器
      *
-     * @param username
-     * @param password
-     * @return  成功返回系统首页，失败登陆页面
+     * @param   user
+     * @return
      */
-    @RequestMapping(value = "/loginreq", method = RequestMethod.GET)
-    public String  login(@RequestParam("username")String username, @RequestParam("password")String password){
-        LoginResult loginResult = userPwdValidate(username, password);
+    @RequestMapping(value = "/loginreq", method = RequestMethod.POST)
+    public String  login(@ModelAttribute User user){
+        LoginResult loginResult = userPwdValidate(user.getPhone(), user.getPassword());
 
         //登录成功返回首页
         if(LoginResult.SUCCESS == loginResult){
@@ -63,51 +71,43 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         //返回页面，默认失败返回登录页面
         modelAndView.addObject(loginResult);
-        return "login";
+        return "redirect:/login/login.do";
     }
 
     /**
      * 获取用户登录验证结果
      *
-     * @param username
+     * @param phone
      * @param password
      * @return
      */
     @RequestMapping(value = "/loginValidate", method = RequestMethod.GET)
-    public @ResponseBody LoginResult loginValidate(@RequestParam("username")String username, @RequestParam("password")String password){
-        return  userPwdValidate(username, password);
+    public @ResponseBody LoginResult loginValidate(@RequestParam("phone")String phone, @RequestParam("password")String password){
+        return  userPwdValidate(phone, password);
     }
 
     /**
-     * 用户名、密码验证
-     * @param username
+     * 手机号、密码验证
+     *
+     * @param phone
      * @param password
      * @return
      */
-    private LoginResult userPwdValidate(String username, String password){
-        if(BaseUtil.isNullOrEmpty(username) || BaseUtil.isNullOrEmpty(password)){
+    private LoginResult userPwdValidate(String phone, String password){
+        if(BaseUtil.isNullOrEmpty(phone) || BaseUtil.isNullOrEmpty(password)){
             return LoginResult.NULL_NAME_PWD;
         }
 
         //获取验证token
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
 
         //用户名、密码验证
         Subject subject = SecurityUtils.getSubject();
-        try {
-            subject.login(token);
-        }catch (IncorrectCredentialsException e){
-            //密码不正确
-            return LoginResult.INCORRECT_PWD;
-        }catch (UnknownAccountException e){
-            //用户不存在
-            return LoginResult.NO_ACCOUNT;
-        }catch (ExcessiveAttemptsException e){
-            //输错密码次数过多
-            return LoginResult.TO_MUCH_ERROR;
-        }
 
-        User user = userService.getUserByUserName(username);
+        //登录验证，异常由异常处理对象来处理
+        subject.login(token);
+
+        User user = userService.getUserByPhone(phone);
         subject.getSession().setAttribute("user", user);
 
         return LoginResult.SUCCESS;

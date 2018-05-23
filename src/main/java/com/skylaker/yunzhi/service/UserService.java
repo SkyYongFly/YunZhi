@@ -23,19 +23,19 @@ public interface UserService {
     List<User> getAllUsers();
 
     /**
-     * 根据用户名获取用户信息对象
+     * 根据手机号获取用户信息对象
      *
-     * @param   username  用户名
+     * @param   phone  手机号
      * @return
      */
-    User getUserByUserName(String username);
+    User getUserByPhone(String phone);
 
     /**
      * 获取用户拥有的角色信息
-     * @param   username  用户名
+     * @param   phone     手机号
      * @return  {set}     角色信息集合
      */
-    Set<Role> getUserRoles(String username);
+    Set<Role> getUserRoles(String phone);
 
     /**
      * 保存注册用户信息

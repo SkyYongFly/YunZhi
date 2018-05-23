@@ -21,7 +21,10 @@ public enum LoginResult {
     NO_ACCOUNT("账号不存在", 4),
 
     //账号或密码为空
-    NULL_NAME_PWD("账号或密码为空", 5);
+    NULL_NAME_PWD("账号或密码为空", 5),
+
+    //未知原因登录失败
+    LOGIN_FAILTURE("登录失败，请重试", 6);
 
     //结果信息
     private  String message;

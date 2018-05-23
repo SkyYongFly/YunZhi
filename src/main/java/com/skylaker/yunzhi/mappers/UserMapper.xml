@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->  
@@ -9,13 +8,18 @@
 	<select id="getUserById" parameterType="int" resultType="user">
 		select * from user where id = #{id}
 	</select>
+
+	<!--根据手机号查询用户信息-->
+	<select id="getUserByPhone" parameterType="java.lang.String" resultType="user">
+		select * from user  where phone = #{phone}
+	</select>
 	
 	<!-- 添加用户 -->
 	<insert id="addUser" parameterType="user">
 		insert into 
-			user(username, password, phone, createtime, updatetime, locked)
+			user(username, password, phone, createtime, updatetime, locked, salt)
 		values
-			(#{username}, #{password}, #{phone}, #{createtime}, #{updatetime}, #{locked})
+			(#{username}, #{password}, #{phone}, #{createtime}, #{updatetime}, #{locked}, #{salt})
 	</insert>
 	
 	<!-- 获取所有用户 -->

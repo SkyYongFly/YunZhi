@@ -27,4 +27,6 @@ public class GlobalConstant {
     public static final long ONE_MINUTE_MICRO_SECONDS = 60 * 1000;
     //密码加密次数
     public static final int PASSWORD_ENCRYPT_COUNT = 3;
+    //密码加密算法
+    public static final String PWD_MD5 = "md5";
 }

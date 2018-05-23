@@ -36,13 +36,13 @@ public class UserRealm  extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(
             PrincipalCollection principals) {
-        //获取用户名
-        String username = (String) principals.getPrimaryPrincipal();
+        //获取手机号
+        String phone = (String) principals.getPrimaryPrincipal();
         //权限信息管理对象
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 
         //获取用户拥有的角色
-        Set<Role> roles = userService.getUserRoles(username);
+        Set<Role> roles = userService.getUserRoles(phone);
         Set<String> roleNames = new HashSet<>();
         for (Role role : roles){
             roleNames.add(role.getRolename());
@@ -72,10 +72,10 @@ public class UserRealm  extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(
             AuthenticationToken token) throws AuthenticationException {
-        //登录用户账号
-        String username = (String) token.getPrincipal();
+        //登录用户手机号
+        String phone = (String) token.getPrincipal();
         //根据账号数据库查找对应用户
-        User user = userService.getUserByUserName(username);
+        User user = userService.getUserByPhone(phone);
 
         //用户不存在
         if(null == user){
@@ -88,12 +88,11 @@ public class UserRealm  extends AuthorizingRealm {
         }
 
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getUsername(),
-                user.getPassword(),
-                ByteSource.Util.bytes(user.getCredentialsSalt()),
-                getName()
-        );
+        SimpleAuthenticationInfo authenticationInfo =
+                new SimpleAuthenticationInfo(user.getPhone(), user.getPassword(), getName());
+
+        //密码加密盐
+        authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(user.getSalt()));
 
         return  authenticationInfo;
     }
