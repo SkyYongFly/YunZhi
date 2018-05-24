@@ -22,6 +22,7 @@
 - 队列 ：RabbitMQ 
      
 ## 3. 项目架构
+![云知架构](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/%E4%BA%91%E7%9F%A5%E6%9E%B6%E6%9E%84.png "云知架构")
 ## 4. 原型设计
 ## 5. 数据库设计
 ## 6. 环境搭建
