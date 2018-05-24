@@ -7,19 +7,19 @@
 云知问答是一个在线问答网站，类似于知乎、百度知道之类的网站。当然啦，我们并不是想去做一个颠覆它们的网站，我们只是借鉴
 一下他们简洁优雅的界面以及问答风格，本质上还是学习实践成果。
 ## 2. 开发环境
-* IDE  ：  IDEA  
+* IDE  ： IntelliJ IDEA  
 - 构建  ：  Maven  
 * 版本协作 ：GIT  
 - 前端UI  ：LayUI  
 * 前端框架 ：SpringMVC
 + 逻辑框架 ：Spring
 - ORM  :  MyBatis
+* 数据库 ：MySQL
 * 缓存 ：Ehcache
 - NoSql：Redis
 + 搜索引擎 ：Lucene
 * 权限 ： Shiro
-- 队列 ：RabbitMQ
-     
+- 队列 ：RabbitMQ 
      
 ## 3. 项目架构
 ## 4. 原型设计
