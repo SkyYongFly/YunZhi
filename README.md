@@ -15,7 +15,7 @@
 + 逻辑框架 ：Spring
 - ORM  :  MyBatis
 * 数据库 ：MySQL
-* 缓存 ：Ehcache
++ 缓存 ：Ehcache
 - NoSql：Redis
 + 搜索引擎 ：Lucene
 * 权限 ： Shiro
