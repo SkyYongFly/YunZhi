@@ -29,6 +29,22 @@
 
 我们使用Mockplus设计一下我们的网站界面，来，走起！
 
+* 首页
+![首页](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/index.jpg "首页")
+- 注册
+![注册](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/register.jpg "注册")
++ 登录
+![登录](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/login.jpg "登录")
+* 个人中心
+![个人中心](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/user.jpg "个人中心")
+- 提问问题
+![提问问题](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/question.jpg "提问问题")
++ 回答
+![回答](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/answer.jpg "回答")
+- 问题详情
+![问题详情](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/question_detail.jpg "问题详情")
+
+
 
 ## 5. 数据库设计
 ## 6. 环境搭建
