@@ -7,36 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaefc0ff-9bbb-4e1a-a3ea-58ef36c9f275" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/QuestionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/QuestionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/QuestionResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IQuestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/YunZhi_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/YunZhi_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/IResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/IResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IRegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/VercodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IVercodeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/question.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,78 +42,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="712">
+              <caret line="201" column="11" lean-forward="true" selection-start-line="201" selection-start-column="11" selection-end-line="201" selection-end-column="11" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="558">
+              <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuestionServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GlobalConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VercodeServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1464">
-              <caret line="73" column="47" lean-forward="true" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/RegisterServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1992">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java">
+      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#688#689#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/question.jsp">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-210">
+              <caret line="89" column="11" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="89" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="654">
-              <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+              <caret line="173" column="48" lean-forward="true" selection-start-line="172" selection-start-column="28" selection-end-line="173" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -195,7 +171,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/ShiroTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/UserRealm.java" />
         <option value="$PROJECT_DIR$/src/main/resources/rabbit.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/springrabbit.xml" />
@@ -203,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/question.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/messages.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" />
         <option value="$PROJECT_DIR$/src/main/tests/com/skylaker/yunzhi/test/RdisTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/LoginExceptionHandler.java" />
@@ -211,12 +185,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/LoginResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/RegisterResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/exception/ExceptionResolver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/listener/SmsMqListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/IResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/QuestionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/BaseUtil.java" />
@@ -237,13 +209,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/QuestionMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/question.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/mappers/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/utils/RedisUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java" />
       </list>
     </option>
   </component>
@@ -845,7 +821,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3949749" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286432" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9075377" visible="true" weight="0.18662675" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9075377" visible="true" weight="0.18662675" />
       <window_info id="Web" order="2" sideWeight="0.09246231" side_tool="true" weight="0.18263473" />
       <window_info anchor="right" id="Database" order="3" weight="0.32984033" />
       <window_info id="Structure" order="1" sideWeight="0.50252783" side_tool="true" weight="0.16816367" />
@@ -885,7 +861,8 @@
     <MESSAGE value="1、登录页面提交完善" />
     <MESSAGE value="1、Spring Rabbit集成" />
     <MESSAGE value="1、修改统一异常处理方式&#10;2、修改注册、登录逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、修改统一异常处理方式&#10;2、修改注册、登录逻辑" />
+    <MESSAGE value="1、集成tkmapper&#10;2、完成新增问题逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、集成tkmapper&#10;2、完成新增问题逻辑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -902,26 +879,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/plugins/layui/formSelects-v3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="821" column="16" selection-start-line="821" selection-start-column="16" selection-end-line="821" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#dt#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/plugins/layui/layui.all.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -930,16 +887,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/messages.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="78" column="54" lean-forward="true" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/common.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -1013,23 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="177" column="15" lean-forward="true" selection-start-line="160" selection-start-column="12" selection-end-line="177" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/IResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -1093,18 +1023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="633">
           <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1487#1488#0" expanded="true" />
-            <element signature="e#1517#1518#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,31 +1122,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="123" column="21" lean-forward="true" selection-start-line="115" selection-start-column="20" selection-end-line="123" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/question.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
-          <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="24" />
+          <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#461#462#0" expanded="true" />
@@ -1256,7 +1160,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/VercodeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1464">
-          <caret line="73" column="47" lean-forward="true" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
+          <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1296,14 +1200,78 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/img/云知架构.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        <state relative-caret-position="702">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="89" column="11" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="89" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="173" column="48" lean-forward="true" selection-start-line="172" selection-start-column="28" selection-end-line="173" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="201" column="11" lean-forward="true" selection-start-line="201" selection-start-column="11" selection-end-line="201" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

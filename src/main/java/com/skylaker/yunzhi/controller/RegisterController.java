@@ -29,7 +29,7 @@ public class RegisterController {
      *
      * @return  {string} 注册页面
      */
-    @RequestMapping(value = "/getPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/getPage")
     public String getRegisterPage(){
         return "register";
     }

@@ -63,4 +63,21 @@ public class LoginController {
     public @ResponseBody JSONObject loginValidate(@RequestBody User user){
         return BaseUtil.getResult(userService.userPwdValidate(user.getPhone(), user.getPassword()));
     }
+
+    /**
+     * 获取当前登录用户信息
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
+    public @ResponseBody User getUserInfo(){
+        User user = BaseUtil.getSessionUser();
+
+        if(null == user){
+            return new User();
+        }
+
+        //避免传输其他信息
+        return new User(user.getId(), user.getUsername(), user.getSignature());
+    }
 }

@@ -63,7 +63,13 @@ public class User implements Serializable{
 		this.salt = builder.salt;
 	}
 
-	public static class Builder{
+	public User(Integer id, String username, String signature) {
+		this.id = id;
+		this.username = username;
+		this.signature = signature;
+	}
+
+    public static class Builder{
 		private String 	username;
 		private String 	password;
 		private String  phone;

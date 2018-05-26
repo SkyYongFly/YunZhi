@@ -51,6 +51,11 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         return QuestionResult.SUCCESS;
     }
 
+    /**
+     * 新增问题，注册到Redis
+     *
+     * @param question
+     */
     private void saveQuestionToRedis(Question question){
         //保存问题时间戳
         redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME,

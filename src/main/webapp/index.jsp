@@ -45,15 +45,27 @@
                     <%--个人信息--%>
                     <div id="userinfo"  class="layui-row layui-col-space20">
                         <div class="layui-col-md2">
-                            <i class="layui-icon layui-icon-friends" style="font-size: 40px; color: #1E9FFF;"></i>
+                            <i  id="usericon" class="layui-icon layui-icon-friends" style="font-size: 40px; color: #1E9FFF;display: none"></i>
                         </div>
 
                         <div class="layui-col-md10">
-                            <div class="layui-row">
-                                迎风绽放的花
+
+                            <%--已经登录显示--%>
+                            <div id="haslogin" style="display: none">
+                                <div class="layui-card">
+                                    <div class="layui-card-header" style="height: 20px;line-height: 20px;">
+                                        <p id="username">昵称</p>
+                                    </div>
+                                    <div class="layui-card-body" style="padding-top:5px;padding-bottom: 0; line-height: 20px;">
+                                        <p id="signature">签名~~~</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="layui-row">
-                                我就是我，不一样的烟火~~~
+
+                            <%--未登录显示--%>
+                            <div id="hasnotlogin">
+                                <button class="layui-btn layui-btn-primary" onclick="login();">登录</button>
+                                <button class="layui-btn layui-btn-primary" onclick="register();">注册</button>
                             </div>
                         </div>
                     </div>
@@ -185,6 +197,9 @@
             </div>
         </div>
     </div>
+
+    <form id="form" method="post" action="">
+    </form>
 
     <%--引入逻辑处理JS--%>
     <script src="<%=request.getContextPath() %>/assets/js/index.js"></script>
