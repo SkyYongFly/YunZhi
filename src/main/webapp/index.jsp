@@ -189,8 +189,7 @@
                     <div class="layui-card" style="height: 400px;margin-top: 30px">
                         <div class="layui-card-header">最新问题</div>
                         <div class="layui-card-body">
-                            卡片式面板面板通常用于非白色背景色的主体内<br>
-                            从而映衬出边框投影
+                            <table class="layui-hide" id="newestQuestions"></table>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,8 @@ package com.skylaker.yunzhi.service;
 import com.skylaker.yunzhi.pojo.Question;
 import com.skylaker.yunzhi.pojo.QuestionResult;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuyong
@@ -19,4 +21,11 @@ public interface IQuestionService {
      * @return
      */
     QuestionResult addQuestion(Question question);
+
+    /**
+     * 获取系统中的最新问题
+     *
+     * @return
+     */
+    List<Question> getNewestQuestions();
 }

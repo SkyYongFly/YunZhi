@@ -1,5 +1,7 @@
 package com.skylaker.yunzhi.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.QuestionMapper;
 import com.skylaker.yunzhi.pojo.Question;
@@ -12,7 +14,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -57,11 +59,38 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
      * @param question
      */
     private void saveQuestionToRedis(Question question){
+        JSONObject questionInfo = new JSONObject();
+        questionInfo.put(String.valueOf(question.getQid()), question.getTitle());
+
         //保存问题时间戳
         redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME,
-                question.getQid(), Double.valueOf(System.currentTimeMillis()));
+                   questionInfo.toJSONString() , Double.valueOf(System.currentTimeMillis()));
 
         //初始化热门问题
-        redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_HOT, question.getQid(), 0.0);
+        redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_HOT, questionInfo.toJSONString(), 0.0);
+    }
+
+
+    @Override
+    public List<Question> getNewestQuestions() {
+       //从Redis中获取最新的10个问题
+        Set<Object> questions = redisUtil.getZsetMaxKeys(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , 10);
+
+        List<Question> result = new ArrayList<>();
+
+        //解析问题标题信息
+        Iterator<Object> iterator = questions.iterator();
+        while (iterator.hasNext()){
+            JSONObject json = JSONObject.parseObject(iterator.next().toString());
+
+            Question question = new Question();
+            String key = json.keySet().iterator().next();
+            question.setQid(Integer.valueOf(key));
+            question.setTitle((String) json.get(key));
+
+            result.add(question);
+        }
+
+        return result;
     }
 }

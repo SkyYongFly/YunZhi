@@ -1,9 +1,10 @@
 package com.skylaker.yunzhi.utils;
 
-import com.skylaker.yunzhi.config.GlobalConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -80,5 +81,15 @@ public class RedisUtil {
      */
     public void addZsetValue(Object zsetKey, Object itemKey, Double value){
         redisTemplate.opsForZSet().add(zsetKey, itemKey, value);
+    }
+
+    /**
+     * 返回指定索引区间内最大的几条记录对应的键
+     *  @param zsetKey   目标zset
+     * @param start     开始位置
+     * @param end       结束位置
+     */
+    public Set<Object> getZsetMaxKeys(Object zsetKey, long start, long end){
+         return redisTemplate.opsForZSet().reverseRange(zsetKey, start, end);
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuyong
@@ -33,5 +35,16 @@ public class QuestionController {
     @RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
     public @ResponseBody JSONObject addQuestion(@RequestBody Question question){
         return BaseUtil.getResult(questionService.addQuestion(question));
+    }
+
+
+    /**
+     * 获取系统中的最新问题
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getNewestQuestions", method = RequestMethod.GET)
+    public @ResponseBody List<Question> getNewestQuestions(){
+        return questionService.getNewestQuestions();
     }
 }
