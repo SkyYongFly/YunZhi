@@ -52,13 +52,17 @@
 	</bean>
 	
 	<!-- 注册Mapper -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.skylaker.yunzhi.mappers"></property>
-	</bean>
+	<!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+		<!--<property name="basePackage" value="com.skylaker.yunzhi.mappers"></property>-->
+	<!--</bean>-->
 
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.skylaker.yunzhi.mappers"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
 	</bean>
 	
 	

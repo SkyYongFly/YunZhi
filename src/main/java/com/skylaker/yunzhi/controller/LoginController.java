@@ -1,23 +1,13 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.LoginResult;
-import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.UserService;
+import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @Autowired
     @Qualifier("userServiceImpl")
-    private UserService userService;
+    private IUserService userService;
 
     /**
      * 获取登录页面

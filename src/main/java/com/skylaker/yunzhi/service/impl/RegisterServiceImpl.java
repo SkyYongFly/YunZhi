@@ -3,10 +3,9 @@ package com.skylaker.yunzhi.service.impl;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.RegisterResult;
-import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.RegisterService;
-import com.skylaker.yunzhi.service.UserService;
-import com.skylaker.yunzhi.service.VercodeService;
+import com.skylaker.yunzhi.service.IRegisterService;
+import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.service.IVercodeService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,14 @@ import org.springframework.stereotype.Service;
  *      注册相关逻辑具体实现类
  */
 @Service("registerServiceImpl")
-public class RegisterServiceImpl implements RegisterService{
+public class RegisterServiceImpl implements IRegisterService {
     @Autowired
     @Qualifier("vercodeServiceImpl")
-    private VercodeService vercodeService;
+    private IVercodeService vercodeService;
 
     @Autowired
     @Qualifier("userServiceImpl")
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired
     private RedisUtil redisUtil;

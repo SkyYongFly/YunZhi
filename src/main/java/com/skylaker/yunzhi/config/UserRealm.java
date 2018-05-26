@@ -2,7 +2,7 @@ package com.skylaker.yunzhi.config;
 
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.UserService;
+import com.skylaker.yunzhi.service.IUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -25,7 +25,7 @@ import java.util.Set;
 public class UserRealm  extends AuthorizingRealm {
     @Autowired
     @Qualifier("userServiceImpl")
-    private UserService userService;
+    private IUserService userService;
 
     /**
      * 授权：根据用户信息返回权限信息，权限信息通过角色来管理

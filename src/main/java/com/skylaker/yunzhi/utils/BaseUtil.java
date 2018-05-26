@@ -1,9 +1,13 @@
 package com.skylaker.yunzhi.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.IResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
+import com.skylaker.yunzhi.pojo.User;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.util.DigestUtils;
 
 import java.security.MessageDigest;
@@ -94,5 +98,15 @@ public class BaseUtil {
         result.put("message", iResult.getMessage());
 
         return result;
+    }
+
+    /**
+     * 获取session中缓存的用户
+     *
+     * @return
+     */
+    public static User getSessionUser(){
+        Subject subject = SecurityUtils.getSubject();
+        return  (User) subject.getSession().getAttribute(GlobalConstant.SESSION_USER_NAME);
     }
 }

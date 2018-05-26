@@ -2,8 +2,7 @@ package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.RegisterResult;
-import com.skylaker.yunzhi.service.RegisterService;
+import com.skylaker.yunzhi.service.IRegisterService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     @Qualifier("registerServiceImpl")
-    private RegisterService registerService;
+    private IRegisterService registerService;
 
 
     /**

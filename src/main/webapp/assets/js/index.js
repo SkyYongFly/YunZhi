@@ -13,6 +13,10 @@ function addQuestion(){
         type: 2,
         title:false,
         content: [contextPath + "/jsp/question.jsp", 'no'],
-        area: ['600px', '600px'],
+        area: ['600px', '600px']
     });
+}
+
+function closeOpenPage() {
+    layer.closeAll('iframe');//关闭弹窗
 }

@@ -1,7 +1,12 @@
 package com.skylaker.yunzhi.controller;
 
-import com.skylaker.yunzhi.pojo.BaseResult;
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.Question;
+import com.skylaker.yunzhi.service.IQuestionService;
+import com.skylaker.yunzhi.utils.BaseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -11,8 +16,13 @@ import org.springframework.web.bind.annotation.*;
  * Description:
  *      问题相关逻辑处理
  */
+@Controller
 @RequestMapping("/question")
 public class QuestionController {
+    @Autowired
+    @Qualifier("questionServiceImpl")
+    private IQuestionService questionService;
+
 
     /**
      * 新增问题
@@ -21,8 +31,7 @@ public class QuestionController {
      * @return  {enum}  操作结果
      */
     @RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
-    public @ResponseBody BaseResult addQuestion(@RequestBody Question question){
-
-        return null;
+    public @ResponseBody JSONObject addQuestion(@RequestBody Question question){
+        return BaseUtil.getResult(questionService.addQuestion(question));
     }
 }

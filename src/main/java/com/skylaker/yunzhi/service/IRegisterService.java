@@ -10,7 +10,7 @@ import com.skylaker.yunzhi.pojo.RegisterResult;
  * Description:
  *      注册相关逻辑接口定义
  */
-public interface RegisterService {
+public interface IRegisterService {
     /**
      * 发送短信验证码
      *

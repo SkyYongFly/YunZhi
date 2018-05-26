@@ -1,7 +1,7 @@
 package com.skylaker.yunzhi.controller;
 
 import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.UserService;
+import com.skylaker.yunzhi.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ import java.util.List;
 public class UserController {
 	@Autowired
 	@Qualifier("userServiceImpl")
-	private UserService userService;
+	private IUserService userService;
 
 	/**
 	 * 获取所有用户

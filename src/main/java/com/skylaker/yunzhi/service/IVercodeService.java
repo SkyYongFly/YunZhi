@@ -8,7 +8,7 @@ import com.skylaker.yunzhi.pojo.RegisterInfo;
  * Date: 2018/5/20 11:07
  * Description: 验证码逻辑接口定义
  */
-public interface VercodeService {
+public interface IVercodeService {
     /**
      * 发送手机验证码
      *

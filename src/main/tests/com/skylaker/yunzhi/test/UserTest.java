@@ -2,9 +2,7 @@ package com.skylaker.yunzhi.test;
 
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.UserService;
-import com.skylaker.yunzhi.service.impl.UserServiceImpl;
-import com.skylaker.yunzhi.utils.BaseUtil;
+import com.skylaker.yunzhi.service.IUserService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,7 +24,7 @@ public class UserTest {
         registerInfo.setPassword("123455");
         registerInfo.setPhone("1223232");
 
-        UserService userService = context.getBean("userServiceImpl",UserService.class);
+        IUserService userService = context.getBean("userServiceImpl",IUserService.class);
         userService.saveRegisterUser(registerInfo);
     }
 
@@ -35,7 +33,7 @@ public class UserTest {
     public void testGetUser(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        UserService userService = context.getBean("userServiceImpl", UserService.class);
+        IUserService userService = context.getBean("userServiceImpl", IUserService.class);
         User user = userService.getUserByPhone("17692133962");
         System.out.println(user.toString());
     }
@@ -53,6 +51,10 @@ public class UserTest {
     public void testUser(){
         User user = new User.Builder("1212").username("小张").password("111222").build();
         System.out.println(user);
+
+//        Subject subject = SecurityUtils.getSubject();
+//        User user2 = (User) subject.getSession().getAttribute(GlobalConstant.SESSION_USER_NAME);
+//        System.out.println(user2);
 
     }
 }

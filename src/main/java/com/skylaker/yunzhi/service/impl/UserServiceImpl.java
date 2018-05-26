@@ -6,7 +6,7 @@ import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
-import com.skylaker.yunzhi.service.UserService;
+import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.shiro.SecurityUtils;
@@ -17,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.common.Mapper;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -30,7 +28,7 @@ import java.util.UUID;
  * @author sky
  */
 @Service("userServiceImpl")
-public class UserServiceImpl  implements UserService{
+public class UserServiceImpl  implements IUserService {
     @Autowired
     private UserMapper userMapper;
 
@@ -60,8 +58,9 @@ public class UserServiceImpl  implements UserService{
         //登录验证，异常由异常处理对象来处理
         subject.login(token);
 
+        //保存用户到session
         User user = getUserByPhone(phone);
-        subject.getSession().setAttribute("user", user);
+        subject.getSession().setAttribute(GlobalConstant.SESSION_USER_NAME, user);
 
         return LoginResult.SUCCESS;
     }

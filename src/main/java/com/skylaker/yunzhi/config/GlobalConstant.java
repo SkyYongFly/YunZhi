@@ -17,8 +17,10 @@ public class GlobalConstant {
     public static final String REDIS_HASH_PHONEVERCODES = "PHONE_VERCODES";
     //已注册手机号
     public static final String REDIS_SET_HASREGISTERPHONE  = "HAS_REGISTER_PHONE";
-
-
+    //问题时间戳信息
+    public static final Object REDIS_ZSET_QUESTIONS_TIME = "QUESTIONS_TIME";
+    //热门问题
+    public static final Object REDIS_ZSET_QUESTIONS_HOT = "QUESTIONS_HOT";
 
 
     //非业务型常量定义
@@ -29,4 +31,8 @@ public class GlobalConstant {
     public static final int PASSWORD_ENCRYPT_COUNT = 3;
     //密码加密算法
     public static final String PWD_MD5 = "md5";
+    //用户session名称
+    public static final Object SESSION_USER_NAME = "user";
+
+
 }

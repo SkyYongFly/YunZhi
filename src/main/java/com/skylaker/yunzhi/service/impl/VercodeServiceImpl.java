@@ -3,7 +3,7 @@ package com.skylaker.yunzhi.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.service.VercodeService;
+import com.skylaker.yunzhi.service.IVercodeService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * Description:
  */
 @Service("vercodeServiceImpl")
-public class VercodeServiceImpl implements VercodeService {
+public class VercodeServiceImpl implements IVercodeService {
     @Autowired
     private RedisUtil redisUtil;
 

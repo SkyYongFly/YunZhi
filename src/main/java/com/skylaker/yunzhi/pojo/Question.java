@@ -1,5 +1,11 @@
 package com.skylaker.yunzhi.pojo;
 
+import org.apache.ibatis.type.Alias;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,26 +16,37 @@ import java.util.Date;
  * Time: 22:29
  * Description: 问题实体
  */
+@Alias("question")
+@Table(name = "QUESTION")
 public class Question implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //问题主键ID
+    @Id
+    @Column(name = "qid")
+    @GeneratedValue(generator = "JDBC")
     private int qid;
 
     //问题标题
+    @Column
     private String title;
 
     //问题描述
+    @Column
     private String text;
 
     //提问用户ID
+    @Column
     private int userid;
 
     //创建时间
+    @Column
     private Date createtime;
 
     //修改时间
+    @Column
     private Date updatetime;
+
 
     public int getQid() {
         return qid;

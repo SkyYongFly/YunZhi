@@ -70,4 +70,15 @@ public class RedisUtil {
     public void addSetValue(Object setKey, Object itemValue){
         redisTemplate.opsForSet().add(setKey, itemValue);
     }
+
+    /**
+     * 往 ZSET 中添加值
+     *
+     * @param zsetKey
+     * @param itemKey
+     * @param value
+     */
+    public void addZsetValue(Object zsetKey, Object itemKey, Double value){
+        redisTemplate.opsForZSet().add(zsetKey, itemKey, value);
+    }
 }

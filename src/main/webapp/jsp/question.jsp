@@ -95,11 +95,18 @@
             $.ajax({
                 url: getBaseUrl() + "question/addQuestion.do",
                 type: "POST",
-                data: JSON.stringify({"title":title, "topic":topic, "text":text}),
+                data: JSON.stringify({"title":title, "text":text}),
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
+                    layer.msg(data.message);
 
+                    //成功
+                    if(1 == data.code){
+                        setTimeout(function() {
+                            window.parent.closeOpenPage();
+                        },1000);
+                    }
                 }
             });
 

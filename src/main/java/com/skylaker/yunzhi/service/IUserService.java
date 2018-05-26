@@ -15,7 +15,7 @@ import java.util.Set;
  * Description:
  *      用户相关逻辑处理接口定义
  */
-public interface UserService {
+public interface IUserService {
 
     /**
      * 手机号、密码验证

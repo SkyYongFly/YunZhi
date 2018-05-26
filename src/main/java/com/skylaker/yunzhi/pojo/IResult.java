@@ -27,4 +27,6 @@ public interface IResult {
      * @return
      */
     String getMessage();
+
+
 }
