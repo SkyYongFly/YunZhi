@@ -45,6 +45,9 @@
 ![问题详情](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/question_detail.jpg "问题详情")
 
 ## 5. 数据库设计
+数据库表设计V1.0
+![数据库](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/db.jpg "数据库")
+
 ## 6. 环境设置
 #### 1.Tomcat  
 Tomcat版本8.0以上即可
