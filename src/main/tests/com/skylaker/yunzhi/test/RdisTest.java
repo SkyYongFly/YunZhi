@@ -21,6 +21,7 @@ public class RdisTest {
 
        redisTemplate.opsForValue().set("name", "xiaoming");
         System.out.println(redisTemplate.opsForValue().get("name"));
+
     }
 
     @Test

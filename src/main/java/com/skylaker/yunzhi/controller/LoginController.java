@@ -1,5 +1,6 @@
 package com.skylaker.yunzhi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
@@ -53,63 +54,23 @@ public class LoginController {
     }
 
     /**
-     * 系统登录请求控制器
+     * 跳转到系统首页
      *
-     * @param   user
      * @return
      */
-    @RequestMapping(value = "/loginreq", method = RequestMethod.POST)
-    public String  login(@ModelAttribute User user){
-        LoginResult loginResult = userPwdValidate(user.getPhone(), user.getPassword());
-
-        //登录成功返回首页
-        if(LoginResult.SUCCESS == loginResult){
-            return "redirect:/index.jsp";
-        }
-
-        //返回码
-        ModelAndView modelAndView = new ModelAndView();
-        //返回页面，默认失败返回登录页面
-        modelAndView.addObject(loginResult);
-        return "redirect:/login/login.do";
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
+    public String  index(){
+        return "redirect:/index.jsp";
     }
 
     /**
      * 获取用户登录验证结果
      *
-     * @param phone
-     * @param password
+     * @param   user
      * @return
      */
-    @RequestMapping(value = "/loginValidate", method = RequestMethod.GET)
-    public @ResponseBody LoginResult loginValidate(@RequestParam("phone")String phone, @RequestParam("password")String password){
-        return  userPwdValidate(phone, password);
-    }
-
-    /**
-     * 手机号、密码验证
-     *
-     * @param phone
-     * @param password
-     * @return
-     */
-    private LoginResult userPwdValidate(String phone, String password){
-        if(BaseUtil.isNullOrEmpty(phone) || BaseUtil.isNullOrEmpty(password)){
-            return LoginResult.NULL_NAME_PWD;
-        }
-
-        //获取验证token
-        UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
-
-        //用户名、密码验证
-        Subject subject = SecurityUtils.getSubject();
-
-        //登录验证，异常由异常处理对象来处理
-        subject.login(token);
-
-        User user = userService.getUserByPhone(phone);
-        subject.getSession().setAttribute("user", user);
-
-        return LoginResult.SUCCESS;
+    @RequestMapping(value = "/loginValidate", method = RequestMethod.POST)
+    public @ResponseBody JSONObject loginValidate(@RequestBody User user){
+        return BaseUtil.getResult(userService.userPwdValidate(user.getPhone(), user.getPassword()));
     }
 }

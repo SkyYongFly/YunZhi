@@ -94,9 +94,10 @@ public class RegisterServiceImpl implements RegisterService{
             return RegisterResult.INVALIDATE_VERCODE;
         }
 
-        //TODO 验证成功需要缓存已注册手机号
         try {
+            //保存注册用户信息
             userService.saveRegisterUser(registerInfo);
+            //验证成功缓存已注册手机号
             redisUtil.addSetValue(GlobalConstant.REDIS_SET_HASREGISTERPHONE, registerInfo.getPhone());
         }catch (Exception e){
             e.printStackTrace();

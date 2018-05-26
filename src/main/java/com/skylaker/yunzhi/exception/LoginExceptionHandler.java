@@ -22,19 +22,19 @@ public class LoginExceptionHandler {
      * @param exception
      * @return
      */
-    public  String handlerLoginException(Exception exception){
+    public  LoginResult handlerLoginException(Exception exception){
         if(exception instanceof IncorrectCredentialsException){
             //密码不正确
-            return LoginResult.INCORRECT_PWD.getMessage();
+            return LoginResult.INCORRECT_PWD;
         }else if(exception instanceof UnknownAccountException){
             //用户不存在
-            return LoginResult.NO_ACCOUNT.getMessage();
+            return LoginResult.NO_ACCOUNT;
         }else if(exception instanceof ExcessiveAttemptsException){
             //输错密码次数过多
-            return LoginResult.TO_MUCH_ERROR.getMessage();
+            return LoginResult.TO_MUCH_ERROR;
         }
 
-        return LoginResult.LOGIN_FAILTURE.getMessage();
+        return LoginResult.LOGIN_FAILTURE;
     }
 
 }

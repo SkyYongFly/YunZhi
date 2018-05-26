@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>用户注册页面</title>
 
-    <%@ include file="common.jsp"%>
+    <%@ include file="../../jsp/common.jsp"%>
 
     <style type="text/css">
         .layui-col-space10{
@@ -118,10 +118,8 @@
                 type: "GET",
                 dataType: "json",
                 success:function (data) {
-                    if("INVALIDATE_PHONE" == data){
-                        layer.msg("请正确填写手机号");
-                    }else if("TO_MUCH_COUNT" == data){
-                        layer.msg("发送过于频繁,请一分钟后再试");
+                    if(1 != data.code){
+                        layer.msg(data.message);
                     }
                 },
                 complete:function () {
@@ -167,21 +165,10 @@
                 contentType:"application/json",
                 dataType: "json",
                 success:function (data) {
-                    if("INVALIDATE_USERNAME" == data){
-                        layer.msg("用户名格式不正确");
-                    }else if("INVALIDATE_PASSWORD" == data){
-                        layer.msg("密码格式不正确");
-                    }else if("INVALIDATE_PHONE" == data){
-                        layer.msg("手机号格式不正确");
-                    }else if("PHONE_HAS_REGISTER" == data){
-                        layer.msg("手机已注册");
-                    }else if("INVALIDATE_VERCODE" == data){
-                        layer.msg("验证码不正确");
-                    }else if("REGISTER_FAILURE" == data){
-                        layer.msg("注册失败，请重试");
-                    }else if("SUCCESS" == data){
-                        layer.msg("注册成功！");
+                    layer.msg(data.message);
 
+                    //成功
+                    if(1 == data.code){
                         setTimeout(function() {
                             $("#form").attr("action", getBaseUrl() + "login/getLoginPage.do");
                             $("#form").submit();

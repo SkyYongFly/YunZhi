@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSONObject;
  * Description:
  *      用户注册结果返回信息封装实体
  */
-public enum RegisterResult {
+public enum RegisterResult implements IResult{
     //成功
     SUCCESS("成功", 1) ,
 

@@ -1,5 +1,6 @@
 package com.skylaker.yunzhi.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.service.VercodeService;
@@ -30,12 +31,10 @@ public class VercodeServiceImpl implements VercodeService {
      */
     @Override
     public void sendPhoneVercode(String phone) {
-        rabbitTemplate.convertAndSend("exchange_direct_sms", "register_sms", "请发送短信~~~");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("phone", phone);
 
-        //TODO 需要把手机号以及对应的验证码信息缓存到redis中 这里先用假数据
-        //缓存手机号验证码的hash键名称
-        String vercodeHashKey = GlobalConstant.REDIS_HASH_PHONEVERCODE_PREFIX + phone;
-        redisUtil.setHashValue(vercodeHashKey, phone, "111222");
+        rabbitTemplate.convertAndSend("exchange_direct_sms", "register_sms", jsonObject.toJSONString());
     }
 
     /**
@@ -79,16 +78,13 @@ public class VercodeServiceImpl implements VercodeService {
             return false;
         }
 
-        //缓存手机号验证码的hash键名称
-        String vercodeHashKey = GlobalConstant.REDIS_HASH_PHONEVERCODE_PREFIX + registerInfo.getPhone();
-
         //判断是否存在指定键
-        if(!redisUtil.hasHashKey(vercodeHashKey, registerInfo.getPhone())){
+        if(!redisUtil.hasHashKey(GlobalConstant.REDIS_HASH_PHONEVERCODES, registerInfo.getPhone())){
             return false;
         }
 
         //获取并判断验证码
-        String vercode = (String) redisUtil.getHashValue(vercodeHashKey, registerInfo.getPhone());
+        String vercode = (String) redisUtil.getHashValue(GlobalConstant.REDIS_HASH_PHONEVERCODES, registerInfo.getPhone());
         if(!registerInfo.getVercode().equals(vercode)){
             return false;
         }

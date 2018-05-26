@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>用户登录页面</title>
 
-    <%@ include file="common.jsp"%>
+    <%@ include file="../../jsp/common.jsp"%>
 
     <style type="text/css">
         .layui-col-space10{
@@ -44,33 +44,31 @@
             </div>
         </div>
 
-        <form id="form" method="post" action="loginreq.do" onsubmit="return login()">
-            <div id="recont" class="layui-row layui-col-space10">
-                <div class="layui-col-md2 layui-col-md-offset2">
-                    <p class="label">手机号</p>
-                </div>
-                <div class="layui-col-md4">
-                    <input type="text" id="phone" name="phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
-                </div>
+        <div id="recont" class="layui-row layui-col-space10">
+            <div class="layui-col-md2 layui-col-md-offset2">
+                <p class="label">手机号</p>
             </div>
+            <div class="layui-col-md4">
+                <input type="text" id="phone" name="phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
 
-            <div class="layui-row layui-col-space10">
-                <div class="layui-col-md2 layui-col-md-offset2">
-                    <p class="label">密&nbsp;&nbsp;&nbsp;码</p>
-                </div>
-                <div class="layui-col-md4">
-                    <input type="text" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                </div>
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md2 layui-col-md-offset2">
+                <p class="label">密&nbsp;&nbsp;&nbsp;码</p>
             </div>
+            <div class="layui-col-md4">
+                <input type="text" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
 
-            <div class="layui-row layui-col-space10">
-                <div class="layui-col-md2 layui-col-md-offset2">
-                </div>
-                <div class="layui-col-md4">
-                    <button class="layui-btn layui-btn-fluid  layui-btn-normal" lay-submit>登录</button>
-                </div>
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md2 layui-col-md-offset2">
             </div>
-        </form>
+            <div class="layui-col-md4">
+                <button class="layui-btn layui-btn-fluid  layui-btn-normal" onclick="login();">登录</button>
+            </div>
+        </div>
 
         <div class="layui-row layui-col-space10">
             <div class="layui-col-md2 layui-col-md-offset2">
@@ -87,6 +85,9 @@
             </div>
         </div>
     </div>
+
+    <form id="form" method="post" action="">
+    </form>
 
     <script type="text/javascript">
         //用户登录
@@ -105,7 +106,24 @@
                 return false;
             }
 
-            return true;
+            $.ajax({
+                url:  getBaseUrl() + "login/loginValidate.do",
+                type: "POST",
+                data:JSON.stringify({"password":password, "phone":phone}),
+                contentType:"application/json",
+                dataType: "json",
+                success:function (data) {
+                    layer.msg(data.message);
+
+                    //成功
+                    if(1 == data.code){
+                        setTimeout(function() {
+                            $("#form").attr("action", getBaseUrl() + "login/index.do");
+                            $("#form").submit();
+                        },2000);
+                    }
+                }
+            });
         }
     </script>
 

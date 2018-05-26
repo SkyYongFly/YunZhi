@@ -14,7 +14,7 @@ public class GlobalConstant {
     //已申请验证码手机号时间戳
     public static final String REDIS_HASH_PHONEVERCODE     = "Phone_Vercode_Time";
     //手机号与验证码 hash前缀
-    public static final String REDIS_HASH_PHONEVERCODE_PREFIX = "PHONE_VERCODE_";
+    public static final String REDIS_HASH_PHONEVERCODES = "PHONE_VERCODES";
     //已注册手机号
     public static final String REDIS_SET_HASREGISTERPHONE  = "HAS_REGISTER_PHONE";
 

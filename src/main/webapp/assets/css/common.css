@@ -5,6 +5,23 @@
     text-align: center;
 }
 
+.container_location{
+    margin-top: 20px;
+}
+
+/*行距*/
+.row_margin{
+    margin-top: 30px;
+}
+
+.row_margin2{
+    margin-top: 15px;
+}
+
+.row_margin3{
+    margin-top: 40px;
+}
+
 /*标语*/
 #solgan{
     font-family:'jdzhonyuanjian1213553c171ce6f';
@@ -12,6 +29,14 @@
     color:#1E9FFF;
     text-align: center;
 }
+
+/*提问问题标题*/
+#quetitle{
+    font-family:'jdzhonyuanjian1213553c171ce6f';
+    font-size:25px;
+    text-align: center;
+}
+
 
 #recont{
     margin-top: 40px;
@@ -31,4 +56,9 @@
 /*登录失败提醒样式*/
 .error{
     color: red;
+}
+
+/*问题标题*/
+.question_title{
+    height: 100px;
 }

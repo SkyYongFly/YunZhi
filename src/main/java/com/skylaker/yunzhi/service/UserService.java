@@ -1,5 +1,6 @@
 package com.skylaker.yunzhi.service;
 
+import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
@@ -15,6 +16,16 @@ import java.util.Set;
  *      用户相关逻辑处理接口定义
  */
 public interface UserService {
+
+    /**
+     * 手机号、密码验证
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
+    LoginResult userPwdValidate(String phone, String password);
+
     /**
      * 获取所有用户
      *

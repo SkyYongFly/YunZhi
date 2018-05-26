@@ -1,13 +1,20 @@
 package com.skylaker.yunzhi.exception;
 
+import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.pojo.BaseResult;
+import com.skylaker.yunzhi.pojo.IResult;
 import org.apache.shiro.ShiroException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 异常处理类
@@ -16,36 +23,44 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class ExceptionResolver implements HandlerExceptionResolver{
+	private static Logger logger = LoggerFactory.getLogger("exceptionLog");
+
 	@Autowired
 	private LoginExceptionHandler loginExceptionHandler;
-
 
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exception) {
-		//异常输出
+
+		//异常返回结果
+		IResult iResult = null;
+
+		//异常处理
+		if(exception instanceof ShiroException){
+			iResult = loginExceptionHandler.handlerLoginException(exception);
+		}else {
+			iResult = BaseResult.FAILTURE;
+		}
+
+		//返回异常结果JSON数据
+		JSONObject result = new JSONObject();
+		result.put("code", iResult.getCode());
+		result.put("message", iResult.getMessage());
+
+		response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+		response.setCharacterEncoding("UTF-8");
+		response.setHeader("Cache-Control", "no-cache, must-revalidate");
+
+		try {
+			response.getWriter().write(result.toJSONString());
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error("处理异常失败:" + e.getMessage(), e);
+		}
+
+		logger.debug("系统处理逻辑发现异常：" + exception.getMessage(), exception);
 		exception.printStackTrace();
 
-		//返回码
-		ModelAndView modelAndView = new ModelAndView();
-
-		//登录异常
-		if(exception instanceof ShiroException){
-			modelAndView.addObject("result",loginExceptionHandler.handlerLoginException(exception));
-			modelAndView.setViewName("login");
-			return modelAndView;
-		}
-
-		BaseException baseException = null;
-		if(exception instanceof BaseException) {
-			baseException = (BaseException) exception;
-		}else {
-			baseException = new BaseException("服务器发生异常！");
-		}
-
-		modelAndView.addObject("errormsg", baseException.getMessage());
-		modelAndView.setViewName("error");
-
-		return modelAndView;
+		return new ModelAndView();
 	}
 }

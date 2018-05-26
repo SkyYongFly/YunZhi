@@ -1,8 +1,10 @@
 package com.skylaker.yunzhi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.RegisterResult;
 import com.skylaker.yunzhi.service.RegisterService;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -39,8 +41,8 @@ public class RegisterController {
      * @param phone 请求手机号
      */
     @RequestMapping(value = "/getVercode", method = RequestMethod.GET)
-    public @ResponseBody RegisterResult getVercode(@RequestParam("phone")String phone){
-        return  registerService.getVercode(phone);
+    public @ResponseBody JSONObject getVercode(@RequestParam("phone")String phone){
+        return BaseUtil.getResult(registerService.getVercode(phone));
     }
 
     /**
@@ -50,7 +52,7 @@ public class RegisterController {
      * @return
      */
     @RequestMapping(value = "/registerValidate", method = RequestMethod.POST)
-    public @ResponseBody RegisterResult registerValidate(@RequestBody RegisterInfo registerInfo){
-        return registerService.registerValidate(registerInfo);
+    public @ResponseBody JSONObject registerValidate(@RequestBody RegisterInfo registerInfo){
+        return BaseUtil.getResult(registerService.registerValidate(registerInfo));
     }
 }

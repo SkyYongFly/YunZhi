@@ -1,5 +1,7 @@
 package com.skylaker.yunzhi.utils;
 
+import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.pojo.IResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.util.DigestUtils;
@@ -77,5 +79,20 @@ public class BaseUtil {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
         return m.matches();
+    }
+
+    /**
+     * 获取系统请求操作结果，JSON格式数据
+     *
+     * @param   iResult
+     * @return
+     */
+    public static JSONObject getResult(IResult iResult){
+        //返回异常结果JSON数据
+        JSONObject result = new JSONObject();
+        result.put("code", iResult.getCode());
+        result.put("message", iResult.getMessage());
+
+        return result;
     }
 }

@@ -2,13 +2,17 @@ package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.UserMapper;
+import com.skylaker.yunzhi.pojo.LoginResult;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.Role;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.UserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -32,6 +36,35 @@ public class UserServiceImpl  implements UserService{
 
     @Autowired
     private RedisUtil redisUtil;
+
+
+    /**
+     * 手机号、密码验证
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
+    @Override
+    public LoginResult userPwdValidate(String phone, String password){
+        if(BaseUtil.isNullOrEmpty(phone) || BaseUtil.isNullOrEmpty(password)){
+            return LoginResult.NULL_NAME_PWD;
+        }
+
+        //获取验证token
+        UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
+
+        //用户名、密码验证
+        Subject subject = SecurityUtils.getSubject();
+
+        //登录验证，异常由异常处理对象来处理
+        subject.login(token);
+
+        User user = getUserByPhone(phone);
+        subject.getSession().setAttribute("user", user);
+
+        return LoginResult.SUCCESS;
+    }
 
     /**
      * 获取所有用户

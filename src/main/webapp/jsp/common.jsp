@@ -28,6 +28,9 @@
     <script src="<%=request.getContextPath() %>/assets/js/common.js"></script>
 </head>
 <body>
+    <script type="text/javascript">
+        var contextPath = "<%=request.getContextPath() %>";
+    </script>
 
 </body>
 </html>

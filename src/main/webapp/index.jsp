@@ -1,9 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: zhuyong
-  Date: 2018/5/10
-  Time: 23:32
-  To change this template use File | Settings | File Templates.
+  Date: 2018/5/10  23:32
+  Description:云知问答首页
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,17 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>云知首页</title>
 
-    <%--引入Layui样式--%>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/plugins/layui/css/layui.css"/>
+    <%@ include file="jsp/common.jsp"%>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/index.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/plugins/icons/iconfont.css"/>
-
-
-    <%--引入jquery--%>
-    <script src="<%=request.getContextPath() %>/assets/js/jquery-3.3.1.min.js"></script>
-    <%--引入Layui脚本--%>
-    <script src="<%=request.getContextPath() %>/assets/plugins/layui/layui.all.js"></script>
-
 </head>
 <body>
     <div class="layui-card" style="padding-top: 20px">
@@ -45,7 +35,7 @@
                         </div>
                         <%--提问--%>
                         <div class="layui-col-md2">
-                            <button class="layui-btn layui-btn-normal">提问</button>
+                            <button class="layui-btn layui-btn-normal" onclick="addQuestion();">提问</button>
                         </div>
                     </div>
                 </div>
@@ -196,10 +186,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        layui.use(['layer', 'form'], function(){
-
-        });
-    </script>
+    <%--引入逻辑处理JS--%>
+    <script src="<%=request.getContextPath() %>/assets/js/index.js"></script>
 </body>
 </html>
