@@ -2,6 +2,7 @@ package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.Question;
+import com.skylaker.yunzhi.pojo.TableData;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,28 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getNewestQuestions", method = RequestMethod.GET)
-    public @ResponseBody List<Question> getNewestQuestions(){
+    public @ResponseBody TableData getNewestQuestions(){
+        return new TableData(questionService.getNewestQuestions());
+    }
+
+    /**
+     * 获取系统中的最新一系列问题详情
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getNewestQuestionsDetails", method = RequestMethod.GET)
+    public @ResponseBody List<Question> getNewestQuestionsDetails(@RequestParam("page")String page){
         return questionService.getNewestQuestions();
+    }
+
+    /**
+     * 查询某个问题的详细信息
+     *
+     * @param qid 问题ID
+     * @return
+     */
+    @RequestMapping(value = "/getQuestionDetail", method = RequestMethod.GET)
+    public @ResponseBody Question getQuestionDetail(@RequestParam("qid")String qid){
+        return questionService.getQuestionDetail(qid);
     }
 }

@@ -12,6 +12,7 @@ import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -74,7 +75,8 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     @Override
     public List<Question> getNewestQuestions() {
        //从Redis中获取最新的10个问题
-        Set<Object> questions = redisUtil.getZsetMaxKeys(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , 10);
+        Set<Object> questions = redisUtil.getZsetMaxKeys(
+                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , GlobalConstant.QUESTIONS_NUM);
 
         List<Question> result = new ArrayList<>();
 
@@ -92,5 +94,18 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         }
 
         return result;
+    }
+
+
+    /**
+     * 查询问题相信信息
+     *
+     * @param   qid 问题ID
+     * @return
+     */
+    @Override
+    @Cacheable(value = "questionCache")
+    public Question getQuestionDetail(String qid) {
+        return selectByKey(qid);
     }
 }

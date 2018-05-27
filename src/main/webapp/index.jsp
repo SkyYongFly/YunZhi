@@ -79,11 +79,32 @@
             <div class="layui-col-md8">
                 <%--导航选项卡--%>
                 <div id="navigation"  class="layui-row layui-col-space10">
-                    <ul class="layui-nav layui-bg-blue">
-                        <li class="layui-nav-item  layui-this"><a href="">热门</a></li>
-                        <li class="layui-nav-item"><a href="">问题</a></li>
-                        <li class="layui-nav-item"><a href="">回答</a></li>
-                    </ul>
+                    <div class="layui-tab layui-tab-brief" lay-filter="navigations">
+                        <ul class="layui-tab-title">
+                            <li lay-id="hot" class="layui-this">热门</li>
+                            <li lay-id="question" >问题</li>
+                            <li lay-id="answer" >回答</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+
+                                <%--热门内容区域--%>
+                                <div class="layui-card">
+                                    <div class="layui-card-header">卡片面板</div>
+                                    <div class="layui-card-body">
+                                        卡片式面板面板通常用于非白色背景色的主体内<br>
+                                        从而映衬出边框投影
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-tab-item">
+                                <%--加载问题相关信息--%>
+                                <ul class="flow-default" id="questions"></ul>
+                            </div>
+                            <div class="layui-tab-item">内容3</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="layui-col-md4">
@@ -101,98 +122,50 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div id="main" class="layui-row layui-col-space30">
-            <div class="layui-col-md8">
-                <%--热门内容区域--%>
-                <div class="layui-card">
-                    <div class="layui-card-header">卡片面板</div>
-                    <div class="layui-card-body">
-                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                        从而映衬出边框投影
+                    <div class="layui-row">
+                        <div class="layui-card" style="height: 200px;width: 100%">
+                            <table class="layui-table">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <i class="layui-icon layui-icon-rate-solid" style="font-size: 25px; color: #77839c;"></i>
+                                        &nbsp;&nbsp;我的收藏
+                                    </td>
+                                    <td class="td_text">
+                                        <span class="layui-badge layui-bg-gray">1</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="layui-icon layui-icon-face-smile-b" style="font-size: 25px; color: #77839c;"></i>
+                                        &nbsp;&nbsp;我的关注
+                                    </td>
+                                    <td class="td_text">
+                                        <span class="layui-badge layui-bg-gray">1</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="layui-icon layui-icon-praise" style="font-size: 25px; color: #77839c;"></i>
+                                        &nbsp;&nbsp;我的点赞
+                                    </td>
+                                    <td class="td_text">
+                                        <span class="layui-badge layui-bg-gray">1</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
 
-
-                <div class="layui-card" style="margin-top: 20px">
-                    <div class="layui-card-header">卡片面板</div>
-                    <div class="layui-card-body">
-                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                        从而映衬出边框投影
-                    </div>
-                </div>
-
-                <div class="layui-card" style="margin-top: 20px">
-                    <div class="layui-card-header">卡片面板</div>
-                    <div class="layui-card-body">
-                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                        从而映衬出边框投影
-                    </div>
-                </div>
-                <div class="layui-card" style="margin-top: 20px">
-                    <div class="layui-card-header">卡片面板</div>
-                    <div class="layui-card-body">
-                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                        从而映衬出边框投影
-                    </div>
-                </div>
-                <div class="layui-card" style="margin-top: 20px">
-                    <div class="layui-card-header">卡片面板</div>
-                    <div class="layui-card-body">
-                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                        从而映衬出边框投影
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="layui-col-md4">
-                <div class="layui-row">
-                    <div class="layui-card" style="height: 200px;width: 100%">
-                        <table class="layui-table">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <i class="layui-icon layui-icon-rate-solid" style="font-size: 25px; color: #77839c;"></i>
-                                    &nbsp;&nbsp;我的收藏
-                                </td>
-                                <td class="td_text">
-                                    <span class="layui-badge layui-bg-gray">1</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="layui-icon layui-icon-face-smile-b" style="font-size: 25px; color: #77839c;"></i>
-                                    &nbsp;&nbsp;我的关注
-                                </td>
-                                <td class="td_text">
-                                    <span class="layui-badge layui-bg-gray">1</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="layui-icon layui-icon-praise" style="font-size: 25px; color: #77839c;"></i>
-                                    &nbsp;&nbsp;我的点赞
-                                </td>
-                                <td class="td_text">
-                                    <span class="layui-badge layui-bg-gray">1</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="layui-row">
-                    <div class="layui-card" style="height: 400px;margin-top: 30px">
-                        <div class="layui-card-header">最新问题</div>
-                        <div class="layui-card-body">
+                    <div class="layui-row">
+                        <%--最新问题--%>
+                        <div class="layui-card" style="height: 400px;margin-top: 30px">
                             <table class="layui-hide" id="newestQuestions"></table>
                         </div>
                     </div>
-                </div>
+
             </div>
         </div>
     </div>
