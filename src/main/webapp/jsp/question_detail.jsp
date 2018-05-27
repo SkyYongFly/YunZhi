@@ -106,7 +106,7 @@
 
                         </div>
                         <div class="layui-card-body">
-                            <!-- 加载编辑器的容器 -->
+                            <!-- 问题回答内容编辑区域 -->
                             <script id="container" name="content" type="text/plain" >
                             </script>
 
@@ -165,9 +165,10 @@
     </script>
 
     <%--引入UEditor相关CSS/JS--%>
-    <link href="<%=request.getContextPath() %>/assets/plugins/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath() %>/assets/plugins/ueditor/umeditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath() %>/assets/plugins/ueditor/umeditor.min.js"></script>
+    <link href="<%=request.getContextPath() %>/assets/plugins/ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath() %>/assets/plugins/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath() %>/assets/plugins/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath() %>/assets/plugins/ueditor/ueditor.parse.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/assets/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 
     <%--引入逻辑处理JS--%>

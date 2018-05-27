@@ -7,114 +7,154 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaefc0ff-9bbb-4e1a-a3ea-58ef36c9f275" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/QuestionHotAnswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/pojo/TableData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/question_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/emotion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/emotion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/bface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/cface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/fface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/jxface2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/neweditor-tab-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/tface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/wface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/yface.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/images/formula.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/image.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/upload1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/upload2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/link/link.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/map/map.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/map/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/center_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/left_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/none_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/right_focus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/video.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/Uploader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/getContent.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/imageUp.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/addimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/alldeletebtnhoverskin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/alldeletebtnupskin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/deletedisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/deleteenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/imglabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/listbackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/localimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/rotateleftdisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/rotateleftenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/rotaterightdisable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/rotaterightenable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/imglabel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/localimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/umeditor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/umeditor.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/caret.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/ok.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/pop-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/spacer.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/videologo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/STIXFontLicense2010.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/umeditor.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/umeditor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/question_detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/controller.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/ueditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/ueditor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/dialogbase.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/anchor.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/arrow_down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/arrow_up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/button-bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/cancelbutton.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/charts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/cursor_h.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/cursor_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/cursor_v.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/cursor_v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/dialog-title-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/filescan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/highlighted.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons-all.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/loaderror.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/lock.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/pagebreak.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/scale.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/sparator_v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/table-cell-align.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/tangram-colorpicker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/toolbar_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/unhighlighted.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/word.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/wordpaste.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/iframe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/codemirror/codemirror.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/codemirror/codemirror.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/adapters/mootools-adapter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/adapters/mootools-adapter.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/adapters/prototype-adapter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/adapters/prototype-adapter.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/adapters/standalone-framework.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/annotations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/annotations.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/canvas-tools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/canvas-tools.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/data.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/drilldown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/drilldown.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/exporting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/exporting.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/funnel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/funnel.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/heatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/heatmap.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/map.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/no-data-to-display.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/modules/no-data-to-display.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/themes/dark-blue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/themes/dark-green.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/themes/gray.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/themes/grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/highcharts/themes/skies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/font/vjs.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/font/vjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/font/vjs.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/font/vjs.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/video-js.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/video-js.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/video-js.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/video.dev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/video-js/video.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/config/GlobalConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IQuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IQuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ehcache-caches.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ehcache-caches.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/question_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/question_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/emotion.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/emotion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/bface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/cface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/fface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/jxface2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/neweditor-tab-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/neweditor-tab-bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/tface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/wface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/emotion/images/yface.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/formula.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/formula/images/formula.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/image.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/image.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/upload1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/image/images/upload2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/link/link.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/map/map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/map/map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/center_focus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/left_focus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/none_focus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/images/right_focus.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/video.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/dialogs/video/video.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/Uploader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/getContent.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/imageUp.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/en/images/imglabel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/images/imglabel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/sortable.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/lang/zh-cn/zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/umeditor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/css/umeditor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/caret.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/ok.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/themes/default/images/pop-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/Symbola.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/STIXFontLicense2010.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneral-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbol-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralbolita-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/font/stixgeneral-bundle/stixgeneralitalic-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/third-party/mathquill/mathquill.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/umeditor.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/umeditor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/question_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/question_detail.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -146,18 +186,8 @@
       <file leaf-file-name="question_detail.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/question_detail.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="116" column="34" lean-forward="true" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="424">
+              <caret line="163" column="27" lean-forward="true" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -165,8 +195,8 @@
       <file leaf-file-name="question_detail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/question_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="552">
+              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -174,7 +204,7 @@
       <file leaf-file-name="IQuestionService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IQuestionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
+            <state relative-caret-position="504">
               <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -186,12 +216,10 @@
       <file leaf-file-name="QuestionServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
+            <state relative-caret-position="2064">
               <caret line="101" column="6" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3188#3189#0" expanded="true" />
-                <element signature="e#3227#3228#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -200,7 +228,7 @@
       <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="432">
               <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -218,7 +246,7 @@
       <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-906">
+            <state relative-caret-position="288">
               <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -232,7 +260,7 @@
       <file leaf-file-name="ehcache-caches.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache-caches.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
+            <state relative-caret-position="2280">
               <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
             </state>
           </provider>
@@ -241,12 +269,12 @@
       <file leaf-file-name="QuestionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
+            <state relative-caret-position="1368">
               <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1323#1324#0" expanded="true" />
-                <element signature="e#1348#1349#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -400,8 +428,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="2579" />
-    <option name="height" value="1409" />
+    <option name="width" value="2580" />
+    <option name="height" value="1410" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -411,14 +439,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="YunZhi" type="b2602c69:ProjectViewProjectNode" />
               <item name="YunZhi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="YunZhi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YunZhi" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="YunZhi" type="b2602c69:ProjectViewProjectNode" />
@@ -603,29 +634,6 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="plugins" type="462c0819:PsiDirectoryNode" />
               <item name="ueditor" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="YunZhi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YunZhi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="ueditor" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="zh-cn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="YunZhi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YunZhi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="ueditor" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -682,6 +690,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1022,6 +1032,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32763818" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.1718593" />
@@ -1035,7 +1046,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.20703517" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286432" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9075377" visible="true" weight="0.18962076" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9075377" visible="true" weight="0.19560878" />
       <window_info id="Web" order="2" sideWeight="0.09246231" side_tool="true" weight="0.18263473" />
       <window_info anchor="right" id="Database" order="3" weight="0.32984033" />
       <window_info id="Structure" order="1" sideWeight="0.50252783" side_tool="true" weight="0.16816367" />
@@ -1078,7 +1089,8 @@
     <MESSAGE value="1、集成tkmapper&#10;2、完成新增问题逻辑" />
     <MESSAGE value="1、首页用户信息处理" />
     <MESSAGE value="1、首页加载信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、首页加载信息" />
+    <MESSAGE value="添加回答" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加回答" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1225,9 +1237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,9 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1464">
           <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,9 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="894">
           <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1321,24 +1324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
           <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1400,28 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
           <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding>
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1024#1025#0" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-            <element signature="e#1109#1110#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1429,9 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6">
           <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1444,26 +1404,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/controller/QuestionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
+        <state relative-caret-position="1368">
           <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1323#1324#0" expanded="true" />
-            <element signature="e#1348#1349#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache-caches.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
+        <state relative-caret-position="2280">
           <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-906">
+        <state relative-caret-position="288">
           <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1475,7 +1435,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="432">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1491,22 +1451,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/impl/QuestionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
+        <state relative-caret-position="2064">
           <caret line="101" column="6" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3188#3189#0" expanded="true" />
-            <element signature="e#3227#3228#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/jsp/imageUp.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skylaker/yunzhi/service/IQuestionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
+        <state relative-caret-position="504">
           <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1523,25 +1478,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/question_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="116" column="34" lean-forward="true" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
+        <state relative-caret-position="424">
+          <caret line="163" column="27" lean-forward="true" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/plugins/ueditor/ueditor.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-864">
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/question_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state relative-caret-position="552">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
         </state>
       </provider>
     </entry>
