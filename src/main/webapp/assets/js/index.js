@@ -4,24 +4,45 @@
  *  @author zhuyong
  */
 
+//每次加载最新问题数量
+var QUESTIONS_NUM = 10;
+
+
 layui.use('table', function(){
     var table = layui.table;
 
-    table.render({
-        elem: '#test'
-        ,url:'/demo/table/user/'
-        ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
-        ,cols: [[
-            {field:'id', width:80, title: 'ID', sort: true}
-            ,{field:'username', width:80, title: '用户名'}
-            ,{field:'sex', width:80, title: '性别', sort: true}
-            ,{field:'city', width:80, title: '城市'}
-            ,{field:'sign', title: '签名', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-            ,{field:'experience', title: '积分', sort: true}
-            ,{field:'score', title: '评分', sort: true}
-            ,{field:'classify', title: '职业'}
-            ,{field:'wealth', width:137, title: '财富', sort: true}
-        ]]
+    //获取最新问题
+    getNewestQuestions(table);
+});
+
+layui.use('element', function(){
+    var element = layui.element;
+
+    //监听导航tab切换
+    element.on('tab(navigations)', function(data){
+        element.render('tab', "navigations");
+    });
+});
+
+layui.use('flow', function(){
+    var flow = layui.flow;
+    flow.load({
+        elem: '#questions'
+        ,done: function(page, next){
+            var lis = [];
+            $.get('question/getNewestQuestionsDetails.do?page='+page, function(res){
+                layui.each(res, function(index, item){
+                    lis.push(
+                        '<div class="layui-card">' +
+                            '<div class="layui-card-header" onclick="showQuestionDetail(' + item.qid + ');">' + item.title + '</div>' +
+                            '<div class="layui-card-body">' + item.title + '</div>' +
+                        '</div>'
+                    );
+                });
+
+                next(lis.join(''), page < res.length / QUESTIONS_NUM);
+            });
+        }
     });
 });
 
@@ -29,51 +50,19 @@ layui.use('table', function(){
 $(function () {
     //获取用户信息
     getUserInfo();
-
-    //获取最新问题
-    getNewestQuestions();
 });
-
-/**
- * 获取用户信息
- */
-function getUserInfo() {
-    $.ajax({
-        url:  getBaseUrl() + "login/getUserInfo.do",
-        type: "GET",
-        contentType:"application/json",
-        success:function (data) {
-            if(!isNullOrEmpty(data.id)){
-                $("#haslogin").show();
-                $("#usericon").show();
-                $("#hasnotlogin").hide();
-
-                $("#username").text(data.username);
-                if(!isNullOrEmpty(data.signature)) {
-                    $("#signature").text(data.signature);
-                }
-            }else{
-                $("#hasnotlogin").show();
-                $("#haslogin").hide();
-                $("#usericon").hide();
-            }
-        }
-    });
-}
 
 /**
  * 获取系统中最新提问的问题
  */
-function getNewestQuestions() {
-    $.ajax({
-        url: getBaseUrl() + "question/getNewestQuestions.do",
-        type: "GET",
-        contentType: "application/json",
-        success: function (data) {
-            if(data && data.length > 0){
-
-            }
-        }
+function getNewestQuestions(table) {
+    table.render({
+        elem: '#newestQuestions'
+        ,url: getBaseUrl() + "question/getNewestQuestions.do"
+        ,page: false
+        ,cols: [[
+            {field:'title', title: '最新问题', sort: false}
+        ]]
     });
 }
 
@@ -86,37 +75,27 @@ function addQuestion(){
         type: 2,
         title:false,
         content: [contextPath + "/jsp/question.jsp", 'no'],
-        area: ['600px', '600px']
+        area: ['600px', '600px'],
+        end:function (data) {
+            refresh();
+        }
     });
 }
 
 /**
- * 请求登录页面
+ * 刷新页面
  */
-function login() {
-    $("#form").attr("action", getBaseUrl() + "login/getLoginPage.do");
-    $("#form").submit();
+function refresh() {
+    getNewestQuestions(layui.table);
 }
 
-//请求注册页面
-function register() {
-    $("#form").attr("action", getBaseUrl() + "register/getPage.do");
-    $("#form").submit();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function closeOpenPage() {
-    layer.closeAll('iframe');//关闭弹窗
+/**
+ * 打开问题详情页面
+ *
+ * @param  qid
+ */
+function showQuestionDetail(qid) {
+    if(!isNullOrEmpty(qid)){
+        window.open("jsp/question_detail.jsp?qid=" + qid);
+    }
 }

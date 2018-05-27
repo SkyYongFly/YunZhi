@@ -33,6 +33,6 @@ public class GlobalConstant {
     public static final String PWD_MD5 = "md5";
     //用户session名称
     public static final Object SESSION_USER_NAME = "user";
-
-
+    //每次加载最新问题数量
+    public static final long QUESTIONS_NUM = 10;
 }

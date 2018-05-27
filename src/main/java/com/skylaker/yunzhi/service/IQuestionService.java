@@ -28,4 +28,12 @@ public interface IQuestionService {
      * @return
      */
     List<Question> getNewestQuestions();
+
+    /**
+     * 查询问题详细信息
+     *
+     * @param qid 问题ID
+     * @return
+     */
+    Question getQuestionDetail(String qid);
 }

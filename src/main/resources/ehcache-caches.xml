@@ -95,4 +95,17 @@
            memoryStoreEvictionPolicy="FIFO"
            statistics="true">
     </cache>
+
+    <!--问题信息缓存-->
+    <cache name="questionCache"
+           maxElementsInMemory="2000"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           maxElementsOnDisk="0"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="FIFO"
+           statistics="true">
+    </cache>
 </ehcache>
