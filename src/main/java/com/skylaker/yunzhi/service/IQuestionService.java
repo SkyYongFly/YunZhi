@@ -1,6 +1,7 @@
 package com.skylaker.yunzhi.service;
 
 import com.skylaker.yunzhi.pojo.Question;
+import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.QuestionResult;
 
 import java.util.List;
@@ -36,4 +37,13 @@ public interface IQuestionService {
      * @return
      */
     Question getQuestionDetail(String qid);
+
+    /**
+     * 获取系统中的最新的问题列表
+     *
+     * @param   page    分页信息，第几页
+     * @param   time    用户请求时间戳
+     * @return
+     */
+    List<QuestionDetail> getNewestQuestionsDetails(int page, long time);
 }

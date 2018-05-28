@@ -6,6 +6,8 @@
 
 //每次加载最新问题数量
 var QUESTIONS_NUM = 10;
+//缓存用户进入首页的时间
+$("#time").val((new Date()).valueOf());
 
 
 layui.use('table', function(){
@@ -25,12 +27,14 @@ layui.use('element', function(){
 });
 
 layui.use('flow', function(){
+    var time = $("#time").val();
     var flow = layui.flow;
+
     flow.load({
         elem: '#questions'
         ,done: function(page, next){
             var lis = [];
-            $.get('question/getNewestQuestionsDetails.do?page='+page, function(res){
+            $.get('question/getNewestQuestionsDetails.do?page='+page + '&time=' + time, function(res){
                 layui.each(res, function(index, item){
                     lis.push(
                         '<div class="layui-card">' +

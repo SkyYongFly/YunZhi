@@ -37,7 +37,6 @@ public class AnswerController {
             return BaseUtil.getResult(BaseResult.FAILTURE);
         }
 
-
         return BaseUtil.getResult(answerService.addAnswer(answer));
     }
 

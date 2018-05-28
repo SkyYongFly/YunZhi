@@ -103,4 +103,18 @@ public class RedisUtil {
     public Set<Object> getZsetMaxKeys(Object zsetKey, long start, long end){
          return redisTemplate.opsForZSet().reverseRange(zsetKey, start, end);
     }
+
+    /**
+     * 指定区间内分页查询zset键值信息
+     *
+     * @param zsetKey     目标zset
+     * @param maxValue    最大值
+     * @param minValue    最小值
+     * @param index       开始索引位置
+     * @param count       数量
+     * @return
+     */
+    public Set<Object> getZsetMaxKeysInScoresWithPage(Object zsetKey, double maxValue, double minValue, long index, long count){
+        return redisTemplate.opsForZSet().reverseRangeByScore(zsetKey, maxValue, minValue, index, count);
+    }
 }

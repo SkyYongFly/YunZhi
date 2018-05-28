@@ -1,10 +1,10 @@
 package com.skylaker.yunzhi.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.QuestionMapper;
 import com.skylaker.yunzhi.pojo.Question;
+import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.QuestionResult;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.IHotQuestionService;
@@ -34,6 +34,9 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     @Autowired
     @Qualifier("notQuestionServiceImpl")
     private IHotQuestionService hotQuestionService;
+
+    @Autowired
+    private QuestionMapper questionMapper;
 
 
     @Override
@@ -83,7 +86,7 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     public List<Question> getNewestQuestions() {
        //从Redis中获取最新的10个问题
         Set<Object> questions = redisUtil.getZsetMaxKeys(
-                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , GlobalConstant.QUESTIONS_NUM);
+                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , Long.valueOf(GlobalConstant.QUESTIONS_NUM -1));
 
         List<Question> result = new ArrayList<>();
 
@@ -103,7 +106,6 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         return result;
     }
 
-
     /**
      * 查询问题相信信息
      *
@@ -114,5 +116,45 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     @Cacheable(value = "questionCache")
     public Question getQuestionDetail(String qid) {
         return selectByKey(qid);
+    }
+
+    /**
+     * 获取指定时间戳之前最新的问题列表，需要根据信息过滤
+     *
+     * @param   page    分页信息，第几页
+     * @param   time    用户请求时间戳
+     * @return
+     */
+    @Override
+    public List<QuestionDetail> getNewestQuestionsDetails(int page, long time) {
+        if(page < 1){
+            return null;
+        }
+
+        //计算索引开始位置
+        int index = (page - 1) * GlobalConstant.QUESTIONS_NUM;
+
+        //查询问题列表，每次查询10条
+        Set<Object> questions =  redisUtil.getZsetMaxKeysInScoresWithPage(
+                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, Double.valueOf(time), 0.0, Long.valueOf(index), GlobalConstant.QUESTIONS_NUM);
+
+        if(null == questions || questions.size() < 1){
+            return null;
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        //解析问题标题信息
+        Iterator<Object> iterator = questions.iterator();
+        while (iterator.hasNext()){
+            int key = Integer.valueOf(JSONObject.parseObject(iterator.next().toString()).keySet().iterator().next());
+
+            if(iterator.hasNext()){
+                builder.append(key).append(",");
+            }
+        }
+
+        //获取指定问题列表的详细信息
+        return questionMapper.getQuestionDetailList(builder.toString());
     }
 }

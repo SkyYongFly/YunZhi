@@ -5,7 +5,19 @@
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->
 <mapper namespace="com.skylaker.yunzhi.mappers.QuestionMapper">
 
-
-
+    <!--查询指定问题列表详细信息-->
+    <select id="getQuestionDetailList" parameterType="java.lang.String" resultType="questionDetail">
+      select
+        q.id,
+        u.username
+      from
+        question  q
+      join
+        user      u
+      on
+        q.userid = u.id
+      where
+        q.qid in ( ${qids} )
+    </select>
 
 </mapper>

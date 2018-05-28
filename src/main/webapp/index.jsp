@@ -171,6 +171,7 @@
     </div>
 
     <form id="form" method="post" action="">
+        <input type="text" id="time" name="time"/>
     </form>
 
     <%--引入逻辑处理JS--%>

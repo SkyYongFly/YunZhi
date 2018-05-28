@@ -2,6 +2,7 @@ package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.Question;
+import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.TableData;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -50,13 +51,13 @@ public class QuestionController {
     }
 
     /**
-     * 获取系统中的最新一系列问题详情
+     * （分页）获取最新的问题列表，包括问题提问用户信息、问题标题、内容
      *
      * @return
      */
     @RequestMapping(value = "/getNewestQuestionsDetails", method = RequestMethod.GET)
-    public @ResponseBody List<Question> getNewestQuestionsDetails(@RequestParam("page")String page){
-        return questionService.getNewestQuestions();
+    public @ResponseBody List<QuestionDetail> getNewestQuestionsDetails(@RequestParam("page")int page, @RequestParam("time") long time){
+        return questionService.getNewestQuestionsDetails(page, time);
     }
 
     /**

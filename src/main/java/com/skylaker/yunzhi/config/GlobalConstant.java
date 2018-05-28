@@ -36,6 +36,6 @@ public class GlobalConstant {
     //用户session名称
     public static final Object SESSION_USER_NAME = "user";
     //每次加载最新问题数量
-    public static final long QUESTIONS_NUM = 10;
+    public static final int QUESTIONS_NUM = 10;
 
 }
