@@ -7,11 +7,13 @@ import com.skylaker.yunzhi.mappers.QuestionMapper;
 import com.skylaker.yunzhi.pojo.Question;
 import com.skylaker.yunzhi.pojo.QuestionResult;
 import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,11 @@ import java.util.*;
 public class QuestionServiceImpl extends BaseService<Question> implements IQuestionService {
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    @Qualifier("notQuestionServiceImpl")
+    private IHotQuestionService hotQuestionService;
+
 
     @Override
     public QuestionResult addQuestion(Question question) {
@@ -67,8 +74,8 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME,
                    questionInfo.toJSONString() , Double.valueOf(System.currentTimeMillis()));
 
-        //初始化热门问题
-        redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_HOT, questionInfo.toJSONString(), 0.0);
+        //初始化问题热门指数
+        hotQuestionService.initQuestionHotIndex(question.getQid());
     }
 
 

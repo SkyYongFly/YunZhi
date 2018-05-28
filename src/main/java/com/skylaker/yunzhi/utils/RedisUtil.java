@@ -84,6 +84,17 @@ public class RedisUtil {
     }
 
     /**
+     * zset 中指定键的值增加分值
+     *
+     * @param zsetKey   目标zset
+     * @param itemKey   要添加分值的项
+     * @param score     添加的分值
+     */
+    public void increaseZsetScore(Object zsetKey, Object itemKey, double score){
+        redisTemplate.opsForZSet().incrementScore(zsetKey, itemKey, score);
+    }
+
+    /**
      * 返回指定索引区间内最大的几条记录对应的键
      *  @param zsetKey   目标zset
      * @param start     开始位置

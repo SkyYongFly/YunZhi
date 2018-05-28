@@ -21,6 +21,8 @@ public class GlobalConstant {
     public static final Object REDIS_ZSET_QUESTIONS_TIME = "QUESTIONS_TIME";
     //热门问题
     public static final Object REDIS_ZSET_QUESTIONS_HOT = "QUESTIONS_HOT";
+    //问题对应的所有回答zset key名称后缀
+    public static final String REDIS_ZSET_QUESTION_ANSWERS = "_Answers";
 
 
     //非业务型常量定义
@@ -35,4 +37,5 @@ public class GlobalConstant {
     public static final Object SESSION_USER_NAME = "user";
     //每次加载最新问题数量
     public static final long QUESTIONS_NUM = 10;
+
 }

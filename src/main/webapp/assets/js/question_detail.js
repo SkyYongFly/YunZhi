@@ -99,3 +99,29 @@ function getQuestionDetail() {
         }
     });
 }
+
+/**
+ * 提交回答
+ */
+function addAnswer() {debugger;
+    var text = UE.getEditor('container').getContent();
+
+    if(isNullOrEmpty(text)){
+        return;
+    }
+
+    var qid = $("#qid").val();
+
+    $.ajax({
+        url:  getBaseUrl() + "answer/addAnswer.do",
+        type: "POST",
+        data:JSON.stringify({"qid": qid, "text": text}),
+        contentType:"application/json",
+        dataType: "json",
+        success:function (data) {
+            if(data){
+                layer.msg(data.message);
+            }
+        }
+    });
+}
