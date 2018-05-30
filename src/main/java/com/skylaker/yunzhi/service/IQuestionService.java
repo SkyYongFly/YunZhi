@@ -46,4 +46,20 @@ public interface IQuestionService {
      * @return
      */
     List<QuestionDetail> getNewestQuestionsDetails(int page, long time);
+
+    /**
+     * 查询指定时间之前的所有问题数量
+     *
+     * @param  time 指定时间戳
+     * @return
+     */
+    Long getNewestQuestionsCount(long time);
+
+    /**
+     * 获取问题回答数
+     *
+     * @param   qid 问题ID
+     * @return
+     */
+    Long getQuestionAnswers(int qid);
 }

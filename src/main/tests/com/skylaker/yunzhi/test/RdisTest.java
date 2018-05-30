@@ -2,9 +2,12 @@ package com.skylaker.yunzhi.test;
 
 import com.skylaker.yunzhi.pojo.RegisterResult;
 import com.skylaker.yunzhi.service.impl.RegisterServiceImpl;
+import com.skylaker.yunzhi.utils.RedisUtil;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
+
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,5 +65,10 @@ public class RdisTest {
         public void run() {
             System.out.println(registerService.getVercode("17692133968"));
         }
+    }
+
+    @Test
+    public void testRedis(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
     }
 }

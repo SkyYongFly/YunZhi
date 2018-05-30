@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/common.css"/>
 
     <%--引入jquery--%>
-    <script src="<%=request.getContextPath() %>/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/plugins/js/jquery-3.3.1.min.js"></script>
     <%--引入Layui脚本--%>
     <script src="<%=request.getContextPath() %>/assets/plugins/layui/layui.all.js"></script>
 

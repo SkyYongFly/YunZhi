@@ -10,11 +10,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题实体
+ *
  * User: zhuyong
- * Date: 2018/5/17
- * Time: 22:29
- * Description: 问题实体
+ * Date: 2018/5/17 22:29
  */
 @Alias("question")
 @Table(name = "QUESTION")
@@ -25,7 +24,7 @@ public class Question implements Serializable {
     @Id
     @Column(name = "qid")
     @GeneratedValue(generator = "JDBC")
-    private int qid;
+    private Integer qid;
 
     //问题标题
     @Column
@@ -37,7 +36,7 @@ public class Question implements Serializable {
 
     //提问用户ID
     @Column
-    private int userid;
+    private Integer userid;
 
     //创建时间
     @Column
@@ -48,11 +47,11 @@ public class Question implements Serializable {
     private Date updatetime;
 
 
-    public int getQid() {
+    public Integer getQid() {
         return qid;
     }
 
-    public void setQid(int qid) {
+    public void setQid(Integer qid) {
         this.qid = qid;
     }
 
@@ -72,11 +71,11 @@ public class Question implements Serializable {
         this.text = text;
     }
 
-    public int getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 

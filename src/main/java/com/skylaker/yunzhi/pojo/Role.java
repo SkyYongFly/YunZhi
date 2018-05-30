@@ -12,7 +12,7 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //角色表主键ID
-    private int     roleid;
+    private Integer     roleid;
 
     //角色名称
     private String  rolename;
@@ -34,11 +34,11 @@ public class Role implements Serializable {
 
     }
 
-    public int getRoleid() {
+    public Integer getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(int roleid) {
+    public void setRoleid(Integer roleid) {
         this.roleid = roleid;
     }
 

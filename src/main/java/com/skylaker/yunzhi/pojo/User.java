@@ -39,7 +39,7 @@ public class User implements Serializable{
 	private Date 	updatetime;
 
 	//用户是否被锁定
-	private boolean locked;
+	private Boolean locked;
 
 	//用户密码加盐
 	private String 	salt;
@@ -79,7 +79,7 @@ public class User implements Serializable{
 		//默认属性设置
 		private Date 	createtime = new Date();
 		private Date 	updatetime = new Date();
-		private boolean locked = false;
+		private Boolean locked = false;
 
 		public 	Builder(String phone){
 			this.phone = phone;
@@ -166,11 +166,11 @@ public class User implements Serializable{
 		this.updatetime = updatetime;
 	}
 
-	public boolean isLocked() {
+	public Boolean isLocked() {
 		return locked;
 	}
 
-	public void setLocked(boolean locked) {
+	public void setLocked(Boolean locked) {
 		this.locked = locked;
 	}
 

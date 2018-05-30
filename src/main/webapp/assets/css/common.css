@@ -66,3 +66,67 @@
 .question_title{
     height: 100px;
 }
+
+/*用户头像及昵称所在父容器*/
+.userHeadParentElement{
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+}
+
+/*用户头像样式*/
+.userSmallHead{
+    width: 28px;
+    height:28px;
+    border-radius:5px;
+}
+
+/*用户昵称样式*/
+.userName{
+    font-family:'Source-Han-Ligh12542fa0dc1ce6f';
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #404040;
+}
+
+/*用户签名样式*/
+.userSignature{
+    font-family:'HanWangYenThin-12543decf41ce6f';
+    font-size: 13px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+/*展示问题详情时问题标题样式*/
+.questionDetailTitle{
+    font-family:'CTBiaoSongSJ12544e75221ce6f';
+    font-size: large;
+    font-weight: bold;
+    color: #292929;
+}
+/*展示问题详情时问题内容样式*/
+.questionDetailText{
+    margin-top: 10px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+/*查看全文*/
+.read-more{
+    color: #175199
+}
+
+/*问题评论、分享*/
+.questionAction{
+    margin-top: 10px;
+    color: #77839c;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+}
+
+.item-margin{
+    margin-left: 30px;
+}

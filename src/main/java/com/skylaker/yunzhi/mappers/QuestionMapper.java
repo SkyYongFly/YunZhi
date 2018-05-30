@@ -21,5 +21,5 @@ public interface QuestionMapper extends Mapper<Question>,MySqlMapper<Question> {
      * @param   qids  问题ID字符串
      * @return
      */
-    List<QuestionDetail> getQuestionDetailList(@Param("ids") String qids);
+    List<QuestionDetail> getQuestionDetailList(@Param("qids") String qids);
 }

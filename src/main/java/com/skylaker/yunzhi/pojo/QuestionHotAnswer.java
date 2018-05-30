@@ -9,7 +9,7 @@ package com.skylaker.yunzhi.pojo;
  */
 public class QuestionHotAnswer extends  Question{
     //热门回答用户ID
-    private int answeruserid;
+    private Integer answeruserid;
 
     //热门回答用户名称
     private String answerusername;
@@ -21,14 +21,14 @@ public class QuestionHotAnswer extends  Question{
     private String answertext;
 
     //热门回答点赞数
-    private int star;
+    private Integer star;
 
 
-    public int getAnsweruserid() {
+    public Integer getAnsweruserid() {
         return answeruserid;
     }
 
-    public void setAnsweruserid(int answeruserid) {
+    public void setAnsweruserid(Integer answeruserid) {
         this.answeruserid = answeruserid;
     }
 
@@ -56,11 +56,11 @@ public class QuestionHotAnswer extends  Question{
         this.answertext = answertext;
     }
 
-    public int getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(int star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 }

@@ -35,16 +35,33 @@ layui.use('flow', function(){
         ,done: function(page, next){
             var lis = [];
             $.get('question/getNewestQuestionsDetails.do?page='+page + '&time=' + time, function(res){
-                layui.each(res, function(index, item){
+                layui.each(res.questions, function(index, item){
                     lis.push(
                         '<div class="layui-card">' +
-                            '<div class="layui-card-header" onclick="showQuestionDetail(' + item.qid + ');">' + item.title + '</div>' +
-                            '<div class="layui-card-body">' + item.title + '</div>' +
+                            '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +
+                                '<img src="assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                                '<a class="userName">' + item.username + '</a>' +
+                                '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
+                            '</div>' +
+                            '<div class="layui-card-body">' +
+                                '<div class="layui-row questionDetailTitle" onclick="showQuestionDetail(' + item.qid + ');">' +
+                                    item.title +
+                                '</div>' +
+                                '<div class="layui-row questionDetailText"  onclick="showQuestionDetail(' + item.qid + ');">' +
+                                    showQuestionText(item.text) +
+                                '</div>' +
+                                '<div class="layui-row questionAction">' +
+                                    '<i class="iconfont icon-pinglun"></i>&nbsp;&nbsp;' + showAnswersNum(item.answersnum) +
+                                    '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
+                                    '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
+                                    '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
+                                '</div>' +
+                            '</div>' +
                         '</div>'
                     );
                 });
 
-                next(lis.join(''), page < res.length / QUESTIONS_NUM);
+                next(lis.join(''), page < res.sum / QUESTIONS_NUM);
             });
         }
     });
@@ -102,4 +119,44 @@ function showQuestionDetail(qid) {
     if(!isNullOrEmpty(qid)){
         window.open("jsp/question_detail.jsp?qid=" + qid);
     }
+}
+
+/**
+ * 显示签名
+ */
+function showSignature(signature) {
+    if(isNullOrEmpty(signature)){
+        return "";
+    }
+
+    return signature;
+}
+
+/**
+ * 显示问题内容
+ */
+function showQuestionText(text) {
+    if(isNullOrEmpty(text)){
+        return "";
+    }
+
+    if(text.length < 85){
+        return text;
+    }
+
+    return text.substr(0, 85) + " ... " + '<a href="#/" class="read-more">查看全文 &raquo;</a>';
+}
+
+/**
+ * 显示问题回答数
+ *
+ * @param answersnum
+ * @returns {string}
+ */
+function showAnswersNum(answersnum) {
+    if(0 == answersnum){
+        return "添加回答";
+    }
+
+    return answersnum + " 条回答";
 }

@@ -10,11 +10,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题回答POJO
+ *
  * User: zhuyong
- * Date: 2018/5/17
- * Time: 22:33
- * Description:
+ * Date: 2018/5/17  22:33
  */
 @Alias("answer")
 @Table(name = "ANSWER")
@@ -25,7 +24,7 @@ public class Answer implements Serializable {
     @Id
     @Column(name = "aid")
     @GeneratedValue(generator = "JDBC")
-    private int aid;
+    private Integer aid;
 
     //回答内容
     @Column
@@ -33,24 +32,24 @@ public class Answer implements Serializable {
 
     //回答的问题ID
     @Column
-    private int qid;
+    private Integer qid;
 
     //回答用户ID
     @Column
-    private int userid;
+    private Integer userid;
 
     //创建时间
     @Column
     private Date createtime;
 
     //点赞数
-    private int star;
+    private Integer star;
 
-    public int getAid() {
+    public Integer getAid() {
         return aid;
     }
 
-    public void setAid(int aid) {
+    public void setAid(Integer aid) {
         this.aid = aid;
     }
 
@@ -62,19 +61,19 @@ public class Answer implements Serializable {
         this.text = text;
     }
 
-    public int getQid() {
+    public Integer getQid() {
         return qid;
     }
 
-    public void setQid(int qid) {
+    public void setQid(Integer qid) {
         this.qid = qid;
     }
 
-    public int getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 
@@ -86,11 +85,11 @@ public class Answer implements Serializable {
         this.createtime = createtime;
     }
 
-    public int getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(int star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 

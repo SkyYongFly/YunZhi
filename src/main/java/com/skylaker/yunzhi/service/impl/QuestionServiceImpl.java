@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+import static com.skylaker.yunzhi.config.GlobalConstant.REDIS_ZSET_QUESTIONS_TIME;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuyong
@@ -74,7 +76,7 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         questionInfo.put(String.valueOf(question.getQid()), question.getTitle());
 
         //保存问题时间戳
-        redisUtil.addZsetValue(GlobalConstant.REDIS_ZSET_QUESTIONS_TIME,
+        redisUtil.addZsetValue(REDIS_ZSET_QUESTIONS_TIME,
                    questionInfo.toJSONString() , Double.valueOf(System.currentTimeMillis()));
 
         //初始化问题热门指数
@@ -86,7 +88,7 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     public List<Question> getNewestQuestions() {
        //从Redis中获取最新的10个问题
         Set<Object> questions = redisUtil.getZsetMaxKeys(
-                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, 0 , Long.valueOf(GlobalConstant.QUESTIONS_NUM -1));
+                REDIS_ZSET_QUESTIONS_TIME, 0 , Long.valueOf(GlobalConstant.QUESTIONS_NUM -1));
 
         List<Question> result = new ArrayList<>();
 
@@ -136,7 +138,7 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
 
         //查询问题列表，每次查询10条
         Set<Object> questions =  redisUtil.getZsetMaxKeysInScoresWithPage(
-                GlobalConstant.REDIS_ZSET_QUESTIONS_TIME, Double.valueOf(time), 0.0, Long.valueOf(index), GlobalConstant.QUESTIONS_NUM);
+                REDIS_ZSET_QUESTIONS_TIME, 0.0, Double.valueOf(time), Long.valueOf(index), GlobalConstant.QUESTIONS_NUM);
 
         if(null == questions || questions.size() < 1){
             return null;
@@ -148,13 +150,47 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         Iterator<Object> iterator = questions.iterator();
         while (iterator.hasNext()){
             int key = Integer.valueOf(JSONObject.parseObject(iterator.next().toString()).keySet().iterator().next());
-
-            if(iterator.hasNext()){
-                builder.append(key).append(",");
-            }
+            builder.append(key).append(",");
         }
 
+        //去掉最后的逗号，获取查询详细信息的问题ID字符串
+        String qids = builder.toString().substring(0, builder.length() - 1);
+
         //获取指定问题列表的详细信息
-        return questionMapper.getQuestionDetailList(builder.toString());
+        List<QuestionDetail> questionDetailList = questionMapper.getQuestionDetailList(qids);
+        setQuestionAnswersInfo(questionDetailList);
+
+        return questionDetailList;
+    }
+
+    /**
+     * 获取问题的回答数
+     *
+     * @param questionDetailList
+     */
+    private void setQuestionAnswersInfo(List<QuestionDetail> questionDetailList) {
+        for(int i = 0, len = questionDetailList.size(); i < len; i++){
+            QuestionDetail questionDetail = questionDetailList.get(i);
+            questionDetail.setAnswersnum(getQuestionAnswers(questionDetail.getQid()));
+        }
+    }
+
+    @Override
+    public Long getNewestQuestionsCount(long time) {
+        if(time < 0){
+            return Long.valueOf(0);
+        }
+
+        return redisUtil.getZsetCount(REDIS_ZSET_QUESTIONS_TIME, 0.0, time);
+    }
+
+    @Override
+    public Long getQuestionAnswers(int qid) {
+        if(null == Integer.valueOf(qid)){
+            return Long.valueOf(0);
+        }
+
+        return redisUtil.getZsetCount(qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS,
+                Double.valueOf(0), Double.POSITIVE_INFINITY);
     }
 }

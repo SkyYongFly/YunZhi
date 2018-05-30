@@ -14,6 +14,10 @@ public class QuestionDetail extends Question implements Serializable {
 
     //问题提问用户名称
     private String username;
+    //用户签名
+    private String signature;
+    //问题回答数
+    private Long answersnum;
 
 
     public String getUsername() {
@@ -22,5 +26,21 @@ public class QuestionDetail extends Question implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public Long getAnswersnum() {
+        return answersnum;
+    }
+
+    public void setAnswersnum(Long answersnum) {
+        this.answersnum = answersnum;
     }
 }

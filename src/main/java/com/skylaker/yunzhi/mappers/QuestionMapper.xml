@@ -7,17 +7,20 @@
 
     <!--查询指定问题列表详细信息-->
     <select id="getQuestionDetailList" parameterType="java.lang.String" resultType="questionDetail">
-      select
-        q.id,
-        u.username
-      from
-        question  q
-      join
-        user      u
-      on
-        q.userid = u.id
-      where
-        q.qid in ( ${qids} )
+        SELECT
+            Q.*,
+            U.USERNAME,
+            U.SIGNATURE
+        FROM
+            QUESTION  Q
+        JOIN
+            USER      U
+        ON
+            Q.USERID = U.ID
+        WHERE
+            Q.QID IN ( ${qids} )
+        ORDER BY
+            Q.QID DESC
     </select>
 
 </mapper>
