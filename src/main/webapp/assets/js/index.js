@@ -8,6 +8,8 @@
 var QUESTIONS_NUM = 10;
 //缓存用户进入首页的时间
 $("#time").val((new Date()).valueOf());
+//初始化缓存标识
+$("#token").val(null);
 
 
 layui.use('table', function(){
@@ -28,41 +30,43 @@ layui.use('element', function(){
 
 //加载热门问题、回答
 layui.use('flow', function(){
-    var time = $("#time").val();
     var flow = layui.flow;
 
     flow.load({
         elem: '#hotQuestions'
         ,done: function(page, next){
             var lis = [];
-            $.get('question/getHotQuestionsDetails.do?page='+page + '&time=' + time, function(res){
-                layui.each(res.questions, function(index, item){
+            $.get('question/getHotQuestionsDetails.do?page='+page + '&token=' + $("#token").val(), function(res){
+                layui.each(res.hotQuestionDetaislList, function(index, item){
                     lis.push(
                         '<div class="layui-card">' +
-                        '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +
-                        '<img src="assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
-                        '<a class="userName">' + item.username + '</a>' +
-                        '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
-                        '</div>' +
-                        '<div class="layui-card-body">' +
-                        '<div class="layui-row questionDetailTitle" onclick="showQuestionDetail(' + item.qid + ');">' +
-                        item.title +
-                        '</div>' +
-                        '<div class="layui-row questionDetailText"  onclick="showQuestionDetail(' + item.qid + ');">' +
-                        showQuestionText(item.text) +
-                        '</div>' +
-                        '<div class="layui-row questionAction">' +
-                        '<i class="iconfont icon-pinglun"></i>&nbsp;&nbsp;' + showAnswersNum(item.answersnum) +
-                        '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
-                        '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
-                        '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
-                        '</div>' +
-                        '</div>' +
+                            '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.hotuserid + ');">' +
+                                '<img src="assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                                '<a class="userName">' + item.hotusername + '</a>' +
+                                '<a class="userSignature">' + showSignature(item.hotsignature) + '</a>' +
+                            '</div>' +
+                            '<div class="layui-card-body">' +
+                                '<div class="layui-row questionDetailTitle" onclick="showQuestionDetail(' + item.qid + ');">' +
+                                    item.title +
+                                '</div>' +
+                                '<div class="layui-row hotanwer"  onclick="showQuestionDetail(' + item.qid + ');">' +
+                                    showQuestionText(item.hotanswer) +
+                                '</div>' +
+                                '<div class="layui-row questionAction">' +
+                                    '<i class="iconfont icon-pinglun"></i>&nbsp;&nbsp;' + showAnswerStar(item.hotsatr) +
+                                    '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
+                                    '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
+                                    '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
+                                '</div>' +
+                            '</div>' +
                         '</div>'
                     );
                 });
 
+                //设置分页信息
                 next(lis.join(''), page < res.sum / QUESTIONS_NUM);
+                //设置缓存标识
+                $("#token").val(res.token);
             });
         }
     });
@@ -197,9 +201,23 @@ function showQuestionText(text) {
  * @returns {string}
  */
 function showAnswersNum(answersnum) {
-    if(0 == answersnum){
+    if(undefined == answersnum || 0 == answersnum){
         return "添加回答";
     }
 
     return answersnum + " 条回答";
+}
+
+/**
+ * 显示回答点赞数
+ *
+ * @param hotsatr
+ * @returns {string}
+ */
+function showAnswerStar(hotsatr) {
+    if(undefined == hotsatr ||  0 == hotsatr){
+        return "点赞";
+    }
+
+    return hotsatr + " 条点赞";
 }

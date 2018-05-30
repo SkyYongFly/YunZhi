@@ -164,6 +164,7 @@
 
     <form id="form" method="post" action="">
         <input type="text" id="time" name="time" style="display: none"/>
+        <input type="text" id="token" name="token" style="display: none"/>
     </form>
 
     <%--引入逻辑处理JS--%>

@@ -1,9 +1,12 @@
 package com.skylaker.yunzhi.utils;
 
+import com.skylaker.yunzhi.config.GlobalConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -40,6 +43,15 @@ public class RedisUtil {
      */
     public boolean hasHashKey(Object hashKey, Object key){
         return redisTemplate.opsForHash().hasKey(hashKey, key);
+    }
+
+    /**
+     * 删除指定键
+     *
+     * @param key
+     */
+    public void deleteKey(String key){
+        redisTemplate.delete(key);
     }
 
     /**
@@ -117,6 +129,17 @@ public class RedisUtil {
     }
 
     /**
+     * 返回指定索引区间内最大的几条记录对应的键值对信息
+     *
+     *  @param zsetKey   目标zset
+     * @param start     开始位置
+     * @param end       结束位置
+     */
+    public Set<ZSetOperations.TypedTuple<Object>> getZsetMaxKeysOfScores(Object zsetKey, long start, long end){
+         return redisTemplate.opsForZSet().reverseRangeWithScores(zsetKey, start, end);
+    }
+
+    /**
      * 指定区间内分页查询zset键值信息
      *
      * @param zsetKey     目标zset
@@ -131,6 +154,20 @@ public class RedisUtil {
     }
 
     /**
+     * 指定区间内分页查询zset键值信息，同时返回键、值信息
+     *
+     * @param zsetKey     目标zset
+     * @param minValue    最小值
+     * @param maxValue    最大值
+     * @param index       开始索引位置
+     * @param count       数量
+     * @return
+     */
+    public Set<ZSetOperations.TypedTuple<Object>> getZsetMaxKeysInScoresOfScoreInfoWithPage(Object zsetKey, double minValue, double maxValue, long index, long count){
+        return redisTemplate.opsForZSet().reverseRangeByScoreWithScores(zsetKey, minValue, maxValue, index, count);
+    }
+
+    /**
      * 指定区间内查询zset键值信息
      *
      * @param zsetKey     目标zset
@@ -140,6 +177,30 @@ public class RedisUtil {
      */
     public Set<Object> getZsetMaxKeysInScores(Object zsetKey, double minValue, double maxValue){
         return redisTemplate.opsForZSet().reverseRangeByScore(zsetKey, minValue, maxValue);
+    }
+
+    /**
+     * 指定区间内查询zset键值信息，同时返回键、值信息
+     *
+     * @param zsetKey     目标zset
+     * @param minValue    最小值
+     * @param maxValue    最大值
+     * @return
+     */
+    public Set<ZSetOperations.TypedTuple<Object>> getZsetMaxKeysOfScoreInScores(Object zsetKey, double minValue, double maxValue){
+        return redisTemplate.opsForZSet().reverseRangeByScoreWithScores(zsetKey, minValue, maxValue);
+    }
+
+    /**
+     * 指定区间内查询zset键值信息，同时返回键、值信息，由小到大排序
+     *
+     * @param zsetKey     目标zset
+     * @param minValue    最小值
+     * @param maxValue    最大值
+     * @return
+     */
+    public Set<ZSetOperations.TypedTuple<Object>> getZsetMaxKeysOfScoreInScoresBySorted(Object zsetKey, double minValue, double maxValue){
+        return redisTemplate.opsForZSet().rangeByScoreWithScores(zsetKey, minValue, maxValue);
     }
 
     /**
@@ -164,10 +225,13 @@ public class RedisUtil {
      * @return  {Long}  合并元素数量
      */
     public Long cacheSortedZset(Object zsetKey, Object destionKey) {
-        //获取由大到小排序集合
-        Set<Object> sortedCollection = getZsetMaxKeysInScores(zsetKey, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+        //将问题热门指数集合按照指数由小到大排序
+        //注意这里的起始热门指数值不为0
+        Set<ZSetOperations.TypedTuple<Object>> sortedCollection =
+                getZsetMaxKeysOfScoreInScoresBySorted(zsetKey, GlobalConstant.MIN_HOT_INDEX, Double.POSITIVE_INFINITY);
 
-        //合并倒序集合 与 目标集合
-        return  redisTemplate.opsForZSet().unionAndStore(destionKey, sortedCollection, destionKey);
+        //将排序集合设置到缓存集合中
+        //注意这个添加后集合顺序由大到小
+        return  redisTemplate.opsForZSet().add(destionKey, sortedCollection);
     }
 }

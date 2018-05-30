@@ -63,13 +63,4 @@ public interface IQuestionService {
      * @return
      */
     Long getQuestionAnswers(int qid);
-
-    /**
-     * 获取最热门的问题集合
-     *
-     * @param page  页码
-     * @param token 缓存标识
-     * @return
-     */
-    HotQuestionsList getHotQuestionsDetailsByPage(int page, String token);
 }

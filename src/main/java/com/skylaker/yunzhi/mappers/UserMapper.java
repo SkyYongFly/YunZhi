@@ -3,12 +3,14 @@ package com.skylaker.yunzhi.mappers;
 import java.util.List;
 
 import com.skylaker.yunzhi.pojo.User;
+import org.springframework.stereotype.Repository;
 
 /**
  * User 相关SQL操作Mapper接口
  * 
  * @author sky
  */
+@Repository
 public interface UserMapper{
 	/**
 	 * 根据用户ID获取用户信息

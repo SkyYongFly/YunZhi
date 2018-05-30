@@ -1,5 +1,7 @@
 package com.skylaker.yunzhi.service;
 
+import com.skylaker.yunzhi.pojo.HotQuestionsList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuyong
@@ -21,4 +23,13 @@ public interface IHotQuestionService {
      * @param qid 问题ID
      */
     void updateQuestionHotIndexOfAnswer(int qid);
+
+    /**
+     * 获取最热门的问题集合
+     *
+     * @param page  页码
+     * @param token 缓存标识
+     * @return
+     */
+    HotQuestionsList getHotQuestionsDetailsByPage(int page, String token);
 }

@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.utils;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.IResult;
+import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
 import org.apache.shiro.SecurityUtils;
@@ -108,5 +109,24 @@ public class BaseUtil {
     public static User getSessionUser(){
         Subject subject = SecurityUtils.getSubject();
         return  (User) subject.getSession().getAttribute(GlobalConstant.SESSION_USER_NAME);
+    }
+
+    /**
+     * 获取当前用户查询最热门问题时缓存热门问题的zset
+     *
+     * @return  热门问题zset键值
+     */
+    public static String getCacheHotQuestionsKey(){
+        return BaseUtil.getSessionUser().getId() + "_" +  GlobalConstant.REDIS_ZSET_QUESTIONS_HOT;
+    }
+
+    /**
+     * 获取redis缓存问题回答信息的key名称
+     *
+     * @param   qid  问题ID
+     * @return
+     */
+    public static Object getRedisQuestionAnswersKey(Integer qid) {
+        return qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS;
     }
 }

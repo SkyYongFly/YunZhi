@@ -18,16 +18,41 @@ public class QuestionDetail extends Question implements Serializable {
     private String signature;
     //问题回答数
     private Long answersnum;
+    //热门指数
+    private Double hotIndex;
 
-    //点赞数回答用户名称
+    //点赞数最多的回答用户ID
+    private Integer hotuserid;
+    //点赞数最多的回答用户名称
     private String hotusername;
-    //点赞数回答用户签名
+    //点赞数最多的回答用户签名
     private String hotsignature;
     //点赞数最多的回答内容
     private String hotanswer;
     //点赞数做多的回答的点赞数
     private Long hotstar;
 
+
+    /**
+     * 设置点赞数最多回答详细信息
+     *
+     * @param answerDetail  点赞数回答
+     */
+    public void setAnswerInfo(AnswerDetail answerDetail) {
+        this.hotuserid = answerDetail.getUserid();
+        this.hotusername = answerDetail.getUsername();
+        this.hotsignature = answerDetail.getSignature();
+        this.hotanswer = answerDetail.getText();
+    }
+
+
+    public Integer getHotuserid() {
+        return hotuserid;
+    }
+
+    public void setHotuserid(Integer hotuserid) {
+        this.hotuserid = hotuserid;
+    }
 
     public String getUsername() {
         return username;
@@ -83,5 +108,13 @@ public class QuestionDetail extends Question implements Serializable {
 
     public void setHotstar(Long hotstar) {
         this.hotstar = hotstar;
+    }
+
+    public void setHotIndex(Double hotIndex) {
+        this.hotIndex = hotIndex;
+    }
+
+    public Double getHotIndex() {
+        return hotIndex;
     }
 }

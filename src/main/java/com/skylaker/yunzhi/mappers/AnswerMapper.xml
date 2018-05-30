@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->
 <mapper namespace="com.skylaker.yunzhi.mappers.AnswerMapper">
-
+    <!--查询回答详情-->
+    <select id="getAnswerDetail" parameterType="java.lang.Integer" resultType="answerDetail">
+        SELECT
+            R.*,
+            U.USERNAME, U.SIGNATURE
+        FROM
+            ANSWER  R
+        JOIN
+            USER    U
+        ON
+            R.USERID = U.ID
+        WHERE
+          R.AID = #{aid}
+    </select>
 
 </mapper>

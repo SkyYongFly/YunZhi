@@ -27,7 +27,7 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
     private RedisUtil redisUtil;
 
     @Autowired
-    @Qualifier("notQuestionServiceImpl")
+    @Qualifier("hotQuestionServiceImpl")
     private IHotQuestionService hotQuestionService;
 
 

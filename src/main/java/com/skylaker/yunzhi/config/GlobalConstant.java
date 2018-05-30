@@ -37,5 +37,6 @@ public class GlobalConstant {
     public static final Object SESSION_USER_NAME = "user";
     //每次加载最新问题数量
     public static final int QUESTIONS_NUM = 10;
-
+    //热门指数最小值
+    public static final double MIN_HOT_INDEX = Double.valueOf(1);
 }

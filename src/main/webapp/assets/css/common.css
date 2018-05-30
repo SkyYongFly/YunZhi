@@ -106,7 +106,7 @@
     color: #292929;
 }
 /*展示问题详情时问题内容样式*/
-.questionDetailText{
+.questionDetailText , .hotanwer{
     margin-top: 10px;
     font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
     font-size: 15px;
