@@ -20,6 +20,18 @@ public class RedisUtil {
 
 
     /**
+     * 判断指定zset是否存在
+     *
+     * @param zsetKey
+     * @return
+     */
+    public boolean existZset(Object zsetKey){
+        Long num = redisTemplate.opsForZSet().zCard(zsetKey);
+
+        return Long.valueOf(0) == num ? false : true;
+    }
+
+    /**
      * 判断hash是否存在指定键
      *
      * @param   hashKey
@@ -119,6 +131,18 @@ public class RedisUtil {
     }
 
     /**
+     * 指定区间内查询zset键值信息
+     *
+     * @param zsetKey     目标zset
+     * @param minValue    最小值
+     * @param maxValue    最大值
+     * @return
+     */
+    public Set<Object> getZsetMaxKeysInScores(Object zsetKey, double minValue, double maxValue){
+        return redisTemplate.opsForZSet().reverseRangeByScore(zsetKey, minValue, maxValue);
+    }
+
+    /**
      * 获取指定区间zset元素数量
      *
      * @param zsetKey   目标zset
@@ -129,5 +153,21 @@ public class RedisUtil {
      */
     public Long getZsetCount(Object zsetKey, double minValue, double maxValue) {
          return redisTemplate.opsForZSet().count(zsetKey, minValue, maxValue);
+    }
+
+    /**
+     * 按照分值大小从大到小排序，然后将有序zset复制到指定zset中
+     *
+     * @param zsetKey      原zset
+     * @param destionKey   目标zset
+     *
+     * @return  {Long}  合并元素数量
+     */
+    public Long cacheSortedZset(Object zsetKey, Object destionKey) {
+        //获取由大到小排序集合
+        Set<Object> sortedCollection = getZsetMaxKeysInScores(zsetKey, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+
+        //合并倒序集合 与 目标集合
+        return  redisTemplate.opsForZSet().unionAndStore(destionKey, sortedCollection, destionKey);
     }
 }

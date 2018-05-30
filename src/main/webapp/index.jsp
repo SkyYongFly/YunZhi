@@ -87,16 +87,8 @@
                         </ul>
                         <div class="layui-tab-content">
                             <div class="layui-tab-item layui-show">
-
-                                <%--热门内容区域--%>
-                                <div class="layui-card">
-                                    <div class="layui-card-header">卡片面板</div>
-                                    <div class="layui-card-body">
-                                        卡片式面板面板通常用于非白色背景色的主体内<br>
-                                        从而映衬出边框投影
-                                    </div>
-                                </div>
-
+                                <%--热门问题相关信息--%>
+                                <ul class="flow-default" id="hotQuestions"></ul>
                             </div>
                             <div class="layui-tab-item">
                                 <%--加载问题相关信息--%>

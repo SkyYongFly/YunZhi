@@ -1,10 +1,7 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.NewestQuestionsList;
-import com.skylaker.yunzhi.pojo.Question;
-import com.skylaker.yunzhi.pojo.QuestionDetail;
-import com.skylaker.yunzhi.pojo.TableData;
+import com.skylaker.yunzhi.pojo.*;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +61,18 @@ public class QuestionController {
         Long sum = questionService.getNewestQuestionsCount(time);
 
         return new NewestQuestionsList(questionsList, sum);
+    }
+
+    /**
+     * 获取当前时刻最热门问题（需要考虑热门问题并行修改对分页查询的影响）
+     *
+     * @param page      分页查询页数
+     * @param token     标识：标识当前页面是否请求过最热门问题，用于决定是否生成临时缓存来记录热门问题
+     * @return
+     */
+    @RequestMapping(value = "/getHotQuestionsDetails", method = RequestMethod.GET)
+    public @ResponseBody HotQuestionsList getHotQuestionsDetails(@RequestParam("page")int page, @RequestParam("token") String token){
+        return questionService.getHotQuestionsDetailsByPage(page, token);
     }
 
     /**

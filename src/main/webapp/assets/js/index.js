@@ -26,6 +26,49 @@ layui.use('element', function(){
     });
 });
 
+//加载热门问题、回答
+layui.use('flow', function(){
+    var time = $("#time").val();
+    var flow = layui.flow;
+
+    flow.load({
+        elem: '#hotQuestions'
+        ,done: function(page, next){
+            var lis = [];
+            $.get('question/getHotQuestionsDetails.do?page='+page + '&time=' + time, function(res){
+                layui.each(res.questions, function(index, item){
+                    lis.push(
+                        '<div class="layui-card">' +
+                        '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +
+                        '<img src="assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                        '<a class="userName">' + item.username + '</a>' +
+                        '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
+                        '</div>' +
+                        '<div class="layui-card-body">' +
+                        '<div class="layui-row questionDetailTitle" onclick="showQuestionDetail(' + item.qid + ');">' +
+                        item.title +
+                        '</div>' +
+                        '<div class="layui-row questionDetailText"  onclick="showQuestionDetail(' + item.qid + ');">' +
+                        showQuestionText(item.text) +
+                        '</div>' +
+                        '<div class="layui-row questionAction">' +
+                        '<i class="iconfont icon-pinglun"></i>&nbsp;&nbsp;' + showAnswersNum(item.answersnum) +
+                        '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
+                        '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
+                        '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                    );
+                });
+
+                next(lis.join(''), page < res.sum / QUESTIONS_NUM);
+            });
+        }
+    });
+});
+
+//加载最新的问题
 layui.use('flow', function(){
     var time = $("#time").val();
     var flow = layui.flow;
