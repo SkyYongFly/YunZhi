@@ -61,8 +61,8 @@ layui.use('flow', function(){
                                     showAnswerText(item.text) +
                                 '</div>' +
                                 '<div class="layui-row questionAction">' +
-                                    '<button class="layui-btn layui-btn-sm starbtn">' +
-                                        '<i class="layui-icon layui-icon-praise"></i>&nbsp;&nbsp;添加' +
+                                    '<button class="layui-btn layui-btn-sm starbtn"  onclick="star(' + item.qid + "," + item.aid + ');">' +
+                                        '<i class="layui-icon layui-icon-praise" id="' + item.aid +'stars">&nbsp;&nbsp;' + item.star + '</i>' +
                                     '</button>' +
                                     '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
                                     '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +

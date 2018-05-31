@@ -37,4 +37,14 @@
             #{pageInfo.start}, #{pageInfo.pageSize}
     </select>
 
+    <!--增加问题的点赞数-->
+    <update id="increaseStarsNum" parameterType="java.lang.Integer">
+        UPDATE ANSWER SET STAR = STAR + 1 WHERE AID = #{aid}
+    </update>
+
+    <!--减少问题的点赞数-->
+    <update id="decreaseStarsNum" parameterType="java.lang.Integer">
+        UPDATE ANSWER SET STAR = STAR - 1 WHERE AID = #{aid}
+    </update>
+
 </mapper>

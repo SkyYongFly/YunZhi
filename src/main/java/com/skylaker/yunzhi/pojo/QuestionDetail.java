@@ -27,6 +27,8 @@ public class QuestionDetail extends Question implements Serializable {
     private String hotusername;
     //点赞数最多的回答用户签名
     private String hotsignature;
+    //热门回答ID
+    private Integer hotanswerid;
     //点赞数最多的回答内容
     private String hotanswer;
     //点赞数做多的回答的点赞数
@@ -50,6 +52,7 @@ public class QuestionDetail extends Question implements Serializable {
         this.hotusername = answerDetail.getUsername();
         this.hotsignature = answerDetail.getSignature();
         this.hotanswer = answerDetail.getText();
+        this.hotanswerid = answerDetail.getAid();
     }
 
 
@@ -123,5 +126,13 @@ public class QuestionDetail extends Question implements Serializable {
 
     public Double getHotIndex() {
         return hotIndex;
+    }
+
+    public Integer getHotanswerid() {
+        return hotanswerid;
+    }
+
+    public void setHotanswerid(Integer hotanswerid) {
+        this.hotanswerid = hotanswerid;
     }
 }

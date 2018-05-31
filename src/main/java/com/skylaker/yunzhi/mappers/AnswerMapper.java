@@ -33,4 +33,18 @@ public interface AnswerMapper extends Mapper<Answer>, MySqlMapper<Answer> {
      * @return
      */
     List<AnswerDetail> getQuestionAllAnswers(@Param("pageInfo")  PageInfo pageInfo);
+
+    /**
+     * 增加回答的点赞数
+     *
+     * @param aid 回答ID
+     */
+    void increaseStarsNum(Integer aid);
+
+    /**
+     * 减少回答的点赞数
+     *
+     * @param aid 回答ID
+     */
+    void decreaseStarsNum(Integer aid);
 }

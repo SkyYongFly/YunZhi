@@ -28,4 +28,15 @@ public interface IAnswerService {
      * @return
      */
     AnswersList getQuestionAllAnswers(int page, int qid);
+
+    /**
+     * 对问题回答进行点赞操作
+     *
+     *
+     * @param   aid  回答ID
+     * @param   qid  问题ID
+     *
+     * @return
+     */
+    Long starAction(Integer aid , Integer qid);
 }

@@ -41,4 +41,6 @@ public class GlobalConstant {
     public static final double MIN_HOT_INDEX = Double.valueOf(1);
     //每次加载回答数量
     public static final Integer ANSWERS_NUM = 10;
+    //用户点赞的回答
+    public static final String STAR_ANSWERS = "_STAR_ANSWERS";
 }

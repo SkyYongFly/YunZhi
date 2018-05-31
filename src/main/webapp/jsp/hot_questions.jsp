@@ -49,8 +49,8 @@
                                             showAnswerText(item.hotanswer) +
                                         '</div>' +
                                         '<div class="layui-row questionAction">' +
-                                            '<button class="layui-btn layui-btn-sm starbtn">' +
-                                                '<i class="layui-icon layui-icon-praise"></i>&nbsp;&nbsp;添加' +
+                                            '<button class="layui-btn layui-btn-sm starbtn"  onclick="star(' + item.qid + "," + item.hotanswerid + ');">' +
+                                                '<i class="layui-icon layui-icon-praise" id="' + item.hotanswerid +'stars">&nbsp;&nbsp;' + item.hotstar + '</i>' +
                                             '</button>' +
                                             '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
                                             '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
@@ -127,20 +127,6 @@
             }
 
             return answersnum + " 条回答";
-        }
-
-        /**
-         * 显示回答点赞数
-         *
-         * @param hotsatr
-         * @returns {string}
-         */
-        function showAnswerStar(hotsatr) {
-            if(undefined == hotsatr ||  0 == hotsatr){
-                return "点赞";
-            }
-
-            return hotsatr + " 条点赞";
         }
     </script>
 </body>

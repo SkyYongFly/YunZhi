@@ -28,6 +28,8 @@
 
     <%--引入公共JS--%>
     <script src="<%=request.getContextPath() %>/assets/js/common.js"></script>
+    <%--引入回答点赞处理JS--%>
+    <script src="<%=request.getContextPath() %>/assets/js/star.js"></script>
 </head>
 <body>
     <script type="text/javascript">

@@ -101,4 +101,60 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
 
         return new AnswersList(answerDetails,  sum);
     }
+
+    /**
+     * <p>
+     *    回答点赞操作 <br/>
+     *
+     *    1、需要判断当前用户对目标回答是否点赞过 <br/>
+     *    2、如果点赞过不允许重复点赞<br/>
+     *    3、没有点赞过需要保存相关点赞信息<br/>
+     *    4、避免频繁点击，导致数据同步问题，需要加锁处理
+     * </p>
+     *
+     *
+     * @param   aid  回答ID
+     * @param   qid  问题ID
+     *
+     * @return
+     */
+    @Override
+    public synchronized Long starAction(Integer aid, Integer qid) {
+        //TODO 加锁性能上会有影响，需要优化
+
+        //获取用户点赞的回答SET键名
+        Object  userStarAnswers = BaseUtil.getSessionUser().getId() + GlobalConstant.STAR_ANSWERS;
+        //判断用户是否哦对当前回答点赞过
+        boolean hasStared =  redisUtil.existInSet(userStarAnswers, aid);
+
+        //问题回答redis键名
+        Object questionAnswersRedisKey = BaseUtil.getRedisQuestionAnswersKey(qid);
+        //获取问题点赞数
+        Long stars = redisUtil.getZsetKeyValue(questionAnswersRedisKey, aid).longValue();
+
+        //已经点赞过
+        if(hasStared){
+            //redis 中回答点赞数减 1
+            redisUtil.increaseZsetScore(questionAnswersRedisKey, aid, Double.valueOf(-1));
+            //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
+            //数据库中回答点赞数减 1
+            answerMapper.decreaseStarsNum(aid);
+            //去除用户点赞的回答
+            redisUtil.removeSetValue(userStarAnswers, aid);
+
+            return stars - 1;
+        }
+        //没有点赞过
+        else{
+            //redis 中回答点赞数加 1
+            redisUtil.increaseZsetScore(questionAnswersRedisKey, aid, Double.valueOf(1));
+            //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
+            //数据库中回答点赞数加 1
+            answerMapper.increaseStarsNum(aid);
+            //缓存用户点赞的回答
+            redisUtil.addSetValue(userStarAnswers, aid);
+
+            return stars + 1;
+        }
+    }
 }

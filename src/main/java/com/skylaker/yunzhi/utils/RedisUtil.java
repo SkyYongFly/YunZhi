@@ -78,6 +78,7 @@ public class RedisUtil {
 
     /**
      * 判断某个值是否存在于指定的set中
+     *
      * @param setKey
      * @param value
      * @return
@@ -105,17 +106,6 @@ public class RedisUtil {
      */
     public void addZsetValue(Object zsetKey, Object itemKey, Double value){
         redisTemplate.opsForZSet().add(zsetKey, itemKey, value);
-    }
-
-    /**
-     * zset 中指定键的值增加分值
-     *
-     * @param zsetKey   目标zset
-     * @param itemKey   要添加分值的项
-     * @param score     添加的分值
-     */
-    public void increaseZsetScore(Object zsetKey, Object itemKey, double score){
-        redisTemplate.opsForZSet().incrementScore(zsetKey, itemKey, score);
     }
 
     /**
@@ -233,5 +223,37 @@ public class RedisUtil {
         //将排序集合设置到缓存集合中
         //注意这个添加后集合顺序由大到小
         return  redisTemplate.opsForZSet().add(destionKey, sortedCollection);
+    }
+
+    /**
+     * 获取指定有序集合中某个key的分值
+     *
+     * @param zsetKey   有序集合键名
+     * @param itemKey   需要查询的子项key
+     * @return
+     */
+    public Double getZsetKeyValue(Object zsetKey, Object itemKey) {
+        return redisTemplate.opsForZSet().score(zsetKey, itemKey);
+    }
+
+    /**
+     * zset 中指定键的值增加分值
+     *
+     * @param zsetKey   目标zset
+     * @param itemKey   要添加分值的项
+     * @param score     添加的分值
+     */
+    public void increaseZsetScore(Object zsetKey, Object itemKey, double score){
+        redisTemplate.opsForZSet().incrementScore(zsetKey, itemKey, score);
+    }
+
+    /**
+     *  从无序集合set中去除指定项
+     *
+     * @param setKey     无序集合键名
+     * @param itemKey    子项键名
+     */
+    public Long removeSetValue(Object setKey, Integer itemKey) {
+        return redisTemplate.opsForSet().remove(setKey, itemKey);
     }
 }
