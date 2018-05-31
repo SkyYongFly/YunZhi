@@ -2,6 +2,7 @@ package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.Answer;
+import com.skylaker.yunzhi.pojo.AnswersList;
 import com.skylaker.yunzhi.pojo.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -40,4 +41,20 @@ public class AnswerController {
         return BaseUtil.getResult(answerService.addAnswer(answer));
     }
 
+    /**
+     *  获取问题的所有回答，按照回答点赞数倒序排序
+     *
+     * @param page  分页查询页码
+     * @param qid   问题ID
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getQuestionAllAnswers", method = RequestMethod.GET)
+    public @ResponseBody AnswersList getQuestionAllAnswers(@RequestParam("page")int page, @RequestParam("qid")int qid){
+        if(BaseUtil.isNullOrEmpty(Integer.toString(qid))){
+            return null;
+        }
+
+        return answerService.getQuestionAllAnswers(page, qid);
+    }
 }

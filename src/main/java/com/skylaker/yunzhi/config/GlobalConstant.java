@@ -39,4 +39,6 @@ public class GlobalConstant {
     public static final int QUESTIONS_NUM = 10;
     //热门指数最小值
     public static final double MIN_HOT_INDEX = Double.valueOf(1);
+    //每次加载回答数量
+    public static final Integer ANSWERS_NUM = 10;
 }

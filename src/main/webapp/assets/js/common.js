@@ -173,3 +173,18 @@ function getDisplayName(){
 function getBaseUrl(){
     return getLocalhostPath() + getDisplayName();
 }
+
+/**
+ * 去除文本中HTML标记
+ *
+ * @param str
+ * @returns {*}
+ */
+function removeHTMLTag(str) {
+    str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+    str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+    //str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+    str=str.replace(/&nbsp;/ig,'');//去掉&nbsp;
+    str=str.replace(/\s/g,''); //将空格去掉
+    return str;
+}

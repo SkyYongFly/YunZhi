@@ -18,4 +18,25 @@
           R.AID = #{aid}
     </select>
 
+    <!--分页查询问题的回答信息-->
+    <select id="getQuestionAllAnswers" parameterType="pageinfo" resultType="answerDetail">
+        SELECT
+            R.*,
+            U.USERNAME, U.SIGNATURE
+        FROM
+            ANSWER  R
+        JOIN
+            USER    U
+        ON
+            R.USERID = U.ID
+        WHERE
+            R.QID = #{pageInfo.id}
+            AND
+            R.AID >= (#{pageInfo.pageIndex} - 1) * #{pageInfo.pageSize} + 1
+        ORDER BY
+            STAR DESC, CREATETIME DESC
+        LIMIT
+            #{pageInfo.pageSize}
+    </select>
+
 </mapper>

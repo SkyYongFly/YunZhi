@@ -90,7 +90,7 @@
                             <button class="layui-btn layui-btn-normal" style="padding-left: 10px;padding-right: 10px" onclick="attection();">
                                 关注问题
                             </button>
-                            <button class="layui-btn layui-btn-primary" style="padding-left: 5px;padding-right: 8px" onclick="answer();">
+                            <button class="layui-btn layui-btn-primary" style="padding-left: 5px;padding-right: 8px" onclick="editAnswer();">
                                 <i class="layui-icon layui-icon-edit" style="font-size: 20px; color: #1E9FFF;"></i>
                                 写回答
                             </button>
@@ -101,7 +101,7 @@
                 <%--问题回答内容区：动态展示问题相关的回答或者显示回答问题编辑界面--%>
                 <div>
                     <%--写回答--%>
-                    <div class="layui-card">
+                    <div id="editAnswer" class="layui-card">
                         <div id="auserinfo" class="layui-card-header">
 
                         </div>
@@ -111,11 +111,19 @@
                             </script>
 
                             <div class="layui-row" style="text-align: right">
-                                <button class="layui-btn layui-btn-normal" style="margin-top: 20px;" onclick="addAnswer();">
-                                    提交回答
+                                <button class="layui-btn  layui-btn-normal layui-btn-sm" style="margin-top: 20px;" onclick="addAnswer();">
+                                    提交
+                                </button>
+                                <button class="layui-btn  layui-btn-primary layui-btn-sm" style="margin-top: 20px;" onclick="closeAnswer();">
+                                    关闭
                                 </button>
                             </div>
                         </div>
+                    </div>
+
+                        <%--问题所有回答--%>
+                    <div>
+                        <ul class="flow-default" id="allAnswers"></ul>
                     </div>
                 </div>
             </div>
@@ -160,7 +168,6 @@
     <script type="text/javascript">
         //问题ID
         var qid = "<%=request.getParameter("qid")%>";
-
         $("#qid").val(qid);
     </script>
 

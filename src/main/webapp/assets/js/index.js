@@ -50,10 +50,12 @@ layui.use('flow', function(){
                                     item.title +
                                 '</div>' +
                                 '<div class="layui-row hotanwer"  onclick="showQuestionDetail(' + item.qid + ');">' +
-                                    showQuestionText(item.hotanswer) +
+                                    showAnswerText(item.hotanswer) +
                                 '</div>' +
                                 '<div class="layui-row questionAction">' +
-                                    '<i class="iconfont icon-pinglun"></i>&nbsp;&nbsp;' + showAnswerStar(item.hotsatr) +
+                                    '<button class="layui-btn layui-btn-sm starbtn">' +
+                                        '<i class="layui-icon layui-icon-praise"></i>&nbsp;&nbsp;添加' +
+                                    '</button>' +
                                     '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
                                     '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
                                     '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
@@ -192,6 +194,23 @@ function showQuestionText(text) {
     }
 
     return text.substr(0, 85) + " ... " + '<a href="#/" class="read-more">查看全文 &raquo;</a>';
+}
+
+/**
+ * 显示问题热门回答内容
+ */
+function showAnswerText(hotanswer) {
+    if(isNullOrEmpty(hotanswer)){
+        return "";
+    }
+
+    hotanswer = removeHTMLTag(hotanswer);
+
+    if(hotanswer.length < 130){
+        return hotanswer;
+    }
+
+    return hotanswer.substr(0, 130) + " ... " + '<a href="#/" class="read-more">查看全文 &raquo;</a>';
 }
 
 /**

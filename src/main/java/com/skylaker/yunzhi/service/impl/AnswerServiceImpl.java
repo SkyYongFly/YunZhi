@@ -1,8 +1,8 @@
 package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
-import com.skylaker.yunzhi.pojo.Answer;
-import com.skylaker.yunzhi.pojo.BaseResult;
+import com.skylaker.yunzhi.mappers.AnswerMapper;
+import com.skylaker.yunzhi.pojo.*;
 import com.skylaker.yunzhi.service.IAnswerService;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,6 +30,9 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
     @Autowired
     @Qualifier("hotQuestionServiceImpl")
     private IHotQuestionService hotQuestionService;
+
+    @Autowired
+    private AnswerMapper answerMapper;
 
 
     /**
@@ -71,5 +75,28 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
 
         //增加问题热门指数
         hotQuestionService.updateQuestionHotIndexOfAnswer(answer.getQid());
+    }
+
+
+    /**
+     * 获取问题的所有回答，按照点赞数量倒序排序
+     *
+     * @param page  分页查询页码
+     * @param qid   问题ID
+     *
+     * @return  {list}
+     */
+    @Override
+    public AnswersList getQuestionAllAnswers(int page, int qid) {
+        if(null == Integer.valueOf(page) || page < 1){
+            page = 1;
+        }
+
+        //设置分页信息
+        PageInfo pageInfo = new PageInfo(page, GlobalConstant.ANSWERS_NUM, qid);
+        //查询问题回答
+        List<AnswerDetail> answerDetails = answerMapper.getQuestionAllAnswers(pageInfo);
+
+        return new AnswersList(answerDetails,  Long.valueOf(answerDetails.size()));
     }
 }

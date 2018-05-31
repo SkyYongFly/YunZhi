@@ -4,67 +4,77 @@
  *  @author zhuyong
  */
 
+var ANSWERS_PAGE_SIZE = 10;
+
 //实例化编辑器
 var um = UE.getEditor('container',{
     toolbars: [
         [
-            'undo', //撤销
-            'redo', //重做
             'bold', //加粗
             'indent', //首行缩进
             'italic', //斜体
-            'underline', //下划线
-            'strikethrough', //删除线
-            'subscript', //下标
-            'fontborder', //字符边框
-            'superscript', //上标
-            'formatmatch', //格式刷
             'blockquote', //引用
-            'selectall', //全选
             'horizontal', //分隔线
             'removeformat', //清除格式
-            'time', //时间
-            'date', //日期
-            'unlink', //取消链接
-            'cleardoc', //清空文档
             'insertcode', //代码语言
-            'fontfamily', //字体
-            'fontsize', //字号
-            'paragraph', //段落格式
             'link', //超链接
-            'emotion', //表情
-            'spechars', //特殊字符
-            'justifyleft', //居左对齐
-            'justifyright', //居右对齐
-            'justifycenter', //居中对齐
-            'justifyjustify', //两端对齐
             'forecolor', //字体颜色
-            'backcolor', //背景色
             'insertorderedlist', //有序列表
             'insertunorderedlist', //无序列表
             'fullscreen', //全屏
-            'directionalityltr', //从左向右输入
-            'directionalityrtl', //从右向左输入
-            'rowspacingtop', //段前距
-            'rowspacingbottom', //段后距
-            'pagebreak', //分页
-            'imagenone', //默认
-            'imageleft', //左浮动
-            'imageright', //右浮动
-            'imagecenter', //居中
-            'lineheight', //行间距
-            'edittip ', //编辑提示
-            'customstyle', //自定义标题
-            'touppercase', //字母大写
-            'tolowercase', //字母小写
+            'customstyle' //自定义标题
         ]
     ],
     initialFrameWidth : "100%",
-    initialFrameHeight: 400,
+    initialFrameHeight: 200,
     saveInterval:30000,
     maximumWords:3000,
     elementPathEnabled:false
 });
+
+
+//加载问题所有回答
+layui.use('flow', function(){
+    var flow = layui.flow;
+    var qid = $("#qid").val();
+
+    flow.load({
+        elem: '#allAnswers'
+        ,done: function(page, next){
+            var lis = [];
+            $.get(getBaseUrl() + 'answer/getQuestionAllAnswers.do?page='+page + "&qid=" + qid, function(res){
+                layui.each(res.answersDetailList, function(index, item){
+                    lis.push(
+                        '<div class="layui-card">' +
+                            '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +
+                                '<img src="' + contextPath + '/assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                                '<a class="userName">' + item.username + '</a>' +
+                                '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
+                            '</div>' +
+                            '<div class="layui-card-body">' +
+                                '<div class="layui-row hotanwer"  onclick="showQuestionDetail(' + item.qid + ');">' +
+                                    showAnswerText(item.text) +
+                                '</div>' +
+                                '<div class="layui-row questionAction">' +
+                                    '<button class="layui-btn layui-btn-sm starbtn">' +
+                                        '<i class="layui-icon layui-icon-praise"></i>&nbsp;&nbsp;添加' +
+                                    '</button>' +
+                                    '<i class="layui-icon layui-icon-share item-margin"></i>&nbsp;&nbsp;分享' +
+                                    '<i class="layui-icon layui-icon-rate-solid item-margin"></i>&nbsp;&nbsp;收藏' +
+                                    '<i class="layui-icon layui-icon-flag item-margin"></i>&nbsp;&nbsp;举报' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                });
+
+                //设置分页信息
+                next(lis.join(''), page < res.sum / ANSWERS_PAGE_SIZE);
+            });
+        }
+    });
+});
+
 
 
 $(function () {
@@ -101,6 +111,13 @@ function getQuestionDetail() {
 }
 
 /**
+ * 添加回答
+ */
+function editAnswer() {
+    $("#editAnwer").show();
+}
+
+/**
  * 提交回答
  */
 function addAnswer() {debugger;
@@ -125,3 +142,65 @@ function addAnswer() {debugger;
         }
     });
 }
+
+
+
+
+
+//***************************************
+/**
+ * 显示签名
+ */
+function showSignature(signature) {
+    if(isNullOrEmpty(signature)){
+        return "";
+    }
+
+    return signature;
+}
+
+/**
+ * 显示问题回答内容
+ */
+function showAnswerText(hotanswer) {
+    if(isNullOrEmpty(hotanswer)){
+        return "";
+    }
+
+    hotanswerText = removeHTMLTag(hotanswer);
+
+    if(hotanswerText.length < 500){
+        return hotanswer;
+    }
+
+    return hotanswer.substr(0, 500) + " ... " + '<a href="#/" class="read-more">查看全文 &raquo;</a>';
+}
+
+/**
+ * 显示问题回答数
+ *
+ * @param answersnum
+ * @returns {string}
+ */
+function showAnswersNum(answersnum) {
+    if(undefined == answersnum || 0 == answersnum){
+        return "添加回答";
+    }
+
+    return answersnum + " 条回答";
+}
+
+/**
+ * 显示回答点赞数
+ *
+ * @param hotsatr
+ * @returns {string}
+ */
+function showAnswerStar(hotsatr) {
+    if(undefined == hotsatr ||  0 == hotsatr){
+        return "点赞";
+    }
+
+    return hotsatr + " 条点赞";
+}
+

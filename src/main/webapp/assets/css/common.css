@@ -120,7 +120,7 @@
 
 /*问题评论、分享*/
 .questionAction{
-    margin-top: 10px;
+    margin-top: 15px;
     color: #77839c;
     display:flex;/*Flex布局*/
     display: -webkit-flex; /* Safari */
@@ -129,4 +129,10 @@
 
 .item-margin{
     margin-left: 30px;
+}
+
+/*点赞按钮*/
+.starbtn{
+    color: #0084ff;
+    background-color: rgba(0,132,255,.15);
 }

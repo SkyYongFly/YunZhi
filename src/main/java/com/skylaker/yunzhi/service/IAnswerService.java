@@ -1,6 +1,7 @@
 package com.skylaker.yunzhi.service;
 
 import com.skylaker.yunzhi.pojo.Answer;
+import com.skylaker.yunzhi.pojo.AnswersList;
 import com.skylaker.yunzhi.pojo.BaseResult;
 
 /**
@@ -18,4 +19,13 @@ public interface IAnswerService {
      * @return
      */
     BaseResult addAnswer(Answer answer);
+
+    /**
+     * 获取问题的所有回答
+     *
+     * @param page  分页查询页码
+     * @param qid   问题ID
+     * @return
+     */
+    AnswersList getQuestionAllAnswers(int page, int qid);
 }
