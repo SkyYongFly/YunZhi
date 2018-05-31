@@ -6,6 +6,11 @@
 
 var ANSWERS_PAGE_SIZE = 10;
 
+layui.use('element', function(){
+    var element = layui.element;
+    element.init();
+});
+
 //实例化编辑器
 var um = UE.getEditor('container',{
     toolbars: [
@@ -52,7 +57,7 @@ layui.use('flow', function(){
                                 '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
                             '</div>' +
                             '<div class="layui-card-body">' +
-                                '<div class="layui-row hotanwer"  onclick="showQuestionDetail(' + item.qid + ');">' +
+                                '<div class="layui-row hotanwer">' +
                                     showAnswerText(item.text) +
                                 '</div>' +
                                 '<div class="layui-row questionAction">' +
@@ -105,6 +110,7 @@ function getQuestionDetail() {
             if(data){
                 $("#questionTitle").text(data.title);
                 $("#questionText").text(data.text);
+                $("#answersNum").text(data.answersnum + "条回答");
             }
         }
     });

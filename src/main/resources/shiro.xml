@@ -64,10 +64,15 @@
                 /login.jsp = anon
                 /register/** = anon
                 /login/** = anon
+                /question/getHotQuestionsDetails.do = anon
+                /question/getNewestQuestionsDetails.do = anon
+                /question/getNewestQuestions.do = anon
+                /jsp/hot_questions.jsp = anon
+                /jsp/newest_questions.jsp = anon
+                /jsp/common.jsp = anon
 
                 <!--系统首页不拦截-->
                 /index.jsp = anon
-
                 <!--请求注销地址，shiro清除session-->
                 /logout.do = logout
 

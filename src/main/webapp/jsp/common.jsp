@@ -23,6 +23,8 @@
     <script src="<%=request.getContextPath() %>/assets/plugins/js/jquery-3.3.1.min.js"></script>
     <%--引入Layui脚本--%>
     <script src="<%=request.getContextPath() %>/assets/plugins/layui/layui.all.js"></script>
+    <%--引入滚动条JS--%>
+    <script src="<%=request.getContextPath() %>/assets/plugins/js/jquery.nicescroll.min.js"></script>
 
     <%--引入公共JS--%>
     <script src="<%=request.getContextPath() %>/assets/js/common.js"></script>

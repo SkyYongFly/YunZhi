@@ -1,17 +1,18 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
-  Created by IntelliJ IDEA.
+  云知问答首页
   User: zhuyong
   Date: 2018/5/10  23:32
-  Description:云知问答首页
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>云知首页</title>
 
+    <%--引入公共JSP页面--%>
     <%@ include file="jsp/common.jsp"%>
+    <%--引入首页样式--%>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/index.css"/>
 </head>
 <body>
@@ -27,7 +28,7 @@
                         </div>
                         <%--首页--%>
                         <div class="layui-col-md2">
-                            <button class="layui-btn layui-btn-primary">首页</button>
+                            <button class="layui-btn layui-btn-primary" onclick="loadIndex();">首页</button>
                         </div>
                         <%--搜索--%>
                         <div class="layui-col-md6">
@@ -80,19 +81,24 @@
                 <%--导航选项卡--%>
                 <div id="navigation"  class="layui-row layui-col-space10">
                     <div class="layui-tab layui-tab-brief" lay-filter="navigations">
-                        <ul class="layui-tab-title">
-                            <li lay-id="hot" class="layui-this">热门</li>
-                            <li lay-id="question" >问题</li>
-                            <li lay-id="answer" >回答</li>
+                        <ul class="layui-tab-title  navtab">
+                            <li lay-id="hot" class="layui-this">
+                                <i class="layui-icon layui-icon-star"></i> &nbsp;热门
+                            </li>
+                            <li lay-id="question" >
+                                <i class="layui-icon layui-icon-help"></i>&nbsp;问题
+                            </li>
+                            <li lay-id="answer" >
+                                <i class="layui-icon layui-icon-edit"></i>&nbsp;回答
+                            </li>
                         </ul>
-                        <div class="layui-tab-content">
+                        <div class="layui-tab-content" style="padding: 20px 0 0 0">
                             <div class="layui-tab-item layui-show">
-                                <%--热门问题相关信息--%>
-                                <ul class="flow-default" id="hotQuestions"></ul>
+                                <iframe id="hotQuestionsFrame" src="jsp/hot_questions.jsp"></iframe>
                             </div>
                             <div class="layui-tab-item">
                                 <%--加载问题相关信息--%>
-                                <ul class="flow-default" id="questions"></ul>
+                                <iframe id="newestQuestionsFrame" src="jsp/newest_questions.jsp"></iframe>
                             </div>
                             <div class="layui-tab-item">内容3</div>
                         </div>
@@ -163,8 +169,6 @@
     </div>
 
     <form id="form" method="post" action="">
-        <input type="text" id="time" name="time" style="display: none"/>
-        <input type="text" id="token" name="token" style="display: none"/>
     </form>
 
     <%--引入逻辑处理JS--%>

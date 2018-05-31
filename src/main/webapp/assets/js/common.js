@@ -188,3 +188,39 @@ function removeHTMLTag(str) {
     str=str.replace(/\s/g,''); //将空格去掉
     return str;
 }
+
+/**
+ * 当前页面加载为首页
+ */
+function loadIndex() {
+    window.location.href = getBaseUrl() + "/index.jsp";
+}
+
+/**
+ *  提问问题
+ */
+function addQuestion(){
+    layer.open({
+        type: 2,
+        title:false,
+        content: [contextPath + "/jsp/question.jsp", 'no'],
+        area: ['600px', '600px'],
+        end:function (data) {
+            refresh();
+        }
+    });
+}
+
+/**
+ * 打开问题详情页面
+ *
+ * @param  qid
+ */
+function showQuestionDetail(qid) {
+    if(!isNullOrEmpty(qid)){
+        window.open(contextPath + "/jsp/question_detail.jsp?qid=" + qid);
+    }
+}
+
+
+//TODO 弹出层被遮挡bug

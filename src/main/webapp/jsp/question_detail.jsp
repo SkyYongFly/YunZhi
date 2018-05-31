@@ -26,7 +26,7 @@
                         </div>
                         <%--首页--%>
                         <div class="layui-col-md2">
-                            <button class="layui-btn layui-btn-primary">首页</button>
+                            <button class="layui-btn layui-btn-primary" onclick="loadIndex();">首页</button>
                         </div>
                         <%--搜索--%>
                         <div class="layui-col-md6">
@@ -48,7 +48,6 @@
                         </div>
 
                         <div class="layui-col-md10">
-
                             <%--已经登录显示--%>
                             <div id="haslogin" style="display: none">
                                 <div class="layui-card">
@@ -75,57 +74,49 @@
 
     <div class="layui-container">
         <div  id="center" class="layui-row layui-col-space30">
-            <div class="layui-col-md8">
-
+            <div id="questionAnswers" class="layui-col-md8">
                 <%--问题详情--%>
                 <div class="layui-card">
                     <div id="questionTitle" class="layui-card-header questitle">
 
                     </div>
-                    <div class="layui-card-body" style="line-height: 40px;">
+                    <div class="layui-card-body " style="line-height: 40px;">
                         <div id="questionText"  class="layui-row">
                         </div>
 
-                        <div class="layui-row">
-                            <button class="layui-btn layui-btn-normal" style="padding-left: 10px;padding-right: 10px" onclick="attection();">
+                        <div class="layui-row questionAction">
+                            <button class="layui-btn layui-btn-normal layui-btn-sm" style="padding-left: 10px;padding-right: 10px" onclick="attection();">
                                 关注问题
                             </button>
-                            <button class="layui-btn layui-btn-primary" style="padding-left: 5px;padding-right: 8px" onclick="editAnswer();">
-                                <i class="layui-icon layui-icon-edit" style="font-size: 20px; color: #1E9FFF;"></i>
-                                写回答
-                            </button>
+                            <i class="iconfont icon-pinglun" style="margin-left: 30px"></i>
+                                &nbsp;<p id="answersNum"></p>
+                            <i class="layui-icon layui-icon-share item-margin"></i>
+                                &nbsp;分享
                         </div>
                     </div>
                 </div>
 
                 <%--问题回答内容区：动态展示问题相关的回答或者显示回答问题编辑界面--%>
-                <div>
-                    <%--写回答--%>
-                    <div id="editAnswer" class="layui-card">
-                        <div id="auserinfo" class="layui-card-header">
+                <div class="layui-collapse" style="margin-bottom: 30px;">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title" style="background-color: white">写回答</h2>
+                        <div class="layui-colla-content layui-show" style="padding: 0">
+                                <div class="layui-card-body" style="padding: 0">
+                                    <!-- 问题回答内容编辑区域 -->
+                                    <script id="container" name="content" type="text/plain" >
+                                    </script>
 
+                                    <div class="layui-row" style="text-align: right">
+                                        <button class="layui-btn  layui-btn-normal layui-btn-sm" style="margin-top: 20px;" onclick="addAnswer();">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
                         </div>
-                        <div class="layui-card-body">
-                            <!-- 问题回答内容编辑区域 -->
-                            <script id="container" name="content" type="text/plain" >
-                            </script>
-
-                            <div class="layui-row" style="text-align: right">
-                                <button class="layui-btn  layui-btn-normal layui-btn-sm" style="margin-top: 20px;" onclick="addAnswer();">
-                                    提交
-                                </button>
-                                <button class="layui-btn  layui-btn-primary layui-btn-sm" style="margin-top: 20px;" onclick="closeAnswer();">
-                                    关闭
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                        <%--问题所有回答--%>
-                    <div>
-                        <ul class="flow-default" id="allAnswers"></ul>
                     </div>
                 </div>
+                <%--问题所有回答--%>
+                <ul class="flow-default" id="allAnswers"></ul>
             </div>
             <div class="layui-col-md4">
                 <%--个人提醒--%>

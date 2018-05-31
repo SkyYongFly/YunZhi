@@ -21,3 +21,11 @@ body{
 .td_text{
     text-align: center;
 }
+
+iframe{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 80%;
+    border: none;
+}

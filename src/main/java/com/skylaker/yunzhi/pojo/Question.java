@@ -46,6 +46,25 @@ public class Question implements Serializable {
     @Column
     private Date updatetime;
 
+    public Question() {
+
+    }
+
+    public Question(Question question) {
+        this.title = question.title;
+        this.text = question.text;
+        this.userid = question.userid;
+        this.createtime = question.createtime;
+        this.updatetime = question.updatetime;
+    }
+
+    public Question(String title, String text, Integer userid, Date createtime, Date updatetime) {
+        this.title = title;
+        this.text = text;
+        this.userid = userid;
+        this.createtime = createtime;
+        this.updatetime = updatetime;
+    }
 
     public Integer getQid() {
         return qid;

@@ -31,12 +31,10 @@
             R.USERID = U.ID
         WHERE
             R.QID = #{pageInfo.id}
-            AND
-            R.AID >= (#{pageInfo.pageIndex} - 1) * #{pageInfo.pageSize} + 1
         ORDER BY
             STAR DESC, CREATETIME DESC
         LIMIT
-            #{pageInfo.pageSize}
+            #{pageInfo.start}, #{pageInfo.pageSize}
     </select>
 
 </mapper>

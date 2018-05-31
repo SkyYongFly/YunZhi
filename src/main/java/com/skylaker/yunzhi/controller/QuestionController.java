@@ -88,7 +88,7 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getQuestionDetail", method = RequestMethod.GET)
-    public @ResponseBody Question getQuestionDetail(@RequestParam("qid")String qid){
+    public @ResponseBody QuestionDetail getQuestionDetail(@RequestParam("qid")int qid){
         return questionService.getQuestionDetail(qid);
     }
 }

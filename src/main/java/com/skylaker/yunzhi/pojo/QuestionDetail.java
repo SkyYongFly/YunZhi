@@ -32,6 +32,13 @@ public class QuestionDetail extends Question implements Serializable {
     //点赞数做多的回答的点赞数
     private Long hotstar;
 
+    public QuestionDetail() {
+    }
+
+    public QuestionDetail(Question question){
+        super(question);
+    }
+
 
     /**
      * 设置点赞数最多回答详细信息

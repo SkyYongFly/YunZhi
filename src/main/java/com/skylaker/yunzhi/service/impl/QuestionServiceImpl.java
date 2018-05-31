@@ -116,8 +116,18 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
      */
     @Override
     @Cacheable(value = "questionCache")
-    public Question getQuestionDetail(String qid) {
-        return selectByKey(qid);
+    public QuestionDetail getQuestionDetail(int qid) {
+        //查询问题详情
+        QuestionDetail question =  new QuestionDetail(selectByKey(qid));
+
+        //查询问题的回答数
+        question.setAnswersnum(
+                redisUtil.getZsetCount(
+                        BaseUtil.getRedisQuestionAnswersKey(qid),
+                        Double.valueOf(0),
+                        Double.POSITIVE_INFINITY));
+
+        return question;
     }
 
     /**

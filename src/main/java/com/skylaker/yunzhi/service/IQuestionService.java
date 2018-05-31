@@ -1,6 +1,5 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.HotQuestionsList;
 import com.skylaker.yunzhi.pojo.Question;
 import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.QuestionResult;
@@ -37,7 +36,7 @@ public interface IQuestionService {
      * @param qid 问题ID
      * @return
      */
-    Question getQuestionDetail(String qid);
+    QuestionDetail getQuestionDetail(int qid);
 
     /**
      * 获取系统中的最新的问题列表

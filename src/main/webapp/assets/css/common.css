@@ -1,4 +1,8 @@
-
+/*
+* 公共CSS样式定义
+*
+* @author zhuyong
+*/
 
 #register{
     margin-top: 100px;
@@ -135,4 +139,12 @@
 .starbtn{
     color: #0084ff;
     background-color: rgba(0,132,255,.15);
+}
+
+/*首页导航标题*/
+.navtab{
+    background-color: white;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
 }

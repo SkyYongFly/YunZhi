@@ -96,7 +96,9 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
         PageInfo pageInfo = new PageInfo(page, GlobalConstant.ANSWERS_NUM, qid);
         //查询问题回答
         List<AnswerDetail> answerDetails = answerMapper.getQuestionAllAnswers(pageInfo);
+        //获取问题回答的总数
+        Long sum = redisUtil.getZsetCount(BaseUtil.getRedisQuestionAnswersKey(qid), Double.valueOf(0), Double.POSITIVE_INFINITY);
 
-        return new AnswersList(answerDetails,  Long.valueOf(answerDetails.size()));
+        return new AnswersList(answerDetails,  sum);
     }
 }

@@ -10,9 +10,12 @@ import org.apache.ibatis.type.Alias;
  */
 @Alias("pageinfo")
 public class PageInfo {
+    //第几页
     private Integer pageIndex;
-
+    //每页显示数量
     private Integer pageSize;
+    //每页开始位置
+    private Integer start;
 
     //业务记录ID
     private Integer id;
@@ -22,6 +25,8 @@ public class PageInfo {
         this.pageIndex = pageIndex;
         this.pageSize = pageSize;
         this.id = id;
+
+        this.start = (pageIndex - 1) * pageSize;
     }
 
     public Integer getPageIndex() {
@@ -46,5 +51,13 @@ public class PageInfo {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getStart() {
+        return start;
+    }
+
+    public void setStart(Integer start) {
+        this.start = start;
     }
 }
