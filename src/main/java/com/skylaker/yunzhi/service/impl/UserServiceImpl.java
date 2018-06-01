@@ -134,11 +134,16 @@ public class UserServiceImpl extends BaseService<User>  implements IUserService 
 
         //先从redis中获取用户头像相对路径
         String filePath = (String) redisUtil.getHashValue(
-                GlobalConstant.REDIS_HASH_USER_HEAD_IMG, String.valueOf(BaseUtil.getSessionUser().getId()));
+                GlobalConstant.REDIS_HASH_USER_HEAD_IMG, String.valueOf(userId));
 
         //没有则从数据库查找
         if(BaseUtil.isNullOrEmpty(filePath)){
-            filePath = userMapper.getUserHeadImg(userId).getFspath();
+            Fileupload fileupload = userMapper.getUserHeadImg(userId);
+            if(null == fileupload){
+                return null;
+            }
+
+            filePath = fileupload.getFspath();
         }
 
         return filePath;

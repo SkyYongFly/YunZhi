@@ -266,3 +266,16 @@ function loadUserHeadImg(){
         }
     });
 }
+
+/**
+ * 显示问题或者回答的时候显示用户头像
+ *
+ * @param hotuserheadimg
+ */
+function showUserHeadImg(hotuserheadimg) {
+    if(!isNullOrEmpty(hotuserheadimg)){
+        return  "/path" + hotuserheadimg;
+    }
+
+    return contextPath + "/assets/plugins/layui/images/user1.jpg";
+}

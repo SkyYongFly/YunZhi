@@ -6,6 +6,7 @@ import com.skylaker.yunzhi.mappers.QuestionMapper;
 import com.skylaker.yunzhi.pojo.*;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
+import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -15,6 +16,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 import static com.skylaker.yunzhi.config.GlobalConstant.REDIS_ZSET_QUESTIONS_TIME;
@@ -30,13 +32,15 @@ import static com.skylaker.yunzhi.config.GlobalConstant.REDIS_ZSET_QUESTIONS_TIM
 public class QuestionServiceImpl extends BaseService<Question> implements IQuestionService {
     @Autowired
     private RedisUtil redisUtil;
+    @Autowired
+    private QuestionMapper questionMapper;
 
     @Autowired
     @Qualifier("hotQuestionServiceImpl")
     private IHotQuestionService hotQuestionService;
 
-    @Autowired
-    private QuestionMapper questionMapper;
+    @Resource(name = "userServiceImpl")
+    private IUserService userService;
 
     //不能定义成成员变量，因为框架初始化时加载类，且是单例，这个时候尚未登录，无法获取登录信息
     //private Integer userId = BaseUtil.getSessionUser().getId();
@@ -171,20 +175,24 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
 
         //获取指定问题列表的详细信息
         List<QuestionDetail> questionDetailList = questionMapper.getQuestionDetailList(qids);
-        setQuestionAnswersInfo(questionDetailList);
+        setQuestionInfo(questionDetailList);
 
         return questionDetailList;
     }
 
     /**
-     * 获取问题的回答数
+     * 设置问题相关信息
      *
      * @param questionDetailList
      */
-    private void setQuestionAnswersInfo(List<QuestionDetail> questionDetailList) {
+    private void setQuestionInfo(List<QuestionDetail> questionDetailList) {
         for(int i = 0, len = questionDetailList.size(); i < len; i++){
             QuestionDetail questionDetail = questionDetailList.get(i);
+
+            //设置问题回答数量
             questionDetail.setAnswersnum(getQuestionAnswers(questionDetail.getQid()));
+            //设置用户头像
+            questionDetail.setUserheadimg(userService.getUserHeadImg(questionDetail.getUserid()));
         }
     }
 

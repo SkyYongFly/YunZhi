@@ -128,6 +128,7 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
     @Override
     public synchronized Long starAction(Integer aid, Integer qid) {
         //TODO 加锁性能上会有影响，需要优化
+        //TODO 更新热门指数
 
         //获取用户点赞的回答SET键名
         Object  userStarAnswers = BaseUtil.getSessionUser().getId() + GlobalConstant.STAR_ANSWERS;

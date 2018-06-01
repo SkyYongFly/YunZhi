@@ -16,6 +16,8 @@ public class QuestionDetail extends Question implements Serializable {
     private String username;
     //问题提问用户签名
     private String signature;
+    //用户头像
+    private String userheadimg;
     //问题回答数
     private Long answersnum;
     //热门指数
@@ -144,5 +146,13 @@ public class QuestionDetail extends Question implements Serializable {
 
     public void setHotuserheadimg(String hotuserheadimg) {
         this.hotuserheadimg = hotuserheadimg;
+    }
+
+    public String getUserheadimg() {
+        return userheadimg;
+    }
+
+    public void setUserheadimg(String userheadimg) {
+        this.userheadimg = userheadimg;
     }
 }

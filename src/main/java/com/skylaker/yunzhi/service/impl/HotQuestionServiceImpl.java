@@ -7,12 +7,15 @@ import com.skylaker.yunzhi.pojo.AnswerDetail;
 import com.skylaker.yunzhi.pojo.HotQuestionsList;
 import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.service.IHotQuestionService;
+import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -44,6 +47,8 @@ public class HotQuestionServiceImpl implements IHotQuestionService {
     @Autowired
     private AnswerMapper answerMapper;
 
+    @Resource(name = "userServiceImpl")
+    private IUserService userService;
 
 
     @Override
@@ -195,6 +200,10 @@ public class HotQuestionServiceImpl implements IHotQuestionService {
             //设置问题点赞最多回答信息
             questionDetailList.get(i).setAnswerInfo(answerDetail);
             questionDetailList.get(i).setHotstar(answer.getScore().longValue());
+
+            //设置点赞数最多回答人员头像相对路径
+            questionDetailList.get(i).setHotuserheadimg(
+                    userService.getUserHeadImg(questionDetailList.get(i).getHotuserid()));
         }
     }
 

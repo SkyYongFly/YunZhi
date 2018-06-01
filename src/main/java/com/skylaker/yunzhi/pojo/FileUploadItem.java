@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
- * 用于文件操作的实体
+ * 文件操作
  *
  * User: zhuyong
  * Date: 2018/6/1 14:36
@@ -31,7 +31,7 @@ public class FileUploadItem extends  Fileupload{
         this.type = type;
 
         super.setFtype(multipartFile.getContentType());
-        super.setSize(Double.valueOf(multipartFile.getSize()));
+        super.setSize(Double.valueOf(multipartFile.getSize() / 1000.0));
         super.setFname(getFileName());
         super.setFpath(getFileDiskPath());
         super.setFspath(getFileRelativePath());

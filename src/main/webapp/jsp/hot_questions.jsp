@@ -37,7 +37,7 @@
                             lis.push(
                                 '<div class="layui-card">' +
                                     '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.hotuserid + ');">' +
-                                        '<img src="<%=request.getContextPath() %>/assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                                        '<img src="' + showUserHeadImg(item.hotuserheadimg) + '" class="userSmallHead"/>' +
                                         '<a class="userName">' + item.hotusername + '</a>' +
                                         '<a class="userSignature">' + showSignature(item.hotsignature) + '</a>' +
                                     '</div>' +
