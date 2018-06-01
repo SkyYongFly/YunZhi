@@ -43,14 +43,16 @@ public class UserRealm  extends AuthorizingRealm {
 
         //获取用户拥有的角色
         Set<Role> roles = userService.getUserRoles(phone);
-        Set<String> roleNames = new HashSet<>();
-        for (Role role : roles){
-            roleNames.add(role.getRolename());
-        }
-        //将角色名称提供给权限管理对象
-        authorizationInfo.setRoles(roleNames);
 
-        //获取用户权限信息
+        if(null != roles && roles.size() > 0){
+            Set<String> roleNames = new HashSet<>();
+            for (Role role : roles){
+                roleNames.add(role.getRolename());
+            }
+            //将角色名称提供给权限管理对象
+            authorizationInfo.setRoles(roleNames);
+
+            //获取用户权限信息
 //        Set<Permission> permissions = userService.getUserPermissions(username);
 //        Set<String> permissionNames = new HashSet<>();
 //        for(Permission permission : permissions){
@@ -58,6 +60,7 @@ public class UserRealm  extends AuthorizingRealm {
 //        }
 //        //将权限信息名称提供给权限管理对象
 //        authorizationInfo.setStringPermissions(permissionNames);
+        }
 
         return authorizationInfo;
     }

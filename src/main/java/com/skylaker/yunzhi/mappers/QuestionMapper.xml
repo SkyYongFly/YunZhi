@@ -23,4 +23,25 @@
             Q.QID DESC
     </select>
 
+    <!--查询用户提问的问题-->
+    <select id="getUserQuestions" parameterType="pageinfo" resultType="questionDetail">
+        SELECT
+            Q.*,
+            COUNT(R.AID) AS answersnum
+        FROM
+            QUESTION  Q
+        LEFT JOIN
+            ANSWER    R
+        ON
+            Q.QID = R.QID
+        WHERE
+            Q.USERID = #{pageInfo.userid}
+        GROUP BY
+            R.QID
+        ORDER BY
+            R.QID DESC
+        LIMIT
+            #{pageInfo.start}, #{pageInfo.pageSize}
+    </select>
+
 </mapper>

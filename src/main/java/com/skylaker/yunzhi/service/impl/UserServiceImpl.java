@@ -2,10 +2,7 @@ package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.UserMapper;
-import com.skylaker.yunzhi.pojo.LoginResult;
-import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.Role;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.*;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
@@ -28,13 +25,12 @@ import java.util.UUID;
  * @author sky
  */
 @Service("userServiceImpl")
-public class UserServiceImpl  implements IUserService {
+public class UserServiceImpl extends BaseService<User>  implements IUserService {
     @Autowired
     private UserMapper userMapper;
 
     @Autowired
     private RedisUtil redisUtil;
-
 
     /**
      * 手机号、密码验证
@@ -128,6 +124,24 @@ public class UserServiceImpl  implements IUserService {
 
         //保存用户
         userMapper.addUser(user);
+    }
+
+    @Override
+    public String getUserHeadImg(Integer userId) {
+        if(BaseUtil.isNullOrEmpty(String.valueOf(userId))){
+            return null;
+        }
+
+        //先从redis中获取用户头像相对路径
+        String filePath = (String) redisUtil.getHashValue(
+                GlobalConstant.REDIS_HASH_USER_HEAD_IMG, String.valueOf(BaseUtil.getSessionUser().getId()));
+
+        //没有则从数据库查找
+        if(BaseUtil.isNullOrEmpty(filePath)){
+            filePath = userMapper.getUserHeadImg(userId).getFspath();
+        }
+
+        return filePath;
     }
 }
 

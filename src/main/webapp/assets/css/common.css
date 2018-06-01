@@ -84,6 +84,16 @@
     height:28px;
     border-radius:5px;
 }
+.userMiddleHead{
+    width: 47px;
+    height:47px;
+    border-radius:5px;
+}
+.userBigHead{
+    width: 150px;
+    height:150px;
+    border-radius:5px;
+}
 
 /*用户昵称样式*/
 .userName{
@@ -93,12 +103,30 @@
     margin-left: 10px;
     color: #404040;
 }
+.indexUserName{
+    font-family:'Source-Han-Ligh12542fa0dc1ce6f';
+    font-size: 16px;
+    font-weight: bold;
+    color: #404040;
+}
+
+.userNameBig{
+    font-family:'CTBiaoSongSJ12544e75221ce6f';
+    font-size: 25px;
+    font-weight: bold;
+    color: #292929;
+}
 
 /*用户签名样式*/
 .userSignature{
     font-family:'HanWangYenThin-12543decf41ce6f';
     font-size: 13px;
     margin-left: 15px;
+    margin-top: 3px;
+}
+.indexUserSignature{
+    font-family:'HanWangYenThin-12543decf41ce6f';
+    font-size: 14px;
     margin-top: 3px;
 }
 
@@ -144,6 +172,13 @@
 /*首页导航标题*/
 .navtab{
     background-color: white;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+}
+.usernavtab{
+    background-color: white;
+    border-radius:3px;
     display:flex;/*Flex布局*/
     display: -webkit-flex; /* Safari */
     align-items:center;/*指定垂直居中*/

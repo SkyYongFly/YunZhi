@@ -29,3 +29,11 @@ iframe{
     height: 80%;
     border: none;
 }
+
+.user-iframe{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 65%;
+    border: none;
+}

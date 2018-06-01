@@ -54,8 +54,8 @@
         <!--资源请求拦截配置-->
         <property name="filterChainDefinitions">
             <value>
-                /admin/** = roles[admin]
-                /user/** = roles[user]
+                <!--/admin/** = roles[admin]-->
+                <!--/user/** = roles[user]-->
 
                 <!--静态资源匿名访问-->
                 /assets/** = anon

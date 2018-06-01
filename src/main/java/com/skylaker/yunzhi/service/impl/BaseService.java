@@ -50,4 +50,10 @@ public class BaseService<T> implements IService<T> {
     public List<T> selectByExample(Object example) {
         return mapper.selectByExample(example);
     }
+
+    @Override
+    public int getCount(Object example) {
+        return mapper.selectCountByExample(example);
+    }
+
 }

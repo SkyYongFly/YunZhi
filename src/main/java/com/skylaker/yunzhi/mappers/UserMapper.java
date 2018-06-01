@@ -2,8 +2,12 @@ package com.skylaker.yunzhi.mappers;
 
 import java.util.List;
 
+import com.skylaker.yunzhi.pojo.Fileupload;
 import com.skylaker.yunzhi.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
  * User 相关SQL操作Mapper接口
@@ -11,7 +15,7 @@ import org.springframework.stereotype.Repository;
  * @author sky
  */
 @Repository
-public interface UserMapper{
+public interface UserMapper extends Mapper<User>, MySqlMapper<User> {
 	/**
 	 * 根据用户ID获取用户信息
 	 * 
@@ -41,4 +45,12 @@ public interface UserMapper{
 	 * @return
 	 */
 	User getUserByPhone(String phone);
+
+	/**
+	 * 获取用户头像相对路径
+	 *
+	 * @param 	userId
+	 * @return
+	 */
+	Fileupload getUserHeadImg(@Param("userId")Integer userId);
 }

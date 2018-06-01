@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->
+<mapper namespace="com.skylaker.yunzhi.mappers.FileuploadMapper">
+
+</mapper>

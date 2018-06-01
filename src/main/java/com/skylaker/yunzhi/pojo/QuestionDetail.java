@@ -27,6 +27,8 @@ public class QuestionDetail extends Question implements Serializable {
     private String hotusername;
     //点赞数最多的回答用户签名
     private String hotsignature;
+    //点赞数最多的回答用户头像相对路径
+    private String hotuserheadimg;
     //热门回答ID
     private Integer hotanswerid;
     //点赞数最多的回答内容
@@ -134,5 +136,13 @@ public class QuestionDetail extends Question implements Serializable {
 
     public void setHotanswerid(Integer hotanswerid) {
         this.hotanswerid = hotanswerid;
+    }
+
+    public String getHotuserheadimg() {
+        return hotuserheadimg;
+    }
+
+    public void setHotuserheadimg(String hotuserheadimg) {
+        this.hotuserheadimg = hotuserheadimg;
     }
 }

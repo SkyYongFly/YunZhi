@@ -26,4 +26,22 @@
 	<select id="getAllUsers" resultType="user">
 		select * from user
 	</select>
+
+	<!--获取用户头像信息-->
+	<select id="getUserHeadImg" parameterType="java.lang.Integer" resultType="fileupload">
+		SELECT
+			*
+		FROM
+			FILEUPLOAD
+		WHERE
+			FID =
+			(
+				SELECT
+					MAX(FID) AS FID
+				FROM
+					FILEUPLOAD
+			  	WHERE
+			  		FCODE = CONCAT('USERHEADIMG_', #{userId})
+			)
+	</select>
 </mapper>

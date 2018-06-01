@@ -126,7 +126,7 @@ function editAnswer() {
 /**
  * 提交回答
  */
-function addAnswer() {debugger;
+function addAnswer() {
     var text = UE.getEditor('container').getContent();
 
     if(isNullOrEmpty(text)){
@@ -134,7 +134,6 @@ function addAnswer() {debugger;
     }
 
     var qid = $("#qid").val();
-
     $.ajax({
         url:  getBaseUrl() + "answer/addAnswer.do",
         type: "POST",
@@ -144,12 +143,11 @@ function addAnswer() {debugger;
         success:function (data) {
             if(data){
                 layer.msg(data.message);
+                window.location.reload();
             }
         }
     });
 }
-
-
 
 
 

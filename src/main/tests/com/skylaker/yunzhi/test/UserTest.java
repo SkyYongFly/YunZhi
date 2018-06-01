@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.test;
 import com.skylaker.yunzhi.pojo.RegisterInfo;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -56,5 +57,9 @@ public class UserTest {
 //        User user2 = (User) subject.getSession().getAttribute(GlobalConstant.SESSION_USER_NAME);
 //        System.out.println(user2);
 
+    }
+
+    @Test
+    public void testFile(){
     }
 }

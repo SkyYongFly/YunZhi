@@ -1,7 +1,9 @@
 package com.skylaker.yunzhi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.User;
 import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,4 +35,19 @@ public class UserController {
 		return null;
 	}
 
+
+	/**
+	 * 获取当前用户头像相对路径
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/getUserHeadImg", method = RequestMethod.GET)
+	public @ResponseBody JSONObject getUserHeadImg(){
+		String fspath = userService.getUserHeadImg(BaseUtil.getSessionUser().getId());
+
+		JSONObject result = new JSONObject();
+		result.put("imgpath", fspath);
+
+		return result;
+	}
 }

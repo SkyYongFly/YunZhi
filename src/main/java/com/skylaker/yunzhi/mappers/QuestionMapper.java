@@ -1,5 +1,6 @@
 package com.skylaker.yunzhi.mappers;
 
+import com.skylaker.yunzhi.pojo.PageInfo;
 import com.skylaker.yunzhi.pojo.Question;
 import com.skylaker.yunzhi.pojo.QuestionDetail;
 import org.apache.ibatis.annotations.Param;
@@ -24,4 +25,12 @@ public interface QuestionMapper extends Mapper<Question>,MySqlMapper<Question> {
      * @return
      */
     List<QuestionDetail> getQuestionDetailList(@Param("qids") String qids);
+
+    /**
+     * 查询用户所有的问题
+     *
+     * @param   pageInfo
+     * @return
+     */
+    List<QuestionDetail> getUserQuestions(@Param("pageInfo")PageInfo pageInfo);
 }

@@ -60,13 +60,14 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getNewestQuestionsDetails", method = RequestMethod.GET)
-    public @ResponseBody NewestQuestionsList getNewestQuestionsDetails(@RequestParam("page")int page, @RequestParam("time") long time){
+    public @ResponseBody
+    QuestionsList getNewestQuestionsDetails(@RequestParam("page")int page, @RequestParam("time") long time){
         //获取当前页面显示的问题信息
         List<QuestionDetail> questionsList = questionService.getNewestQuestionsDetails(page, time);
         //获取要展示的问题总数量
         Long sum = questionService.getNewestQuestionsCount(time);
 
-        return new NewestQuestionsList(questionsList, sum);
+        return new QuestionsList(questionsList, sum);
     }
 
     /**
@@ -90,5 +91,16 @@ public class QuestionController {
     @RequestMapping(value = "/getQuestionDetail", method = RequestMethod.GET)
     public @ResponseBody QuestionDetail getQuestionDetail(@RequestParam("qid")int qid){
         return questionService.getQuestionDetail(qid);
+    }
+
+    /**
+     * 查询用户提问的问题
+     *
+     * @param  page  分页查询页码
+     * @return
+     */
+    @RequestMapping(value = "/getUserQuestions", method = RequestMethod.GET)
+    public @ResponseBody QuestionsList getUserQuestions(@RequestParam("page")int page){
+        return questionService.getUserQuestions(page);
     }
 }

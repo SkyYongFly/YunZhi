@@ -19,7 +19,19 @@ public class PageInfo {
 
     //业务记录ID
     private Integer id;
+    //用户ID
+    private Integer userid;
 
+
+    public PageInfo() {
+    }
+
+    public PageInfo(Integer pageIndex, Integer pageSize) {
+        this.pageIndex = pageIndex;
+        this.pageSize = pageSize;
+
+        this.start = (pageIndex - 1) * pageSize;
+    }
 
     public PageInfo(Integer pageIndex, Integer pageSize, Integer id) {
         this.pageIndex = pageIndex;
@@ -59,5 +71,13 @@ public class PageInfo {
 
     public void setStart(Integer start) {
         this.start = start;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 }

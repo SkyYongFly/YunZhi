@@ -22,6 +22,8 @@ function getUserInfo() {
                 if(!isNullOrEmpty(data.signature)) {
                     $("#signature").text(data.signature);
                 }
+
+                loadUserHeadImg();
             }else{
                 $("#hasnotlogin").show();
                 $("#haslogin").hide();
@@ -190,6 +192,24 @@ function removeHTMLTag(str) {
 }
 
 /**
+ * 时间戳转成时间
+ *
+ * @param timestamp
+ * @returns {*}
+ */
+function timestampToTime(timestamp) {
+    var date = new Date(timestamp);
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes() + ':';
+    s = date.getSeconds();
+
+    return Y+M+D+h+m+s;
+}
+
+/**
  * 当前页面加载为首页
  */
 function loadIndex() {
@@ -222,5 +242,27 @@ function showQuestionDetail(qid) {
     }
 }
 
+/**
+ * 显示用户信息页面
+ */
+function showUserPage() {
+    window.location.href = contextPath + "/jsp/user_info.jsp";
+}
 
-//TODO 弹出层被遮挡bug
+/**
+ * 获取当前用户的头像,图片保存相对路径
+ */
+function loadUserHeadImg(){
+    $.ajax({
+        url:  getBaseUrl() + "user/getUserHeadImg.do",
+        type: "GET",
+        contentType:"application/json",
+        success:function (data) {
+            if(data && !isNullOrEmpty(data.imgpath)){
+                $("#userHeadImg").attr("src", "/path" +  data.imgpath);
+            }else{
+                $("#userHeadImg").attr("src", contextPath + "/assets/plugins/layui/images/user1.jpg");
+            }
+        }
+    });
+}

@@ -101,17 +101,17 @@
                     <div class="layui-colla-item">
                         <h2 class="layui-colla-title" style="background-color: white">写回答</h2>
                         <div class="layui-colla-content layui-show" style="padding: 0">
-                                <div class="layui-card-body" style="padding: 0">
-                                    <!-- 问题回答内容编辑区域 -->
-                                    <script id="container" name="content" type="text/plain" >
-                                    </script>
+                            <div class="layui-card-body" style="padding: 0">
+                                <!-- 问题回答内容编辑区域 -->
+                                <script id="container" name="content" type="text/plain" >
+                                </script>
 
-                                    <div class="layui-row" style="text-align: right">
-                                        <button class="layui-btn  layui-btn-normal layui-btn-sm" style="margin-top: 20px;" onclick="addAnswer();">
-                                            提交
-                                        </button>
-                                    </div>
+                                <div class="layui-row" style="text-align: right">
+                                    <button class="layui-btn  layui-btn-normal layui-btn-sm" style="margin-top: 20px;" onclick="addAnswer();">
+                                        提交
+                                    </button>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>

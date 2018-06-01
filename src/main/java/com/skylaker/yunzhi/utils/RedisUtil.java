@@ -256,4 +256,14 @@ public class RedisUtil {
     public Long removeSetValue(Object setKey, Integer itemKey) {
         return redisTemplate.opsForSet().remove(setKey, itemKey);
     }
+
+    /**
+     * 获取无序集合元素数量
+     *
+     * @param setKey
+     * @return
+     */
+    public Long getSetCount(Object setKey) {
+        return redisTemplate.opsForSet().size(setKey);
+    }
 }

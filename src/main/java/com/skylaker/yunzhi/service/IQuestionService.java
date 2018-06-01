@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.service;
 import com.skylaker.yunzhi.pojo.Question;
 import com.skylaker.yunzhi.pojo.QuestionDetail;
 import com.skylaker.yunzhi.pojo.QuestionResult;
+import com.skylaker.yunzhi.pojo.QuestionsList;
 
 import java.util.List;
 
@@ -62,4 +63,12 @@ public interface IQuestionService {
      * @return
      */
     Long getQuestionAnswers(int qid);
+
+    /**
+     * 查询用户提问的问题分页信息，第几页
+     *
+     * @param page  分页信息，第几页
+     * @return
+     */
+    QuestionsList getUserQuestions(int page);
 }

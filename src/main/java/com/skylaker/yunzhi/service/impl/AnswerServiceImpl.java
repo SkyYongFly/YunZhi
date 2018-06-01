@@ -9,6 +9,8 @@ import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,12 +38,17 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
 
 
     /**
-     * 新增问题回答
+     * <p>
+     *   新增问题回答<br/>
      *
-     * @param answer
+     *   1、注意这里要清除指定问题信息缓存，避免下次查询问题对应的回答数没有同步更新
+     * </p>
+     *
+     * @param   answer 新添加回答
      * @return
      */
     @Transactional
+    @CacheEvict(value = "questionCache", key = "#answer.qid", beforeInvocation = true)
     @Override
     public BaseResult addAnswer(Answer answer) {
         //设置回答用户信息

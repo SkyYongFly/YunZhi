@@ -54,4 +54,12 @@ public interface IUserService {
      * @param registerInfo  注册用户信息
      */
     void saveRegisterUser(RegisterInfo registerInfo);
+
+    /**
+     * 获取用户头像相对路径
+     *
+     * @param userId
+     * @return
+     */
+    String getUserHeadImg(Integer userId);
 }

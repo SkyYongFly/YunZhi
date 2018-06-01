@@ -23,6 +23,12 @@ public class GlobalConstant {
     public static final Object REDIS_ZSET_QUESTIONS_HOT = "QUESTIONS_HOT";
     //问题对应的所有回答zset key名称后缀
     public static final String REDIS_ZSET_QUESTION_ANSWERS = "_Answers";
+    //用户头像相对路径
+    public static final Object REDIS_HASH_USER_HEAD_IMG = " REDIS_HASH_USER_HEAD_IMGS";
+    //用户点赞的回答
+    public static final String STAR_ANSWERS = "_STAR_ANSWERS";
+    //用户的问题
+    public static final String USER_QUESTIONS = "_USER_QUESTIONS";
 
 
     //非业务型常量定义
@@ -41,6 +47,9 @@ public class GlobalConstant {
     public static final double MIN_HOT_INDEX = Double.valueOf(1);
     //每次加载回答数量
     public static final Integer ANSWERS_NUM = 10;
-    //用户点赞的回答
-    public static final String STAR_ANSWERS = "_STAR_ANSWERS";
+    //文件类型:用户上传头像
+    public static final String FILE_TYPE_USER_HEAD_IMG = "USERHEADIMG";
+    //文件类型:回答中插入的图片
+    public static final String FILE_TYPE_ANSWERS_IMG = "ANSWERSIMG";
+
 }

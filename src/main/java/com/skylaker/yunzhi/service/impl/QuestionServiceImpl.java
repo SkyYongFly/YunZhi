@@ -3,10 +3,7 @@ package com.skylaker.yunzhi.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.QuestionMapper;
-import com.skylaker.yunzhi.pojo.Question;
-import com.skylaker.yunzhi.pojo.QuestionDetail;
-import com.skylaker.yunzhi.pojo.QuestionResult;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.*;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -16,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
 
@@ -40,6 +38,8 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     @Autowired
     private QuestionMapper questionMapper;
 
+    //不能定义成成员变量，因为框架初始化时加载类，且是单例，这个时候尚未登录，无法获取登录信息
+    //private Integer userId = BaseUtil.getSessionUser().getId();
 
     @Override
     public QuestionResult addQuestion(Question question) {
@@ -78,6 +78,9 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         //保存问题时间戳
         redisUtil.addZsetValue(REDIS_ZSET_QUESTIONS_TIME,
                    questionInfo.toJSONString() , Double.valueOf(System.currentTimeMillis()));
+
+        //保存用户问题信息
+        redisUtil.addSetValue(BaseUtil.getSessionUser().getId() + GlobalConstant.USER_QUESTIONS, question.getQid());
 
         //初始化问题热门指数
         hotQuestionService.initQuestionHotIndex(question.getQid());
@@ -202,5 +205,29 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
 
         return redisUtil.getZsetCount(qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS,
                 Double.valueOf(0), Double.POSITIVE_INFINITY);
+    }
+
+
+    @Override
+    public QuestionsList getUserQuestions(int page) {
+        Integer userId = BaseUtil.getSessionUser().getId();
+
+        //分页查询用户问题
+        PageInfo pageInfo = new PageInfo(page, GlobalConstant.QUESTIONS_NUM);
+        pageInfo.setUserid(userId);
+        List<QuestionDetail> questionsList = questionMapper.getUserQuestions(pageInfo);
+
+        //获取用户提问的所有问题数量
+        Long questionsCount = redisUtil.getSetCount(userId + GlobalConstant.USER_QUESTIONS);
+
+        if(questionsCount < questionsList.size()){  // 缓存失效
+            Example example = new Example(Question.class);
+            Example.Criteria criteria = example.createCriteria();
+            criteria.andEqualTo("userid", userId);
+
+            questionsCount = Long.valueOf(super.getCount(example));
+        }
+
+        return new QuestionsList(questionsList, questionsCount);
     }
 }

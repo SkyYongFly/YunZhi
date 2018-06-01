@@ -11,8 +11,12 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.util.DigestUtils;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Properties;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -128,5 +132,33 @@ public class BaseUtil {
      */
     public static Object getRedisQuestionAnswersKey(Integer qid) {
         return qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS;
+    }
+
+    /**
+     * 获取UUID
+     *
+     * @return
+     */
+    public static String getUUID() {
+        return UUID.randomUUID().toString().replaceAll("-","");
+    }
+
+    /**
+     * 获取properties配置中属性
+     *
+     * @return
+     */
+    public static String getPropertyValue(String propertiesName, Object property){
+        Properties properties = new Properties();
+        InputStream inputStream = BaseUtil.class.getClassLoader().getResourceAsStream(propertiesName);
+
+        try {
+            properties.load(inputStream);
+
+            return (String) properties.get(property);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

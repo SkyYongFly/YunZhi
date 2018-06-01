@@ -46,19 +46,18 @@
                     <%--个人信息--%>
                     <div id="userinfo"  class="layui-row layui-col-space20">
                         <div class="layui-col-md2">
-                            <i  id="usericon" class="layui-icon layui-icon-friends" style="font-size: 40px; color: #1E9FFF;display: none"></i>
+                            <img id="userHeadImg" name="file" class="userMiddleHead" onclick="showUserPage();"/>
                         </div>
 
                         <div class="layui-col-md10">
-
                             <%--已经登录显示--%>
-                            <div id="haslogin" style="display: none">
+                            <div id="haslogin" style="display: none" onclick="showUserPage();">
                                 <div class="layui-card">
                                     <div class="layui-card-header" style="height: 20px;line-height: 20px;">
-                                        <p id="username">昵称</p>
+                                        <p id="username" class="indexUserName">昵称</p>
                                     </div>
                                     <div class="layui-card-body" style="padding-top:5px;padding-bottom: 0; line-height: 20px;">
-                                        <p id="signature">签名~~~</p>
+                                        <p id="signature" class="indexUserSignature">签名~~~</p>
                                     </div>
                                 </div>
                             </div>
