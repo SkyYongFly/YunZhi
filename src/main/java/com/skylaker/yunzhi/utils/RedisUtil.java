@@ -10,11 +10,10 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created with IntelliJ IDEA.
+ * redis操作工具类
+ *
  * User: zhuyong
  * Date: 2018/5/20 19:50
- * Description:
- *      redis操作工具类
  */
 @Component
 public class RedisUtil {

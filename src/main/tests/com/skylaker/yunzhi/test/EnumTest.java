@@ -1,7 +1,6 @@
 package com.skylaker.yunzhi.test;
 
-import com.skylaker.yunzhi.pojo.LoginResult;
-import org.junit.Assert;
+import com.skylaker.yunzhi.pojo.res.LoginResult;
 import org.junit.Test;
 
 /**

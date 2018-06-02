@@ -2,8 +2,8 @@ package com.skylaker.yunzhi.mappers;
 
 import java.util.List;
 
-import com.skylaker.yunzhi.pojo.Fileupload;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.db.Fileupload;
+import com.skylaker.yunzhi.pojo.db.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;

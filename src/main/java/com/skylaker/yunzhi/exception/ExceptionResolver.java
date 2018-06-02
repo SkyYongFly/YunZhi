@@ -1,8 +1,8 @@
 package com.skylaker.yunzhi.exception;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.BaseResult;
-import com.skylaker.yunzhi.pojo.IResult;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
+import com.skylaker.yunzhi.pojo.res.IResult;
 import org.apache.shiro.ShiroException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

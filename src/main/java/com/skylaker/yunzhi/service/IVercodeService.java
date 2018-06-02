@@ -1,12 +1,12 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.RegisterInfo;
+import com.skylaker.yunzhi.pojo.db.User;
 
 /**
- * Created with IntelliJ IDEA.
+ * 验证码逻辑接口定义
+ *
  * User: zhuyong
  * Date: 2018/5/20 11:07
- * Description: 验证码逻辑接口定义
  */
 public interface IVercodeService {
     /**
@@ -35,8 +35,8 @@ public interface IVercodeService {
      * 手机验证码验证
      * 验证提交的验证码和发送的验证码是否一致
      *
-     * @param  registerInfo 注册信息
+     * @param  user         注册用户
      * @return {boolean}    验证通过：true；不通过：false
      */
-    boolean validateVercode(RegisterInfo registerInfo);
+    boolean validateVercode(User user);
 }

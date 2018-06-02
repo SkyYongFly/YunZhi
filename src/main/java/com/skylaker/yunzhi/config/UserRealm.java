@@ -1,7 +1,7 @@
 package com.skylaker.yunzhi.config;
 
-import com.skylaker.yunzhi.pojo.Role;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.db.Role;
+import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -12,19 +12,18 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created with IntelliJ IDEA.
+ * 用户验证
+ *
  * User: zhuyong
- * Date: 2018/5/12
- * Time: 10:30
- * Description: 用户验证
+ * Date: 2018/5/12 10:30
  */
 public class UserRealm  extends AuthorizingRealm {
-    @Autowired
-    @Qualifier("userServiceImpl")
+    @Resource(name = "userServiceImpl")
     private IUserService userService;
 
     /**

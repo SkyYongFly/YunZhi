@@ -1,5 +1,9 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,28 +15,20 @@ import java.util.Date;
 public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //角色表主键ID
-    private Integer     roleid;
-
-    //角色名称
-    private String  rolename;
-
-    //角色描述
-    private String  content;
-
-    //角色创建时间
-    private Date    createtime;
-
-    //角色信息修改时间
-    private Date 	updatetime;
-
-    //是否被锁定，0否1是
-    private boolean locked;
-
-
-    public Role() {
-
-    }
+    @Id
+    @Column(name = "roleid")
+    @GeneratedValue(generator = "JDBC")
+    private Integer roleid;     //角色表主键ID
+    @Column
+    private String  rolename;   //角色名称
+    @Column
+    private String  content;    //角色描述
+    @Column
+    private Date    createtime; //角色创建时间
+    @Column
+    private Date 	updatetime; //角色信息修改时间
+    @Column
+    private boolean locked;     //是否被锁定，0否1是
 
     public Integer getRoleid() {
         return roleid;

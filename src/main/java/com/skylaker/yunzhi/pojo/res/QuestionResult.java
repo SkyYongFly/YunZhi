@@ -1,12 +1,12 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.res;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题操作结果返回状态
+ *
  * User: zhuyong
  * Date: 2018/5/26
- * Description: 问题操作结果返回状态
  */
-public enum QuestionResult implements IResult{
+public enum QuestionResult implements IResult {
     //成功
     SUCCESS("成功", 1) ,
 
@@ -47,7 +47,7 @@ public enum QuestionResult implements IResult{
         this.message = message;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 

@@ -1,9 +1,9 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.Answer;
-import com.skylaker.yunzhi.pojo.AnswersList;
-import com.skylaker.yunzhi.pojo.BaseResult;
+import com.skylaker.yunzhi.pojo.db.Answer;
+import com.skylaker.yunzhi.pojo.db.AnswersList;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +11,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
- * Created with IntelliJ IDEA.
+ * 问题回答请求控制器
+ *
  * User: zhuyong
  * Date: 2018/5/28 20:24
- * Description:
- *      问题回答请求控制器
  */
 @Controller
 @RequestMapping("/answer")
 public class AnswerController {
-    @Autowired
-    @Qualifier("answerServiceImpl")
+    @Resource(name = "answerServiceImpl")
     private IAnswerService answerService;
 
 

@@ -1,4 +1,4 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.com;
 
 import org.apache.ibatis.type.Alias;
 

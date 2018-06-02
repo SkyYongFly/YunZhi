@@ -33,7 +33,7 @@
                 ,done: function(page, next){
                     var lis = [];
                     $.get(getBaseUrl() + 'question/getHotQuestionsDetails.do?page='+page + '&token=' + $("#token").val(), function(res){
-                        layui.each(res.hotQuestionDetaislList, function(index, item){
+                        layui.each(res.questions, function(index, item){
                             lis.push(
                                 '<div class="layui-card">' +
                                     '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.hotuserid + ');">' +

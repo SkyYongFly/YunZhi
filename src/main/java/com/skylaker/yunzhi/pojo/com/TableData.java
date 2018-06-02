@@ -1,13 +1,12 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.com;
 
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * Layui table返回数据封装
+ *
  * User: zhuyong
  * Date: 2018/5/27 11:25
- * Description:
- *      layui table返回数据封装
  */
 public class TableData <T>{
     private int code = 0;

@@ -2,30 +2,23 @@ package com.skylaker.yunzhi.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
-import com.skylaker.yunzhi.pojo.IResult;
-import com.skylaker.yunzhi.pojo.QuestionDetail;
-import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.res.IResult;
+import com.skylaker.yunzhi.pojo.db.User;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
-import org.springframework.util.DigestUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created with IntelliJ IDEA.
+ * 字符串验证等常用函数工具类
+ *
  * User: zhuyong
- * Date: 2018/5/13
- * Time: 17:42
- * Description: 字符串验证等常用函数工具类
+ * Date: 2018/5/13 17:42
  */
 public class BaseUtil {
 

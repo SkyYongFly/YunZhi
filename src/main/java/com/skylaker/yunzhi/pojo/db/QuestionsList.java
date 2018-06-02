@@ -1,4 +1,4 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,22 +13,28 @@ public class QuestionsList implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //查询的当前展示页最新问题集合
-    private List<QuestionDetail> questions;
-
+    private List<Question> questions;
     //需要展示的问题总数量
-    private Long sum;
+    private Long           sum;
+    //缓存标识
+    private String         token;
 
-
-    public QuestionsList(List<QuestionDetail> questions, Long sum) {
+    public QuestionsList(List<Question> questions, Long sum) {
         this.questions = questions;
         this.sum = sum;
     }
 
-    public List<QuestionDetail> getQuestions() {
+    public QuestionsList(List<Question> questionsList, Long num, String token) {
+        this.questions = questionsList;
+        this.sum = num;
+        this.token = token;
+    }
+
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<QuestionDetail> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 

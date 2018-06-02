@@ -1,4 +1,4 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
 import org.apache.ibatis.type.Alias;
 
@@ -24,28 +24,20 @@ public class Fileupload implements Serializable {
     @Column(name = "fid")
     @GeneratedValue(generator = "JDBC")
     private Integer fid;     //文件记录主键ID
-
     @Column
     private Integer userid;  //关联用户ID
-
     @Column
-    private String fname;   //文件名称
-
+    private String  fname;   //文件名称
     @Column
     private String fpath;   //文件绝对路径
-
     @Column
     private String fspath;  //文件相对路径
-
     @Column
     private String fcode;   //文件关联的业务标识
-
     @Column
     private String ftype;   //文件类型
-
     @Column
-    private Date time;      //文件上传时间
-
+    private Date   time;    //文件上传时间
     @Column
     private Double size;    //文件大小
 

@@ -1,8 +1,7 @@
 package com.skylaker.yunzhi.mappers;
 
-import com.skylaker.yunzhi.pojo.PageInfo;
-import com.skylaker.yunzhi.pojo.Question;
-import com.skylaker.yunzhi.pojo.QuestionDetail;
+import com.skylaker.yunzhi.pojo.com.PageInfo;
+import com.skylaker.yunzhi.pojo.db.Question;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
@@ -11,20 +10,13 @@ import tk.mybatis.mapper.common.MySqlMapper;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题SQL Mapper
+ *
  * User: zhuyong
  * Date: 2018/5/26 15:52
- * Description:
  */
 @Repository
 public interface QuestionMapper extends Mapper<Question>,MySqlMapper<Question> {
-    /**
-     * 查询指定问题列表详细信息
-     *
-     * @param   qids  问题ID字符串
-     * @return
-     */
-    List<QuestionDetail> getQuestionDetailList(@Param("qids") String qids);
 
     /**
      * 查询用户所有的问题
@@ -32,5 +24,13 @@ public interface QuestionMapper extends Mapper<Question>,MySqlMapper<Question> {
      * @param   pageInfo
      * @return
      */
-    List<QuestionDetail> getUserQuestions(@Param("pageInfo")PageInfo pageInfo);
+    List<Question> getUserQuestions(@Param("pageInfo")PageInfo pageInfo);
+
+    /**
+     * 查询指定问题列表详细信息
+     *
+     * @param   qids  问题ID字符串
+     * @return
+     */
+    List<Question> getQuestionsList(@Param("qids")String qids);
 }

@@ -1,16 +1,15 @@
 package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
-import com.skylaker.yunzhi.pojo.BaseResult;
-import com.skylaker.yunzhi.pojo.FileUploadItem;
-import com.skylaker.yunzhi.pojo.Fileupload;
-import com.skylaker.yunzhi.pojo.IResult;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
+import com.skylaker.yunzhi.pojo.db.FileUploadItem;
+import com.skylaker.yunzhi.pojo.db.Fileupload;
+import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.service.IFileUploadService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,10 +24,6 @@ import java.io.IOException;
  */
 @Service("fileUploadServiceImpl")
 public class FileUploadServiceImpl extends BaseService<Fileupload> implements IFileUploadService {
-    @Autowired
-    private RedisUtil redisUtil;
-
-
     /**
      * 处理文件上传
      *
@@ -50,7 +45,7 @@ public class FileUploadServiceImpl extends BaseService<Fileupload> implements IF
             saveToDb(fileUploadItem);
 
             //保存用户头像缓存信息
-            saveUserHeadImgInfo(fileUploadItem);
+            redisService.saveUserHeadImgInfo(fileUploadItem);
 
             return BaseResult.SUCCESS;
         } catch (IOException e) {
@@ -71,17 +66,5 @@ public class FileUploadServiceImpl extends BaseService<Fileupload> implements IF
     public void saveToDb(FileUploadItem fileUploadItem) {
         Fileupload fileupload = fileUploadItem;
         super.save(fileupload);
-    }
-
-    /**
-     * 保存用户头像缓存信息
-     *
-     * @param fileUploadItem
-     */
-    private void saveUserHeadImgInfo(FileUploadItem fileUploadItem) {
-        if(GlobalConstant.FILE_TYPE_USER_HEAD_IMG.equals(fileUploadItem.getType())){
-            redisUtil.setHashValue(GlobalConstant.REDIS_HASH_USER_HEAD_IMG,
-                    String.valueOf(BaseUtil.getSessionUser().getId()), fileUploadItem.getFileRelativePath());
-        }
     }
 }

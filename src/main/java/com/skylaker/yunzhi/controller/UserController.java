@@ -1,7 +1,7 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,9 +22,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	@Autowired
-	@Qualifier("userServiceImpl")
+	@Resource(name = "userServiceImpl")
 	private IUserService userService;
+
 
 	/**
 	 * 获取所有用户

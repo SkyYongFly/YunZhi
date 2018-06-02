@@ -1,8 +1,8 @@
 package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
-import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.RegisterResult;
+import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.RegisterResult;
 import com.skylaker.yunzhi.service.IRegisterService;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.service.IVercodeService;
@@ -12,25 +12,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
- * Created with IntelliJ IDEA.
+ * 注册相关逻辑具体实现类
+ *
  * User: zhuyong
  * Date: 2018/5/20 11:33
- * Description:
- *      注册相关逻辑具体实现类
  */
 @Service("registerServiceImpl")
-public class RegisterServiceImpl implements IRegisterService {
-    @Autowired
-    @Qualifier("vercodeServiceImpl")
+public class RegisterServiceImpl extends BaseService<User> implements IRegisterService {
+    @Resource(name = "vercodeServiceImpl")
     private IVercodeService vercodeService;
 
-    @Autowired
-    @Qualifier("userServiceImpl")
+    @Resource(name = "userServiceImpl")
     private IUserService userService;
-
-    @Autowired
-    private RedisUtil redisUtil;
 
 
     /**
@@ -63,60 +59,46 @@ public class RegisterServiceImpl implements IRegisterService {
     /**
      * 注册信息验证
      *
-     * @param   registerInfo  注册信息
+     * @param   user  注册用户
      * @return  {enum}
      */
     @Override
-    public RegisterResult registerValidate(RegisterInfo registerInfo) {
+    public RegisterResult registerValidate(User user) {
         //验证用户名格式
-        if(!BaseUtil.validateUserName(registerInfo.getUsername())){
+        if(!BaseUtil.validateUserName(user.getUsername())){
             return RegisterResult.INVALIDATE_USERNAME;
         }
 
         //验证密码格式
-        if(!BaseUtil.validatePassword(registerInfo.getPassword())){
+        if(!BaseUtil.validatePassword(user.getPassword())){
             return RegisterResult.INVALIDATE_PASSWORD;
         }
 
         //验证手机号格式
-        if(!BaseUtil.isPhone(registerInfo.getPhone())){
+        if(!BaseUtil.isPhone(user.getPhone())){
             return RegisterResult.INVALIDATE_PHONE;
         }
 
         //验证手机号是否已注册过
-        if(validatePhoneHasRegister(registerInfo.getPhone())){
+        if(redisService.validatePhoneHasRegister(user.getPhone())){
             return RegisterResult.PHONE_HAS_REGISTER;
         }
 
         //验证验证码
-        if(!vercodeService.validateVercode(registerInfo)){
+        if(!vercodeService.validateVercode(user)){
             return RegisterResult.INVALIDATE_VERCODE;
         }
 
         try {
             //保存注册用户信息
-            userService.saveRegisterUser(registerInfo);
+            userService.saveRegisterUser(user);
             //验证成功缓存已注册手机号
-            redisUtil.addSetValue(GlobalConstant.REDIS_SET_HASREGISTERPHONE, registerInfo.getPhone());
+            redisService.saveHasRegisterPhone(user);
         }catch (Exception e){
             e.printStackTrace();
             return RegisterResult.REGISTER_FAILURE;
         }
 
         return RegisterResult.SUCCESS;
-    }
-
-    /**
-     * 判断指定手机号用户是否已注册
-     *
-     * @param   phone   手机号
-     * @return
-     */
-    private boolean validatePhoneHasRegister(String phone) {
-        if(BaseUtil.isNullOrEmpty(phone)){
-            return false;
-        }
-
-        return  redisUtil.existInSet(GlobalConstant.REDIS_SET_HASREGISTERPHONE, phone);
     }
 }

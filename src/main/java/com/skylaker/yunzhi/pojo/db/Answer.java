@@ -1,11 +1,8 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
 import org.apache.ibatis.type.Alias;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,30 +17,26 @@ import java.util.Date;
 public class Answer implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //回答主键ID
     @Id
     @Column(name = "aid")
     @GeneratedValue(generator = "JDBC")
-    private Integer aid;
-
-    //回答内容
+    private Integer aid;        //回答主键ID
     @Column
-    private String text;
-
-    //回答的问题ID
+    private String  text;       //回答内容
     @Column
-    private Integer qid;
-
-    //回答用户ID
+    private Integer qid;        //回答的问题ID
     @Column
-    private Integer userid;
-
-    //创建时间
+    private Integer userid;     //回答用户ID
     @Column
-    private Date createtime;
+    private Date    createtime; //创建时间
+    @Column
+    private Integer star;       //点赞数
 
-    //点赞数
-    private Integer star;
+    @Transient
+    protected String username;  //回答用户名称
+    @Transient
+    protected String signature; //回答用户签名
+
 
     public Integer getAid() {
         return aid;
@@ -91,6 +84,22 @@ public class Answer implements Serializable {
 
     public void setStar(Integer star) {
         this.star = star;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
     @Override

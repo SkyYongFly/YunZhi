@@ -11,11 +11,10 @@ import org.springframework.stereotype.Service;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Created with IntelliJ IDEA.
+ * 发送短信MQ处理
+ *
  * User: zhuyong
  * Date: 2018/5/23 23:29
- * Description:
- *      发送短信MQ处理
  */
 @Service
 public class SmsMqListener implements MessageListener {

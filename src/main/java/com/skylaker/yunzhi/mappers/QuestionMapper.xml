@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->
 <mapper namespace="com.skylaker.yunzhi.mappers.QuestionMapper">
-
     <!--查询指定问题列表详细信息-->
-    <select id="getQuestionDetailList" parameterType="java.lang.String" resultType="questionDetail">
+    <select id="getQuestionsList" parameterType="java.lang.String" resultType="question">
         SELECT
             Q.*,
             U.USERNAME,
@@ -24,7 +22,7 @@
     </select>
 
     <!--查询用户提问的问题-->
-    <select id="getUserQuestions" parameterType="pageinfo" resultType="questionDetail">
+    <select id="getUserQuestions" parameterType="pageinfo" resultType="question">
         SELECT
             Q.*,
             COUNT(R.AID) AS answersnum

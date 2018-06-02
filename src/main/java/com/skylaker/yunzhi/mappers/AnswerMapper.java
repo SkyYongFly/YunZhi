@@ -1,8 +1,8 @@
 package com.skylaker.yunzhi.mappers;
 
-import com.skylaker.yunzhi.pojo.Answer;
-import com.skylaker.yunzhi.pojo.AnswerDetail;
-import com.skylaker.yunzhi.pojo.PageInfo;
+import com.skylaker.yunzhi.pojo.db.Answer;
+import com.skylaker.yunzhi.pojo.db.Answer;
+import com.skylaker.yunzhi.pojo.com.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
@@ -24,7 +24,7 @@ public interface AnswerMapper extends Mapper<Answer>, MySqlMapper<Answer> {
      * @param   aid  回答ID
      * @return
      */
-    AnswerDetail getAnswerDetail(@Param("aid") Integer aid);
+    Answer getAnswer(@Param("aid") Integer aid);
 
     /**
      * 页查询问题回答
@@ -32,7 +32,7 @@ public interface AnswerMapper extends Mapper<Answer>, MySqlMapper<Answer> {
      * @param pageInfo
      * @return
      */
-    List<AnswerDetail> getQuestionAllAnswers(@Param("pageInfo")  PageInfo pageInfo);
+    List<Answer> getQuestionAllAnswers(@Param("pageInfo")  PageInfo pageInfo);
 
     /**
      * 增加回答的点赞数

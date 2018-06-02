@@ -1,19 +1,26 @@
 package com.skylaker.yunzhi.service.impl;
 
+import com.skylaker.yunzhi.service.IRedisService;
 import com.skylaker.yunzhi.service.IService;
+import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
+import javax.annotation.Resource;
+import java.beans.Transient;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * 逻辑处理公共类
+ *
  * User: zhuyong
  * Date: 2018/5/26 16:34
- * Description:
- *      逻辑处理公共类
  */
 public class BaseService<T> implements IService<T> {
+    @Resource(name = "redisServiceImpl")
+    protected IRedisService redisService;
+
     @Autowired
     private Mapper<T> mapper;
 

@@ -1,25 +1,18 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.res;
 
 /**
- * Created with IntelliJ IDEA.
+ * 操作结果返回内容定义接口
+ *
  * User: zhuyong
  * Date: 2018/5/26 14:33
- * Description:
- *      操作结果返回内容定义接口
  */
 public interface IResult {
-    //返回标识
-    int code = 0;
-
-    //返回信息
-    String message = null;
-
     /**
      * 获取结果标识
      *
      * @return
      */
-    int getCode();
+    Integer getCode();
 
     /**
      * 获取结果信息
@@ -27,6 +20,4 @@ public interface IResult {
      * @return
      */
     String getMessage();
-
-
 }

@@ -48,7 +48,7 @@ layui.use('flow', function(){
         ,done: function(page, next){
             var lis = [];
             $.get(getBaseUrl() + 'answer/getQuestionAllAnswers.do?page='+page + "&qid=" + qid, function(res){
-                layui.each(res.answersDetailList, function(index, item){
+                layui.each(res.answersList, function(index, item){
                     lis.push(
                         '<div class="layui-card">' +
                             '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +

@@ -10,11 +10,10 @@ import org.apache.shiro.cache.CacheManager;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created with IntelliJ IDEA.
+ * 验证登录用户——匹配用户登录令牌和数据库用户名、密码信息一致性
+ *
  * User: zhuyong
- * Date: 2018/5/12
- * Time: 9:48
- * Description: 验证登录用户——匹配用户登录令牌和数据库用户名、密码信息一致性
+ * Date: 2018/5/12 9:48
  */
 public class CredentialsMatcher extends HashedCredentialsMatcher {
     //声明缓存接口

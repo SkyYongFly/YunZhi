@@ -1,12 +1,13 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
-import com.skylaker.yunzhi.config.GlobalConstant;
-import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.ibatis.type.Alias;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * User POJO对象
@@ -17,35 +18,31 @@ import java.util.UUID;
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	//用户表主键ID
-	private Integer	id;
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "JDBC")
+	private Integer	id;			//用户表主键ID
+	@Column
+	private String 	username;	//用户名/账号
+	@Column
+	private String 	password;	//账号密码
+	@Column
+	private String  phone;		//手机号
+	@Column
+	private String  signature;	//签名
+	@Column
+	private Date 	createtime;	//用户创建时间
+	@Column
+	private Date 	updatetime;	//用户信息修改时间
+	@Column
+	private Boolean locked;		//用户是否被锁定
+	@Column
+	private String 	salt;		//用户密码加盐
+	@Column
+	private String 	roleid;		//角色ID
 
-	//用户名/账号
-	private String 	username;
-
-	//账号密码
-	private String 	password;
-
-	//手机号
-	private String  phone;
-
-	//签名
-	private String  signature;
-
-	//用户创建时间
-	private Date 	createtime;
-
-	//用户信息修改时间
-	private Date 	updatetime;
-
-	//用户是否被锁定
-	private Boolean locked;
-
-	//用户密码加盐
-	private String 	salt;
-
-	//角色ID
-	private String 	roleid;
+	@Transient
+	private String  vercode;	//短信验证码
 
 
 	public User(){
@@ -188,6 +185,14 @@ public class User implements Serializable{
 
 	public void setRoleid(String roleid) {
 		this.roleid = roleid;
+	}
+
+	public String getVercode() {
+		return vercode;
+	}
+
+	public void setVercode(String vercode) {
+		this.vercode = vercode;
 	}
 
 	@Override

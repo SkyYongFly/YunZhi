@@ -1,14 +1,14 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.RegisterResult;
+import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.IResult;
+import com.skylaker.yunzhi.pojo.res.RegisterResult;
 
 /**
- * Created with IntelliJ IDEA.
+ * 注册相关逻辑接口定义
+ *
  * User: zhuyong
  * Date: 2018/5/20 11:31
- * Description:
- *      注册相关逻辑接口定义
  */
 public interface IRegisterService {
     /**
@@ -18,11 +18,12 @@ public interface IRegisterService {
      */
     RegisterResult getVercode(String phone);
 
+
     /**
-     * 用户注册信息验证
+     * 用户注册验证
      *
-     * @param registerInfo  注册信息
+     * @param   user  注册用户
      * @return
      */
-    RegisterResult registerValidate(RegisterInfo registerInfo);
+    IResult registerValidate(User user);
 }

@@ -1,4 +1,4 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.db;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.Properties;
 
 /**
  * 文件操作

@@ -1,7 +1,9 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.*;
+import com.skylaker.yunzhi.pojo.db.Question;
+import com.skylaker.yunzhi.pojo.db.QuestionsList;
+import com.skylaker.yunzhi.pojo.com.TableData;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -14,17 +16,15 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题相关逻辑处理
+ *
  * User: zhuyong
  * Date: 2018/5/24 22:26
- * Description:
- *      问题相关逻辑处理
  */
 @Controller
 @RequestMapping("/question")
 public class QuestionController {
-    @Autowired
-    @Qualifier("questionServiceImpl")
+    @Resource(name = "questionServiceImpl")
     private IQuestionService questionService;
 
     @Resource(name = "hotQuestionServiceImpl")
@@ -50,7 +50,8 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getNewestQuestions", method = RequestMethod.GET)
-    public @ResponseBody TableData getNewestQuestions(){
+    public @ResponseBody
+    TableData getNewestQuestions(){
         return new TableData(questionService.getNewestQuestions());
     }
 
@@ -62,12 +63,7 @@ public class QuestionController {
     @RequestMapping(value = "/getNewestQuestionsDetails", method = RequestMethod.GET)
     public @ResponseBody
     QuestionsList getNewestQuestionsDetails(@RequestParam("page")int page, @RequestParam("time") long time){
-        //获取当前页面显示的问题信息
-        List<QuestionDetail> questionsList = questionService.getNewestQuestionsDetails(page, time);
-        //获取要展示的问题总数量
-        Long sum = questionService.getNewestQuestionsCount(time);
-
-        return new QuestionsList(questionsList, sum);
+        return  questionService.getNewestQuestionsDetails(page, time);
     }
 
     /**
@@ -78,8 +74,8 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getHotQuestionsDetails", method = RequestMethod.GET)
-    public @ResponseBody HotQuestionsList getHotQuestionsDetails(@RequestParam("page")int page, @RequestParam("token") String token){
-        return hotQuestionService.getHotQuestionsDetailsByPage(page, token);
+    public @ResponseBody QuestionsList getHotQuestionsDetails(@RequestParam("page")int page, @RequestParam("token") String token){
+        return hotQuestionService.getHotQuestionsByPage(page, token);
     }
 
     /**
@@ -89,8 +85,8 @@ public class QuestionController {
      * @return
      */
     @RequestMapping(value = "/getQuestionDetail", method = RequestMethod.GET)
-    public @ResponseBody QuestionDetail getQuestionDetail(@RequestParam("qid")int qid){
-        return questionService.getQuestionDetail(qid);
+    public @ResponseBody Question getQuestion(@RequestParam("qid")int qid){
+        return questionService.getQuestion(qid);
     }
 
     /**

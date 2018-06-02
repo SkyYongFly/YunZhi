@@ -2,39 +2,35 @@ package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.AnswerMapper;
-import com.skylaker.yunzhi.pojo.*;
+import com.skylaker.yunzhi.pojo.com.PageInfo;
+import com.skylaker.yunzhi.pojo.db.Answer;
+import com.skylaker.yunzhi.pojo.db.AnswersList;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import com.skylaker.yunzhi.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题回答具体逻辑处理类
+ *
  * User: zhuyong
  * Date: 2018/5/28 20:30
- * Description:
- *      问题回答具体逻辑处理类
  */
 @Service("answerServiceImpl")
 public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerService {
     @Autowired
-    private RedisUtil redisUtil;
-
-    @Autowired
-    @Qualifier("hotQuestionServiceImpl")
-    private IHotQuestionService hotQuestionService;
-
-    @Autowired
     private AnswerMapper answerMapper;
+
+    @Resource(name = "hotQuestionServiceImpl")
+    private IHotQuestionService hotQuestionService;
 
 
     /**
@@ -61,27 +57,9 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
         //保存回答
         super.save(answer);
         //保存相关信息到redis
-        saveInfoIntoRedis(answer);
+        redisService.saveInfoIntoRedis(answer);
 
         return BaseResult.SUCCESS;
-    }
-
-    /**
-     * <p>
-     *  保存相关信息到redis <br/>
-     *
-     *  1、新增回答记录到问题zset中 ，需要初始化点赞数为 0 <br/>
-     *  2、修改回答对应的问题热门指数 <br/>
-     * </p>
-     *
-     * @param answer 新增的问题回答
-     */
-    private void saveInfoIntoRedis(Answer answer) {
-        //新增回答记录到问题zset中
-        redisUtil.addZsetValue(answer.getQid() + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS, answer.getAid(), 0.0);
-
-        //增加问题热门指数
-        hotQuestionService.updateQuestionHotIndexOfAnswer(answer.getQid());
     }
 
 
@@ -102,11 +80,11 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
         //设置分页信息
         PageInfo pageInfo = new PageInfo(page, GlobalConstant.ANSWERS_NUM, qid);
         //查询问题回答
-        List<AnswerDetail> answerDetails = answerMapper.getQuestionAllAnswers(pageInfo);
+        List<Answer> answers = answerMapper.getQuestionAllAnswers(pageInfo);
         //获取问题回答的总数
-        Long sum = redisUtil.getZsetCount(BaseUtil.getRedisQuestionAnswersKey(qid), Double.valueOf(0), Double.POSITIVE_INFINITY);
+        Long sum = redisService.getQuestionAnswersCount(qid);
 
-        return new AnswersList(answerDetails,  sum);
+        return new AnswersList(answers,  sum);
     }
 
     /**
@@ -127,41 +105,27 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
      */
     @Override
     public synchronized Long starAction(Integer aid, Integer qid) {
+        redisService.staredAnswer(qid ,aid);
+
         //TODO 加锁性能上会有影响，需要优化
         //TODO 更新热门指数
-
-        //获取用户点赞的回答SET键名
-        Object  userStarAnswers = BaseUtil.getSessionUser().getId() + GlobalConstant.STAR_ANSWERS;
         //判断用户是否哦对当前回答点赞过
-        boolean hasStared =  redisUtil.existInSet(userStarAnswers, aid);
+        boolean hasStared =  redisService.hasStaredAnswer(aid);
 
-        //问题回答redis键名
-        Object questionAnswersRedisKey = BaseUtil.getRedisQuestionAnswersKey(qid);
         //获取问题点赞数
-        Long stars = redisUtil.getZsetKeyValue(questionAnswersRedisKey, aid).longValue();
+        Long stars = redisService.getAnswerStars(qid, aid);
 
+        //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
         //已经点赞过
         if(hasStared){
-            //redis 中回答点赞数减 1
-            redisUtil.increaseZsetScore(questionAnswersRedisKey, aid, Double.valueOf(-1));
-            //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
             //数据库中回答点赞数减 1
             answerMapper.decreaseStarsNum(aid);
-            //去除用户点赞的回答
-            redisUtil.removeSetValue(userStarAnswers, aid);
-
             return stars - 1;
         }
         //没有点赞过
         else{
-            //redis 中回答点赞数加 1
-            redisUtil.increaseZsetScore(questionAnswersRedisKey, aid, Double.valueOf(1));
-            //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
             //数据库中回答点赞数加 1
             answerMapper.increaseStarsNum(aid);
-            //缓存用户点赞的回答
-            redisUtil.addSetValue(userStarAnswers, aid);
-
             return stars + 1;
         }
     }

@@ -1,18 +1,17 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.Question;
-import com.skylaker.yunzhi.pojo.QuestionDetail;
-import com.skylaker.yunzhi.pojo.QuestionResult;
-import com.skylaker.yunzhi.pojo.QuestionsList;
+import com.skylaker.yunzhi.pojo.db.Question;
+import com.skylaker.yunzhi.pojo.res.QuestionResult;
+import com.skylaker.yunzhi.pojo.db.QuestionsList;
 
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题处理逻辑接口
+ *
  * User: zhuyong
  * Date: 2018/5/26 15:42
  * Description:
- *      问题处理逻辑接口
  */
 public interface IQuestionService {
 
@@ -37,7 +36,7 @@ public interface IQuestionService {
      * @param qid 问题ID
      * @return
      */
-    QuestionDetail getQuestionDetail(int qid);
+    Question getQuestion(int qid);
 
     /**
      * 获取系统中的最新的问题列表
@@ -46,23 +45,7 @@ public interface IQuestionService {
      * @param   time    用户请求时间戳
      * @return
      */
-    List<QuestionDetail> getNewestQuestionsDetails(int page, long time);
-
-    /**
-     * 查询指定时间之前的所有问题数量
-     *
-     * @param  time 指定时间戳
-     * @return
-     */
-    Long getNewestQuestionsCount(long time);
-
-    /**
-     * 获取问题回答数
-     *
-     * @param   qid 问题ID
-     * @return
-     */
-    Long getQuestionAnswers(int qid);
+    QuestionsList getNewestQuestionsDetails(int page, long time);
 
     /**
      * 查询用户提问的问题分页信息，第几页

@@ -1,17 +1,16 @@
-package com.skylaker.yunzhi.pojo;
+package com.skylaker.yunzhi.pojo.res;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.pojo.res.IResult;
+import com.skylaker.yunzhi.pojo.res.LoginResult;
 
 /**
- * Created with IntelliJ IDEA.
+ * 用户注册结果返回信息封装实体
+ *
  * User: zhuyong
- * Date: 2018/5/20
- * Time: 11:56
- * Description:
- *      用户注册结果返回信息封装实体
+ * Date: 2018/5/20 11:56
  */
-public enum RegisterResult implements IResult{
+public enum RegisterResult implements IResult {
     //成功
     SUCCESS("成功", 1) ,
 
@@ -66,7 +65,7 @@ public enum RegisterResult implements IResult{
         this.message = message;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 

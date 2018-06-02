@@ -1,7 +1,7 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +9,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
- * Created with IntelliJ IDEA.
+ * 用户登录管理
+ *
  * User: zhuyong
- * Date: 2018/5/12
- * Time: 11:55
- * Description: 用户登录管理
+ * Date: 2018/5/12 11:55
  */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-    @Autowired
-    @Qualifier("userServiceImpl")
+    @Resource(name = "userServiceImpl")
     private IUserService userService;
+
 
     /**
      * 获取登录页面

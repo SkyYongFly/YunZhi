@@ -1,19 +1,17 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.LoginResult;
-import com.skylaker.yunzhi.pojo.RegisterInfo;
-import com.skylaker.yunzhi.pojo.Role;
-import com.skylaker.yunzhi.pojo.User;
+import com.skylaker.yunzhi.pojo.db.Role;
+import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.LoginResult;
 
 import java.util.List;
 import java.util.Set;
 
 /**
- * Created with IntelliJ IDEA.
+ * 用户相关逻辑处理接口定义
+ *
  * User: zhuyong
  * Date: 2018/5/20 11:17
- * Description:
- *      用户相关逻辑处理接口定义
  */
 public interface IUserService {
 
@@ -51,9 +49,9 @@ public interface IUserService {
     /**
      * 保存注册用户信息
      *
-     * @param registerInfo  注册用户信息
+     * @param user  注册用户
      */
-    void saveRegisterUser(RegisterInfo registerInfo);
+    void saveRegisterUser(User user);
 
     /**
      * 获取用户头像相对路径

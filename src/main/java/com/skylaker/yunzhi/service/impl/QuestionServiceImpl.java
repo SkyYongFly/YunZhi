@@ -3,12 +3,13 @@ package com.skylaker.yunzhi.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.QuestionMapper;
-import com.skylaker.yunzhi.pojo.*;
+import com.skylaker.yunzhi.pojo.com.PageInfo;
+import com.skylaker.yunzhi.pojo.db.*;
+import com.skylaker.yunzhi.pojo.res.QuestionResult;
 import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,19 +20,14 @@ import tk.mybatis.mapper.entity.Example;
 import javax.annotation.Resource;
 import java.util.*;
 
-import static com.skylaker.yunzhi.config.GlobalConstant.REDIS_ZSET_QUESTIONS_TIME;
-
 /**
- * Created with IntelliJ IDEA.
+ * 问题相关逻辑处理
+ *
  * User: zhuyong
  * Date: 2018/5/26 15:48
- * Description:
- *      问题相关逻辑处理
  */
 @Service("questionServiceImpl")
 public class QuestionServiceImpl extends BaseService<Question> implements IQuestionService {
-    @Autowired
-    private RedisUtil redisUtil;
     @Autowired
     private QuestionMapper questionMapper;
 
@@ -65,37 +61,16 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         //保存问题到DB
         super.save(question);
         //缓存问题信息
-        saveQuestionToRedis(question);
+        redisService.saveQuestionToRedis(question);
 
         return QuestionResult.SUCCESS;
-    }
-
-    /**
-     * 新增问题，注册到Redis
-     *
-     * @param question
-     */
-    private void saveQuestionToRedis(Question question){
-        JSONObject questionInfo = new JSONObject();
-        questionInfo.put(String.valueOf(question.getQid()), question.getTitle());
-
-        //保存问题时间戳
-        redisUtil.addZsetValue(REDIS_ZSET_QUESTIONS_TIME,
-                   questionInfo.toJSONString() , Double.valueOf(System.currentTimeMillis()));
-
-        //保存用户问题信息
-        redisUtil.addSetValue(BaseUtil.getSessionUser().getId() + GlobalConstant.USER_QUESTIONS, question.getQid());
-
-        //初始化问题热门指数
-        hotQuestionService.initQuestionHotIndex(question.getQid());
     }
 
 
     @Override
     public List<Question> getNewestQuestions() {
        //从Redis中获取最新的10个问题
-        Set<Object> questions = redisUtil.getZsetMaxKeys(
-                REDIS_ZSET_QUESTIONS_TIME, 0 , Long.valueOf(GlobalConstant.QUESTIONS_NUM -1));
+        Set<Object> questions = redisService.getNewestQuestions();
 
         List<Question> result = new ArrayList<>();
 
@@ -116,23 +91,18 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
     }
 
     /**
-     * 查询问题相信信息
+     * 查询问题相关信息
      *
      * @param   qid 问题ID
      * @return
      */
     @Override
     @Cacheable(value = "questionCache")
-    public QuestionDetail getQuestionDetail(int qid) {
+    public Question getQuestion(int qid) {
         //查询问题详情
-        QuestionDetail question =  new QuestionDetail(selectByKey(qid));
-
-        //查询问题的回答数
-        question.setAnswersnum(
-                redisUtil.getZsetCount(
-                        BaseUtil.getRedisQuestionAnswersKey(qid),
-                        Double.valueOf(0),
-                        Double.POSITIVE_INFINITY));
+        Question question =  new Question(selectByKey(qid));
+        //设置问题的回答数
+        question.setAnswersnum(redisService.getQuestionAnswersCount(qid));
 
         return question;
     }
@@ -145,17 +115,9 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
      * @return
      */
     @Override
-    public List<QuestionDetail> getNewestQuestionsDetails(int page, long time) {
-        if(page < 1){
-            return null;
-        }
-
-        //计算索引开始位置
-        int index = (page - 1) * GlobalConstant.QUESTIONS_NUM;
-
+    public QuestionsList getNewestQuestionsDetails(int page, long time) {
         //查询问题列表，每次查询10条
-        Set<Object> questions =  redisUtil.getZsetMaxKeysInScoresWithPage(
-                REDIS_ZSET_QUESTIONS_TIME, 0.0, Double.valueOf(time), Long.valueOf(index), GlobalConstant.QUESTIONS_NUM);
+        Set<Object> questions =  redisService.getNewestQuestionsByIndex(page, time);
 
         if(null == questions || questions.size() < 1){
             return null;
@@ -174,10 +136,13 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         String qids = builder.toString().substring(0, builder.length() - 1);
 
         //获取指定问题列表的详细信息
-        List<QuestionDetail> questionDetailList = questionMapper.getQuestionDetailList(qids);
-        setQuestionInfo(questionDetailList);
+        List<Question> questionsList = questionMapper.getQuestionsList(qids);
+        setQuestionInfo(questionsList);
 
-        return questionDetailList;
+        //获取要展示的问题总数量
+        Long sum = redisService.getNewestQuestionsCountByTime(time);
+
+        return new QuestionsList(questionsList, sum);
     }
 
     /**
@@ -185,36 +150,16 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
      *
      * @param questionDetailList
      */
-    private void setQuestionInfo(List<QuestionDetail> questionDetailList) {
+    private void setQuestionInfo(List<Question> questionDetailList) {
         for(int i = 0, len = questionDetailList.size(); i < len; i++){
-            QuestionDetail questionDetail = questionDetailList.get(i);
+            Question questionDetail = questionDetailList.get(i);
 
             //设置问题回答数量
-            questionDetail.setAnswersnum(getQuestionAnswers(questionDetail.getQid()));
+            questionDetail.setAnswersnum(redisService.getQuestionAnswersCount(questionDetail.getQid()));
             //设置用户头像
             questionDetail.setUserheadimg(userService.getUserHeadImg(questionDetail.getUserid()));
         }
     }
-
-    @Override
-    public Long getNewestQuestionsCount(long time) {
-        if(time < 0){
-            return Long.valueOf(0);
-        }
-
-        return redisUtil.getZsetCount(REDIS_ZSET_QUESTIONS_TIME, 0.0, time);
-    }
-
-    @Override
-    public Long getQuestionAnswers(int qid) {
-        if(null == Integer.valueOf(qid)){
-            return Long.valueOf(0);
-        }
-
-        return redisUtil.getZsetCount(qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS,
-                Double.valueOf(0), Double.POSITIVE_INFINITY);
-    }
-
 
     @Override
     public QuestionsList getUserQuestions(int page) {
@@ -223,10 +168,10 @@ public class QuestionServiceImpl extends BaseService<Question> implements IQuest
         //分页查询用户问题
         PageInfo pageInfo = new PageInfo(page, GlobalConstant.QUESTIONS_NUM);
         pageInfo.setUserid(userId);
-        List<QuestionDetail> questionsList = questionMapper.getUserQuestions(pageInfo);
+        List<Question> questionsList = questionMapper.getUserQuestions(pageInfo);
 
         //获取用户提问的所有问题数量
-        Long questionsCount = redisUtil.getSetCount(userId + GlobalConstant.USER_QUESTIONS);
+        Long questionsCount = redisService.getUserQuestionsCount(userId);
 
         if(questionsCount < questionsList.size()){  // 缓存失效
             Example example = new Example(Question.class);

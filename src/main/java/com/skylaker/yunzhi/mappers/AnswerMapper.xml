@@ -4,7 +4,7 @@
 <!-- 需要定义命名空间，值为对应的Mapper接口完全限定名 -->
 <mapper namespace="com.skylaker.yunzhi.mappers.AnswerMapper">
     <!--查询回答详情-->
-    <select id="getAnswerDetail" parameterType="java.lang.Integer" resultType="answerDetail">
+    <select id="getAnswer" parameterType="java.lang.Integer" resultType="answer">
         SELECT
             R.*,
             U.USERNAME, U.SIGNATURE
@@ -19,7 +19,7 @@
     </select>
 
     <!--分页查询问题的回答信息-->
-    <select id="getQuestionAllAnswers" parameterType="pageinfo" resultType="answerDetail">
+    <select id="getQuestionAllAnswers" parameterType="pageinfo" resultType="answer">
         SELECT
             R.*,
             U.USERNAME, U.SIGNATURE

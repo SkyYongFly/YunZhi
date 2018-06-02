@@ -2,7 +2,10 @@ package com.skylaker.yunzhi.service.impl;
 
 import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.mappers.UserMapper;
-import com.skylaker.yunzhi.pojo.*;
+import com.skylaker.yunzhi.pojo.db.Fileupload;
+import com.skylaker.yunzhi.pojo.db.Role;
+import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.LoginResult;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import com.skylaker.yunzhi.utils.RedisUtil;
@@ -29,8 +32,6 @@ public class UserServiceImpl extends BaseService<User>  implements IUserService 
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private RedisUtil redisUtil;
 
     /**
      * 手机号、密码验证
@@ -103,27 +104,27 @@ public class UserServiceImpl extends BaseService<User>  implements IUserService 
     /**
      * 保存注册用户信息
      *
-     * @param registerInfo  注册用户信息
+     * @param user  注册用户
      */
     @Override
     @Transactional
-    public void saveRegisterUser(RegisterInfo registerInfo) throws RuntimeException{
+    public void saveRegisterUser(User user) throws RuntimeException{
         //用户密码加盐
         String salt = UUID.randomUUID().toString().replaceAll("-","");
 
         //加密密码
         SimpleHash simpleHash = new SimpleHash(GlobalConstant.PWD_MD5,
-                registerInfo.getPassword(), salt, GlobalConstant.PASSWORD_ENCRYPT_COUNT);
+                user.getPassword(), salt, GlobalConstant.PASSWORD_ENCRYPT_COUNT);
 
         //构造用户实体
-        User user = new User.Builder(registerInfo.getPhone().trim())
-                .username(registerInfo.getUsername().trim())
+        User userEntity = new User.Builder(user.getPhone().trim())
+                .username(user.getUsername().trim())
                 .password(simpleHash.toHex())
                 .salt(salt)
                 .build();
 
         //保存用户
-        userMapper.addUser(user);
+        userMapper.addUser(userEntity);
     }
 
     @Override
@@ -133,8 +134,7 @@ public class UserServiceImpl extends BaseService<User>  implements IUserService 
         }
 
         //先从redis中获取用户头像相对路径
-        String filePath = (String) redisUtil.getHashValue(
-                GlobalConstant.REDIS_HASH_USER_HEAD_IMG, String.valueOf(userId));
+        String filePath = (String) redisService.getUserHeadImg(userId);
 
         //没有则从数据库查找
         if(BaseUtil.isNullOrEmpty(filePath)){

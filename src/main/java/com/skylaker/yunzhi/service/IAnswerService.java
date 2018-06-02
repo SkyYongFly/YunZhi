@@ -1,15 +1,14 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.Answer;
-import com.skylaker.yunzhi.pojo.AnswersList;
-import com.skylaker.yunzhi.pojo.BaseResult;
+import com.skylaker.yunzhi.pojo.db.Answer;
+import com.skylaker.yunzhi.pojo.db.AnswersList;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
 
 /**
- * Created with IntelliJ IDEA.
+ * 问题回答处理逻辑定义接口
+ *
  * User: zhuyong
  * Date: 2018/5/28 20:27
- * Description:
- *      问题回答处理逻辑定义接口
  */
 public interface IAnswerService {
     /**

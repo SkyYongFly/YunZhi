@@ -1,10 +1,7 @@
 package com.skylaker.yunzhi.service;
 
-import com.skylaker.yunzhi.pojo.FileUploadItem;
-import com.skylaker.yunzhi.pojo.IResult;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
+import com.skylaker.yunzhi.pojo.db.FileUploadItem;
+import com.skylaker.yunzhi.pojo.res.IResult;
 
 /**
  * 文件上传逻辑处理定义接口

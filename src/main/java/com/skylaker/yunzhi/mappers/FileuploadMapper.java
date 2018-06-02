@@ -1,6 +1,6 @@
 package com.skylaker.yunzhi.mappers;
 
-import com.skylaker.yunzhi.pojo.Fileupload;
+import com.skylaker.yunzhi.pojo.db.Fileupload;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
