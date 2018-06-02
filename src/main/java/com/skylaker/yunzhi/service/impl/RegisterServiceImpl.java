@@ -1,15 +1,11 @@
 package com.skylaker.yunzhi.service.impl;
 
-import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.pojo.res.RegisterResult;
 import com.skylaker.yunzhi.service.IRegisterService;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.service.IVercodeService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import com.skylaker.yunzhi.utils.RedisUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

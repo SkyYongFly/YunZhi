@@ -114,7 +114,7 @@ public class BaseUtil {
      * @return  热门问题zset键值
      */
     public static String getCacheHotQuestionsKey(){
-        return BaseUtil.getSessionUser().getId() + "_" +  GlobalConstant.REDIS_ZSET_QUESTIONS_HOT;
+        return  GlobalConstant.REDIS_ZSET_QUESTIONS_HOT  + "_" +  BaseUtil.getSessionUser().getId();
     }
 
     /**
@@ -124,7 +124,25 @@ public class BaseUtil {
      * @return
      */
     public static Object getRedisQuestionAnswersKey(Integer qid) {
-        return qid + GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS;
+        return GlobalConstant.REDIS_ZSET_QUESTION_ANSWERS + qid;
+    }
+
+    /**
+     * 获取保存用户点赞的回答信息的redis键名
+     *
+     * @return
+     */
+    public static String getUserStaredAnswersKey(){
+        return  GlobalConstant.REDIS_SET_STAR_ANSWERS + BaseUtil.getSessionUser().getId();
+    }
+
+    /**
+     * 获取保存用户提问问题的redis键名
+     *
+     * @return
+     */
+    public static String getUserQuestionsKey(Integer userId){
+        return  GlobalConstant.REDIS_SET_USER_QUESTIONS + userId;
     }
 
     /**

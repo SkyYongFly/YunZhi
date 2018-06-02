@@ -7,14 +7,12 @@ import com.skylaker.yunzhi.pojo.db.Answer;
 import com.skylaker.yunzhi.pojo.db.AnswersList;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
-import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -28,9 +26,6 @@ import java.util.List;
 public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerService {
     @Autowired
     private AnswerMapper answerMapper;
-
-    @Resource(name = "hotQuestionServiceImpl")
-    private IHotQuestionService hotQuestionService;
 
 
     /**
@@ -57,7 +52,7 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
         //保存回答
         super.save(answer);
         //保存相关信息到redis
-        redisService.saveInfoIntoRedis(answer);
+        redisService.saveAnswerInfo(answer);
 
         return BaseResult.SUCCESS;
     }
@@ -105,25 +100,24 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
      */
     @Override
     public synchronized Long starAction(Integer aid, Integer qid) {
-        redisService.staredAnswer(qid ,aid);
-
         //TODO 加锁性能上会有影响，需要优化
         //TODO 更新热门指数
         //判断用户是否哦对当前回答点赞过
         boolean hasStared =  redisService.hasStaredAnswer(aid);
-
         //获取问题点赞数
         Long stars = redisService.getAnswerStars(qid, aid);
 
+        //redis中进行点赞相关的处理
+        redisService.staredAnswer(qid ,aid);
+
         //TODO 这一步需要改为异步，避免频繁IO对数据库的影响
-        //已经点赞过
         if(hasStared){
+            //已经点赞过
             //数据库中回答点赞数减 1
             answerMapper.decreaseStarsNum(aid);
             return stars - 1;
-        }
-        //没有点赞过
-        else{
+        }else{
+            //没有点赞过
             //数据库中回答点赞数加 1
             answerMapper.increaseStarsNum(aid);
             return stars + 1;

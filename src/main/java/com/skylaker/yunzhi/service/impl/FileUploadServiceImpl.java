@@ -1,15 +1,12 @@
 package com.skylaker.yunzhi.service.impl;
 
-import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.pojo.db.FileUploadItem;
 import com.skylaker.yunzhi.pojo.db.Fileupload;
 import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.service.IFileUploadService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import com.skylaker.yunzhi.utils.RedisUtil;
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +42,7 @@ public class FileUploadServiceImpl extends BaseService<Fileupload> implements IF
             saveToDb(fileUploadItem);
 
             //保存用户头像缓存信息
-            redisService.saveUserHeadImgInfo(fileUploadItem);
+            redisService.saveUserHeadImg(fileUploadItem);
 
             return BaseResult.SUCCESS;
         } catch (IOException e) {

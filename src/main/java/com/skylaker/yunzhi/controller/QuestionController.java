@@ -1,19 +1,15 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.pojo.com.TableData;
 import com.skylaker.yunzhi.pojo.db.Question;
 import com.skylaker.yunzhi.pojo.db.QuestionsList;
-import com.skylaker.yunzhi.pojo.com.TableData;
-import com.skylaker.yunzhi.service.IHotQuestionService;
 import com.skylaker.yunzhi.service.IQuestionService;
 import com.skylaker.yunzhi.utils.BaseUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 问题相关逻辑处理
@@ -26,9 +22,6 @@ import java.util.List;
 public class QuestionController {
     @Resource(name = "questionServiceImpl")
     private IQuestionService questionService;
-
-    @Resource(name = "hotQuestionServiceImpl")
-    private IHotQuestionService hotQuestionService;
 
     //TODO 注意查询从缓存查找，无则再查数据库
 
@@ -75,7 +68,7 @@ public class QuestionController {
      */
     @RequestMapping(value = "/getHotQuestionsDetails", method = RequestMethod.GET)
     public @ResponseBody QuestionsList getHotQuestionsDetails(@RequestParam("page")int page, @RequestParam("token") String token){
-        return hotQuestionService.getHotQuestionsByPage(page, token);
+        return questionService.getHotQuestionsByPage(page, token);
     }
 
     /**

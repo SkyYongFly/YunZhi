@@ -6,7 +6,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -218,6 +217,10 @@ public class RedisUtil {
         //注意这里的起始热门指数值不为0
         Set<ZSetOperations.TypedTuple<Object>> sortedCollection =
                 getZsetMaxKeysOfScoreInScoresBySorted(zsetKey, GlobalConstant.MIN_HOT_INDEX, Double.POSITIVE_INFINITY);
+
+        if(null == sortedCollection || 0 == sortedCollection.size()){
+            return Long.valueOf(0);
+        }
 
         //将排序集合设置到缓存集合中
         //注意这个添加后集合顺序由大到小

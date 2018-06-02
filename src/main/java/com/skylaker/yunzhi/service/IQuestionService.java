@@ -24,19 +24,19 @@ public interface IQuestionService {
     QuestionResult addQuestion(Question question);
 
     /**
-     * 获取系统中的最新问题
-     *
-     * @return
-     */
-    List<Question> getNewestQuestions();
-
-    /**
      * 查询问题详细信息
      *
      * @param qid 问题ID
      * @return
      */
     Question getQuestion(int qid);
+
+    /**
+     * 获取系统中的最新问题
+     *
+     * @return
+     */
+    List<Question> getNewestQuestions();
 
     /**
      * 获取系统中的最新的问题列表
@@ -46,6 +46,15 @@ public interface IQuestionService {
      * @return
      */
     QuestionsList getNewestQuestionsDetails(int page, long time);
+
+    /**
+     * 获取最热门的问题集合
+     *
+     * @param page  页码
+     * @param token 缓存标识
+     * @return
+     */
+    QuestionsList getHotQuestionsByPage(int page, String token);
 
     /**
      * 查询用户提问的问题分页信息，第几页
