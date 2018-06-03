@@ -5,6 +5,8 @@ import com.skylaker.yunzhi.mappers.UserMapper;
 import com.skylaker.yunzhi.pojo.db.Fileupload;
 import com.skylaker.yunzhi.pojo.db.Role;
 import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.BaseResult;
+import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.pojo.res.LoginResult;
 import com.skylaker.yunzhi.service.IUserService;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -146,6 +148,19 @@ public class UserServiceImpl extends BaseService<User>  implements IUserService 
         }
 
         return filePath;
+    }
+
+    @Override
+    public User getUserInfo() {
+        return super.selectByKey(BaseUtil.getSessionUser().getId());
+    }
+
+    @Transactional
+    @Override
+    public IResult updateUserInfo(User user) {
+        super.updateNotNull(user);
+
+        return BaseResult.SUCCESS;
     }
 }
 

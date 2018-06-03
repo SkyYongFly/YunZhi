@@ -2,6 +2,7 @@ package com.skylaker.yunzhi.service;
 
 import com.skylaker.yunzhi.pojo.db.Role;
 import com.skylaker.yunzhi.pojo.db.User;
+import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.pojo.res.LoginResult;
 
 import java.util.List;
@@ -60,4 +61,19 @@ public interface IUserService {
      * @return
      */
     String getUserHeadImg(Integer userId);
+
+    /**
+     * 获取用户信息
+     *
+     * @return
+     */
+    User getUserInfo();
+
+    /**
+     * 更新用户信息
+     *
+     * @param user
+     * @return
+     */
+    IResult updateUserInfo(User user);
 }

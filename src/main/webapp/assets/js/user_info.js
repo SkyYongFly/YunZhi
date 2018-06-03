@@ -6,7 +6,10 @@
 
 $(document).ready(
     function() {
+        //加载用户头像
         loadUserHeadImg();
+        //加载用户昵称、签名信息
+        loadUserInfo();
 
         $("html").niceScroll();
         $("#userQuestiosFrame").niceScroll({
@@ -68,3 +71,24 @@ layui.use('upload', function(){
         }
     });
 });
+
+/**
+ * 获取用户信息
+ */
+function loadUserInfo() {
+    $.ajax({
+        url:  getBaseUrl() + "user/getUserInfo.do",
+        type: "GET",
+        contentType:"application/json",
+        success:function (data) {
+            if(data){
+                $("#username").text(data.username);
+                $("#signature").text(data.signature);
+
+                if(isNullOrEmpty(data.signature)){
+                    $("#signature").text("（哎，签名哪去了~~~）");
+                }
+            }
+        }
+    });
+}

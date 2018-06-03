@@ -7,6 +7,7 @@ import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,5 +51,26 @@ public class UserController {
 		result.put("imgpath", fspath);
 
 		return result;
+	}
+
+	/**
+	 * 获取用户信息
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
+	public @ResponseBody User getUserInfo(){
+		return userService.getUserInfo();
+	}
+
+	/**
+	 * 更新用户信息
+	 *
+	 * @param 	user
+	 * @return
+	 */
+	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
+	public @ResponseBody JSONObject updateUserInfo(@RequestBody User user){
+		return BaseUtil.getResult(userService.updateUserInfo(user));
 	}
 }

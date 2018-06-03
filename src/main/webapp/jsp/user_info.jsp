@@ -61,15 +61,21 @@
                         <img id="userHeadImg" name="file" class="userBigHead"/>
                     </div>
                     <div class="layui-col-md9">
-                        <div class="layui-card" style="margin-top:30px">
+                        <div class="layui-card" style="margin-top:50px">
                             <%--用户昵称--%>
                             <div class="layui-card-header userNameBig">
-                                张三
+                                <p id="username"></p>
                             </div>
-
                             <%--用户签名--%>
-                            <div class="layui-card-body" style="height: 50px">
-                                东头扛把子
+                            <div class="layui-card-body" style="height: 30px;display: inline-block">
+                                <div class="layui-row">
+                                    <div class="layui-col-md10">
+                                        <p id="signature"></p>
+                                    </div>
+                                    <div class="layui-col-md2">
+                                        <button class="layui-btn  layui-btn-primary layui-btn-sm">编辑签名</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
