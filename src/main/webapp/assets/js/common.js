@@ -14,20 +14,12 @@ function getUserInfo() {
         contentType:"application/json",
         success:function (data) {
             if(!isNullOrEmpty(data.id)){
-                $("#haslogin").show();
-                $("#usericon").show();
-                $("#hasnotlogin").hide();
-
                 $("#username").text(data.username);
                 if(!isNullOrEmpty(data.signature)) {
                     $("#signature").text(data.signature);
                 }
 
                 loadUserHeadImg();
-            }else{
-                $("#hasnotlogin").show();
-                $("#haslogin").hide();
-                $("#usericon").hide();
             }
         }
     });
@@ -278,4 +270,28 @@ function showUserHeadImg(hotuserheadimg) {
     }
 
     return contextPath + "/assets/plugins/layui/images/user1.jpg";
+}
+
+/**
+ * 登录页面
+ */
+function showLoginPage() {
+    $("#form").attr("action", getBaseUrl() + "login/getLoginPage.do");
+    $("#form").submit();
+}
+
+/**
+ * 注册页面
+ */
+function showRegisterPage() {
+    $("#form").attr("action", getBaseUrl() + "register/getPage.do");
+    $("#form").submit();
+}
+
+/**
+ * 注销
+ */
+function logout() {
+    $("#form").attr("action", getBaseUrl() + "logout.do");
+    $("#form").submit();
 }

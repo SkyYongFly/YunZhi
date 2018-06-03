@@ -50,22 +50,20 @@
                         </div>
 
                         <div class="layui-col-md10">
-                            <%--已经登录显示--%>
-                            <div id="haslogin" style="display: none" onclick="showUserPage();">
-                                <div class="layui-card">
-                                    <div class="layui-card-header" style="height: 20px;line-height: 20px;">
-                                        <p id="username" class="indexUserName">昵称</p>
-                                    </div>
-                                    <div class="layui-card-body" style="padding-top:5px;padding-bottom: 0; line-height: 20px;">
-                                        <p id="signature" class="indexUserSignature">签名~~~</p>
+                            <div  class="layui-row">
+                                <div class="layui-col-md10" onclick="showUserPage();">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header" style="height: 20px;line-height: 20px;">
+                                            <p id="username" class="indexUserName">昵称</p>
+                                        </div>
+                                        <div class="layui-card-body" style="padding-top:5px;padding-bottom: 0; line-height: 20px;">
+                                            <p id="signature" class="indexUserSignature">签名~~~</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <%--未登录显示--%>
-                            <div id="hasnotlogin">
-                                <button class="layui-btn layui-btn-primary" onclick="login();">登录</button>
-                                <button class="layui-btn layui-btn-primary" onclick="register();">注册</button>
+                                <div class="layui-col-md2">
+                                    <button class="layui-btn layui-btn-primary layui-btn-sm" style="margin-top: 20px" onclick="logout();">退出</button>
+                                </div>
                             </div>
                         </div>
                     </div>

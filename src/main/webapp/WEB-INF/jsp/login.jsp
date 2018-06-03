@@ -79,7 +79,7 @@
                         <p class="label2">没有账号？</p>
                     </div>
                     <div class="layui-col-md6">
-                        <button class="layui-btn layui-btn-primary">注册</button>
+                        <button onclick="showRegisterPage();" class="layui-btn layui-btn-primary">注册</button>
                     </div>
                 </div>
             </div>

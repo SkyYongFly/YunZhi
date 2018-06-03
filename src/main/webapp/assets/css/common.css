@@ -58,7 +58,8 @@
 }
 
 .label2{
-   font: 15px Helvetica Neue,Helvetica,PingFang SC,微软雅黑,Tahoma,Arial,sans-serif;
+    font: 15px Helvetica Neue,Helvetica,PingFang SC,微软雅黑,Tahoma,Arial,sans-serif;
+    margin-top: 10px;
 }
 
 /*登录失败提醒样式*/

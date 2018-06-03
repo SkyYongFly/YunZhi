@@ -48,9 +48,9 @@
         <!--管理器-->
         <property name="securityManager" ref="securityManager"/>
         <!--拦截跳转到的地址-->
-        <property name="loginUrl" value="/index.jsp" />
+        <property name="loginUrl" value="login/login.do" />
         <!--没有权限操作时指定路径-->
-        <property name="unauthorizedUrl" value="/login.do"/>
+        <property name="unauthorizedUrl" value="login/login.do"/>
         <!--资源请求拦截配置-->
         <property name="filterChainDefinitions">
             <value>
@@ -64,15 +64,7 @@
                 /login.jsp = anon
                 /register/** = anon
                 /login/** = anon
-                /question/getHotQuestionsDetails.do = anon
-                /question/getNewestQuestionsDetails.do = anon
-                /question/getNewestQuestions.do = anon
-                /jsp/hot_questions.jsp = anon
-                /jsp/newest_questions.jsp = anon
-                /jsp/common.jsp = anon
 
-                <!--系统首页不拦截-->
-                /index.jsp = anon
                 <!--请求注销地址，shiro清除session-->
                 /logout.do = logout
 

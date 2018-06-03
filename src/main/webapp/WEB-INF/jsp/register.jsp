@@ -90,9 +90,9 @@
                 <div class="layui-row">
                     <div class="layui-col-md6">
                         <p class="label2">已有账号？</p>
-                    </div>
+                </div>
                     <div class="layui-col-md6">
-                        <button class="layui-btn layui-btn-primary">登录</button>
+                        <button onclick="showLoginPage();" class="layui-btn layui-btn-primary">登录</button>
                     </div>
                 </div>
             </div>
