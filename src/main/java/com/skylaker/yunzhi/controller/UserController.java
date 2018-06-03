@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,6 +44,7 @@ public class UserController {
 	 *
 	 * @return
 	 */
+	@LogAnnotation(type = "用户", action = "获取头像信息")
 	@RequestMapping(value = "/getUserHeadImg", method = RequestMethod.GET)
 	public @ResponseBody JSONObject getUserHeadImg(){
 		String fspath = userService.getUserHeadImg(BaseUtil.getSessionUser().getId());
@@ -58,6 +60,7 @@ public class UserController {
 	 *
 	 * @return
 	 */
+	@LogAnnotation(type = "用户", action = "获取用户信息")
 	@RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
 	public @ResponseBody User getUserInfo(){
 		return userService.getUserInfo();
@@ -69,6 +72,7 @@ public class UserController {
 	 * @param 	user
 	 * @return
 	 */
+	@LogAnnotation(type = "用户", action = "更新用户信息")
 	@RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
 	public @ResponseBody JSONObject updateUserInfo(@RequestBody User user){
 		return BaseUtil.getResult(userService.updateUserInfo(user));

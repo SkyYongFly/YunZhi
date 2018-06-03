@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.db.FileUploadItem;
 import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.service.IFileUploadService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,7 @@ public class FileUploadController {
      * @param   file
      * @return
      */
+    @LogAnnotation(type = "文件上传", action = "新增上传文件")
     @RequestMapping("/upload")
     public @ResponseBody JSONObject fileUpload(@RequestParam("file")MultipartFile file, @RequestParam("type")String type){
         //文件上传具体处理

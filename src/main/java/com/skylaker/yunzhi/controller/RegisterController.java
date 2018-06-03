@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IRegisterService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,6 +40,7 @@ public class RegisterController {
      *
      * @param phone 请求手机号
      */
+    @LogAnnotation(type = "注册", action = "获取注册短信验证码")
     @RequestMapping(value = "/getVercode", method = RequestMethod.GET)
     public @ResponseBody JSONObject getVercode(@RequestParam("phone")String phone){
         return BaseUtil.getResult(registerService.getVercode(phone));
@@ -50,6 +52,7 @@ public class RegisterController {
      * @param   user 注册用户
      * @return
      */
+    @LogAnnotation(type = "注册", action = "用户注册")
     @RequestMapping(value = "/registerValidate", method = RequestMethod.POST)
     public @ResponseBody JSONObject registerValidate(@RequestBody User user){
         return BaseUtil.getResult(registerService.registerValidate(user));

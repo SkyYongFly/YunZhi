@@ -5,6 +5,7 @@ import com.skylaker.yunzhi.pojo.db.Answer;
 import com.skylaker.yunzhi.pojo.db.AnswersList;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,6 +33,7 @@ public class AnswerController {
      * @param answer
      * @return
      */
+    @LogAnnotation(type = "问题回答", action = "新增回答")
     @RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
     public @ResponseBody JSONObject addAnswer(@RequestBody Answer answer){
         if(BaseUtil.isNullOrEmpty(String.valueOf(answer.getQid())) || BaseUtil.isNullOrEmpty(answer.getText())){
@@ -49,6 +51,7 @@ public class AnswerController {
      *
      * @return
      */
+    @LogAnnotation(type = "问题回答", action = "查询问题所有回答")
     @RequestMapping(value = "/getQuestionAllAnswers", method = RequestMethod.GET)
     public @ResponseBody AnswersList getQuestionAllAnswers(@RequestParam("page")int page, @RequestParam("qid")int qid){
         if(BaseUtil.isNullOrEmpty(Integer.toString(qid))){
@@ -66,6 +69,7 @@ public class AnswerController {
      * @param   qid   问题ID
      * @return
      */
+    @LogAnnotation(type = "问题回答", action = "给回答点赞")
     @RequestMapping(value = "/starAction", method = RequestMethod.GET)
     public @ResponseBody JSONObject starAction(@RequestParam("aid")Integer aid, @RequestParam("qid")Integer qid){
         if(BaseUtil.isNullOrEmpty(String.valueOf(aid))){

@@ -21,6 +21,8 @@
 
     <!--声明队列：发送注册短信-->
     <rabbit:queue id="queue_sms" name="queue_sms" durable="true" auto-delete="false" exclusive="false"/>
+    <!--日志处理-->
+    <rabbit:queue id="queue_log" name="queue_log" durable="true" auto-delete="false" exclusive="false"/>
 
     <!-- exchange 声明 ， 路由模式 -->
     <rabbit:direct-exchange name="exchange_direct_sms" durable="true" auto-delete="false">
@@ -30,10 +32,19 @@
         </rabbit:bindings>
     </rabbit:direct-exchange>
 
+    <!--日志处理队列-->
+    <rabbit:direct-exchange name="exchange_direct_log" durable="true" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="queue_log" key="loginfo"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
 
     <!--消息接收者-->
     <rabbit:listener-container connection-factory="connectionFactory">
         <!--发送短信MQ队列消息处理者-->
         <rabbit:listener ref="smsMqListener"  queues="queue_sms"/>
+        <!--日志处理者-->
+        <rabbit:listener ref="logMqListener" queues="queue_log"/>
     </rabbit:listener-container>
 </beans>

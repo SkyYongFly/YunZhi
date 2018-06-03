@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.db.User;
 import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -60,6 +61,7 @@ public class LoginController {
      * @param   user
      * @return
      */
+    @LogAnnotation(type = "登录", action = "验证用户名、密码")
     @RequestMapping(value = "/loginValidate", method = RequestMethod.POST)
     public @ResponseBody JSONObject loginValidate(@RequestBody User user){
         return BaseUtil.getResult(userService.userPwdValidate(user.getPhone(), user.getPassword()));
@@ -70,6 +72,7 @@ public class LoginController {
      *
      * @return
      */
+    @LogAnnotation(type = "用户操作", action = "获取用户信息")
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
     public @ResponseBody User getUserInfo(){
         User user = BaseUtil.getSessionUser();

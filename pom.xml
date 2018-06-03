@@ -10,8 +10,6 @@
   <packaging>war</packaging>
 
   <name>YunZhi Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,7 +23,6 @@
   </properties>
 
   <dependencies>
-
     <!-- 单元测试 -->
     <dependency>
       <groupId>junit</groupId>
@@ -206,6 +203,19 @@
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
+    <!--SpringAOP-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.13</version>
+    </dependency>
+
+
 
     <!--fastjson-->
     <dependency>

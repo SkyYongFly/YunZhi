@@ -5,6 +5,7 @@ import com.skylaker.yunzhi.pojo.com.TableData;
 import com.skylaker.yunzhi.pojo.db.Question;
 import com.skylaker.yunzhi.pojo.db.QuestionsList;
 import com.skylaker.yunzhi.service.IQuestionService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,7 @@ public class QuestionController {
      * @param  question 提交的问题
      * @return  {enum}  操作结果
      */
+    @LogAnnotation(type = "问题", action = "提问问题")
     @RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
     public @ResponseBody JSONObject addQuestion(@RequestBody Question question){
         return BaseUtil.getResult(questionService.addQuestion(question));
@@ -53,6 +55,7 @@ public class QuestionController {
      *
      * @return
      */
+    @LogAnnotation(type = "问题", action = "查看最新的问题")
     @RequestMapping(value = "/getNewestQuestionsDetails", method = RequestMethod.GET)
     public @ResponseBody
     QuestionsList getNewestQuestionsDetails(@RequestParam("page")int page, @RequestParam("time") long time){
@@ -66,6 +69,7 @@ public class QuestionController {
      * @param token     标识：标识当前页面是否请求过最热门问题，用于决定是否生成临时缓存来记录热门问题
      * @return
      */
+    @LogAnnotation(type = "问题", action = "查看热门问题")
     @RequestMapping(value = "/getHotQuestionsDetails", method = RequestMethod.GET)
     public @ResponseBody QuestionsList getHotQuestionsDetails(@RequestParam("page")int page, @RequestParam("token") String token){
         return questionService.getHotQuestionsByPage(page, token);
@@ -77,6 +81,7 @@ public class QuestionController {
      * @param qid 问题ID
      * @return
      */
+    @LogAnnotation(type = "问题", action = "查看问题详情")
     @RequestMapping(value = "/getQuestionDetail", method = RequestMethod.GET)
     public @ResponseBody Question getQuestion(@RequestParam("qid")int qid){
         return questionService.getQuestion(qid);
@@ -88,6 +93,7 @@ public class QuestionController {
      * @param  page  分页查询页码
      * @return
      */
+    @LogAnnotation(type = "问题", action = "查看自己提问的问题")
     @RequestMapping(value = "/getUserQuestions", method = RequestMethod.GET)
     public @ResponseBody QuestionsList getUserQuestions(@RequestParam("page")int page){
         return questionService.getUserQuestions(page);

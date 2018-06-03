@@ -9,6 +9,7 @@ import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.pojo.res.LoginResult;
 import com.skylaker.yunzhi.service.IUserService;
+import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
