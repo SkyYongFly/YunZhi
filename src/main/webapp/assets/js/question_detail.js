@@ -143,7 +143,10 @@ function addAnswer() {
         success:function (data) {
             if(data){
                 layer.msg(data.message);
-                window.location.reload();
+
+                if(1 == data.code){
+                    window.location.reload();
+                }
             }
         }
     });

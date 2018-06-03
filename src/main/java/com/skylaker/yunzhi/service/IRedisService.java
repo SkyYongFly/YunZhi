@@ -168,4 +168,12 @@ public interface IRedisService{
      * @return
      */
     Long getAnswerStars(Integer qid, Integer aid);
+
+    /**
+     * 内容合法性验证
+     *
+     * @param text
+     * @return {boolean} 合法：true ; 不合法 ：false
+     */
+    boolean legalValidate(String text);
 }

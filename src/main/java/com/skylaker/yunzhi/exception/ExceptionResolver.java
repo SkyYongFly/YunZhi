@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.exception;
 import com.alibaba.fastjson.JSONObject;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.pojo.res.IResult;
+import com.skylaker.yunzhi.utils.BaseUtil;
 import org.apache.shiro.ShiroException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,8 +37,10 @@ public class ExceptionResolver implements HandlerExceptionResolver{
 		IResult iResult = null;
 
 		//异常处理
-		if(exception instanceof ShiroException){
+		if(exception instanceof ShiroException){		//权限异常
 			iResult = loginExceptionHandler.handlerLoginException(exception);
+		}else if(exception instanceof LegalException){	//内容非法异常
+			iResult = BaseResult.NOT_LEGAL;
 		}else {
 			iResult = BaseResult.FAILTURE;
 		}

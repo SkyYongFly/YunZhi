@@ -13,7 +13,10 @@ public enum BaseResult implements IResult {
     SUCCESS("成功", 1) ,
 
     //密码错误
-    FAILTURE("失败", 2);
+    FAILTURE("失败", 2),
+
+    //不合法
+    NOT_LEGAL("内容含有敏感词汇", 3);
 
     //结果信息
     private  String message;

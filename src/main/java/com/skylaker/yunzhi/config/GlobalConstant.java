@@ -50,5 +50,8 @@ public class GlobalConstant {
     public static final String  FILE_TYPE_USER_HEAD_IMG     = "USERHEADIMG";
     //文件类型:回答中插入的图片
     public static final String  FILE_TYPE_ANSWERS_IMG       = "ANSWERSIMG";
-
+    //合法性验证对象类型：问题
+    public static final String QUESTION = "QUESTION";
+    //合法性验证对象类型：回答
+    public static final String ANSWER = "ANSWER";
 }

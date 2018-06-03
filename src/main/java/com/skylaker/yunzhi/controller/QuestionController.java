@@ -1,10 +1,12 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.com.TableData;
 import com.skylaker.yunzhi.pojo.db.Question;
 import com.skylaker.yunzhi.pojo.db.QuestionsList;
 import com.skylaker.yunzhi.service.IQuestionService;
+import com.skylaker.yunzhi.service.aop.LegalAnnotation;
 import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,7 @@ public class QuestionController {
      * @param  question 提交的问题
      * @return  {enum}  操作结果
      */
+    @LegalAnnotation(type = GlobalConstant.QUESTION)
     @LogAnnotation(type = "问题", action = "提问问题")
     @RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
     public @ResponseBody JSONObject addQuestion(@RequestBody Question question){

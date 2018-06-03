@@ -283,4 +283,19 @@ public class RedisServiceImpl implements IRedisService {
         //获取问题点赞数
         return redisUtil.getZsetKeyValue(questionAnswersRedisKey, aid).longValue();
     }
+
+    @Override
+    public boolean legalValidate(String text) {
+        if(BaseUtil.isNullOrEmpty(text)){
+            return true;
+        }
+
+        //TODO 实际缓存敏感词汇，进行校验
+        //这里只做示例
+        if(text.contains("TMD")){
+            return false;
+        }
+
+        return true;
+    }
 }

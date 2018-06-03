@@ -1,10 +1,12 @@
 package com.skylaker.yunzhi.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.skylaker.yunzhi.config.GlobalConstant;
 import com.skylaker.yunzhi.pojo.db.Answer;
 import com.skylaker.yunzhi.pojo.db.AnswersList;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
+import com.skylaker.yunzhi.service.aop.LegalAnnotation;
 import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ public class AnswerController {
      * @param answer
      * @return
      */
+    @LegalAnnotation(type = GlobalConstant.ANSWER)
     @LogAnnotation(type = "问题回答", action = "新增回答")
     @RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
     public @ResponseBody JSONObject addAnswer(@RequestBody Answer answer){
