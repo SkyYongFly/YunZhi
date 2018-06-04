@@ -20,6 +20,7 @@
     <spring.version>5.0.6.RELEASE</spring.version>
     <jackson.version>2.9.1</jackson.version>
     <shiro.version>1.4.0</shiro.version>
+    <lucene.version>7.3.0</lucene.version>
   </properties>
 
   <dependencies>
@@ -355,6 +356,73 @@
       <artifactId>commons-io</artifactId>
       <version>2.2</version>
     </dependency>
+
+    <!--Lucene依赖-->
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analyzers-common</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-highlighter</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-memory</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-join</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queries</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <!--中文分词器-->
+    <dependency>
+      <groupId>org.tinygroup</groupId>
+      <artifactId>org.tinygroup.chineseanalyzer</artifactId>
+      <version>3.4.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tinygroup</groupId>
+      <artifactId>org.tinygroup.tinyseg</artifactId>
+      <version>3.4.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tinygroup</groupId>
+      <artifactId>org.tinygroup.stopword</artifactId>
+      <version>3.4.9</version>
+    </dependency>
+    <dependency>
+      <groupId>com.janeluo</groupId>
+      <artifactId>ikanalyzer</artifactId>
+      <version>2012_u6</version>
+    </dependency>
+
+
+
+
+
+
+
+
+
   </dependencies>
 
   <build>

@@ -31,11 +31,12 @@
                             <button class="layui-btn layui-btn-primary" onclick="loadIndex();">首页</button>
                         </div>
                         <%--搜索--%>
-                        <div class="layui-col-md6">
-                            <input type="text" name="title" placeholder="请输入搜索内容" autocomplete="off" class="layui-input">
+                        <div class="layui-col-md5">
+                            <input type="text" id="words" name="words" placeholder="请输入搜索内容" autocomplete="off" class="layui-input">
                         </div>
                         <%--提问--%>
-                        <div class="layui-col-md2">
+                        <div class="layui-col-md3">
+                            <button class="layui-btn layui-btn-primary" onclick="search();">搜索</button>
                             <button class="layui-btn layui-btn-normal" onclick="addQuestion();">提问</button>
                         </div>
                     </div>

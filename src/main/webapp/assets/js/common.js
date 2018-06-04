@@ -44,6 +44,25 @@ function closeOpenPage() {
 }
 
 /**
+ * 内容检索
+ */
+function search() {
+    var words = $("#words").val();
+
+    if(isNullOrEmpty(words)){
+        return;
+    }
+
+    $.ajax({
+        url:  getBaseUrl() + "search/text.do?words=" + words,
+        type: "GET",
+        contentType:"application/json",
+        success:function (data) {
+        }
+    });
+}
+
+/**
  * 判空
  *
  * @param str
