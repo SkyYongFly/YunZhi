@@ -76,6 +76,12 @@ public class AnswerServiceImpl extends BaseService<Answer> implements IAnswerSer
         PageInfo pageInfo = new PageInfo(page, GlobalConstant.ANSWERS_NUM, qid);
         //查询问题回答
         List<Answer> answers = answerMapper.getQuestionAllAnswers(pageInfo);
+
+        //设置回答用户头像信息
+        for (int i = 0, len = answers.size(); i < len; i++) {
+            answers.get(i).setUserheadimg(redisService.getUserHeadImg(answers.get(i).getUserid()));
+        }
+
         //获取问题回答的总数
         Long sum = redisService.getQuestionAnswersCount(qid);
 

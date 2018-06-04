@@ -6,6 +6,7 @@ import com.skylaker.yunzhi.pojo.db.Answer;
 import com.skylaker.yunzhi.pojo.db.AnswersList;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
 import com.skylaker.yunzhi.service.IAnswerService;
+import com.skylaker.yunzhi.service.aop.IndexAnnotation;
 import com.skylaker.yunzhi.service.aop.LegalAnnotation;
 import com.skylaker.yunzhi.service.aop.LogAnnotation;
 import com.skylaker.yunzhi.utils.BaseUtil;
@@ -36,6 +37,7 @@ public class AnswerController {
      * @return
      */
     @LegalAnnotation(type = GlobalConstant.ANSWER)
+    @IndexAnnotation(type = GlobalConstant.ANSWER, action = GlobalConstant.ADD)
     @LogAnnotation(type = "问题回答", action = "新增回答")
     @RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
     public @ResponseBody JSONObject addAnswer(@RequestBody Answer answer){

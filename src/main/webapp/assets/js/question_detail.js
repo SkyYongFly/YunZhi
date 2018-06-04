@@ -52,7 +52,7 @@ layui.use('flow', function(){
                     lis.push(
                         '<div class="layui-card">' +
                             '<div class="layui-card-header userHeadParentElement" onclick="showUserDetail(' + item.userid + ');">' +
-                                '<img src="' + contextPath + '/assets/plugins/layui/images/user1.jpg" class="userSmallHead"/>' +
+                                '<img src="' + showUserHeadImg(item.userheadimg) + '" class="userSmallHead"/>'  +
                                 '<a class="userName">' + item.username + '</a>' +
                                 '<a class="userSignature">' + showSignature(item.signature) + '</a>' +
                             '</div>' +

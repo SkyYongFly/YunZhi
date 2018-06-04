@@ -54,4 +54,10 @@ public class GlobalConstant {
     public static final String QUESTION = "QUESTION";
     //合法性验证对象类型：回答
     public static final String ANSWER = "ANSWER";
+    //添加操作
+    public static final String ADD = "add";
+    //删除操作
+    public static final String DELETE = "delete";
+    //修改操作
+    public static final String UPDATE = "update";
 }

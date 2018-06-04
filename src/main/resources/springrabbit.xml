@@ -21,8 +21,12 @@
 
     <!--声明队列：发送注册短信-->
     <rabbit:queue id="queue_sms" name="queue_sms" durable="true" auto-delete="false" exclusive="false"/>
-    <!--日志处理-->
+    <!--声明队列：日志处理-->
     <rabbit:queue id="queue_log" name="queue_log" durable="true" auto-delete="false" exclusive="false"/>
+
+    <!--声明队列：检索处理-->
+    <rabbit:queue id="queue_index_question" name="queue_index_question" durable="true" auto-delete="false" exclusive="false"/>
+    <rabbit:queue id="queue_index_answer" name="queue_index_answer" durable="true" auto-delete="false" exclusive="false"/>
 
     <!-- exchange 声明 ， 路由模式 -->
     <rabbit:direct-exchange name="exchange_direct_sms" durable="true" auto-delete="false">
@@ -32,12 +36,22 @@
         </rabbit:bindings>
     </rabbit:direct-exchange>
 
-    <!--日志处理队列-->
+    <!--日志处理队列 ， 路由模式-->
     <rabbit:direct-exchange name="exchange_direct_log" durable="true" auto-delete="false">
         <rabbit:bindings>
             <rabbit:binding queue="queue_log" key="loginfo"></rabbit:binding>
         </rabbit:bindings>
     </rabbit:direct-exchange>
+
+    <!--内容检索处理队列， 主题模式-->
+    <rabbit:topic-exchange name="exchange_topic_index" durable="true" auto-delete="false">
+        <rabbit:bindings>
+            <!--问题处理队列-->
+            <rabbit:binding queue="queue_index_question" pattern="index.question.#"></rabbit:binding>
+            <!--回答处理队列-->
+            <rabbit:binding queue="queue_index_answer" pattern="index.answer.#"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
 
 
     <!--消息接收者-->
@@ -46,5 +60,9 @@
         <rabbit:listener ref="smsMqListener"  queues="queue_sms"/>
         <!--日志处理者-->
         <rabbit:listener ref="logMqListener" queues="queue_log"/>
+        <!--问题队列处理-->
+        <rabbit:listener ref="questionMqListener" queues="queue_index_question"/>
+        <!--回答队列处理-->
+        <rabbit:listener ref="answerMqListener" queues="queue_index_answer"/>
     </rabbit:listener-container>
 </beans>

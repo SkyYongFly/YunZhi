@@ -1,6 +1,7 @@
 package com.skylaker.yunzhi.service;
 
 import com.skylaker.yunzhi.pojo.db.Question;
+import com.skylaker.yunzhi.pojo.res.IResult;
 import com.skylaker.yunzhi.pojo.res.QuestionResult;
 import com.skylaker.yunzhi.pojo.db.QuestionsList;
 
@@ -21,7 +22,7 @@ public interface IQuestionService {
      * @param question
      * @return
      */
-    QuestionResult addQuestion(Question question);
+    IResult addQuestion(Question question);
 
     /**
      * 查询问题详细信息

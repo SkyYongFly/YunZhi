@@ -36,6 +36,8 @@ public class Answer implements Serializable {
     protected String username;  //回答用户名称
     @Transient
     protected String signature; //回答用户签名
+    @Transient
+    protected String userheadimg;//回答用户头像
 
 
     public Integer getAid() {
@@ -100,6 +102,14 @@ public class Answer implements Serializable {
 
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+
+    public String getUserheadimg() {
+        return userheadimg;
+    }
+
+    public void setUserheadimg(String userheadimg) {
+        this.userheadimg = userheadimg;
     }
 
     @Override

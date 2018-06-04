@@ -7,8 +7,13 @@ import com.skylaker.yunzhi.pojo.db.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
+import javax.persistence.Column;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Properties;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -171,5 +176,47 @@ public class BaseUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+
+    /**
+     * 利用反射获取对象属性值组成的JSON对象，针对与持久层属性
+     *
+     * @param   object
+     * @return
+     */
+    public static JSONObject getJSONObJect(Object object){
+        Class<?> objClass = object.getClass();
+        Field[] fields = objClass.getDeclaredFields();
+
+        JSONObject jsonObject = new JSONObject();
+
+        for(Field field : fields){
+            //获取成员变量属性名称
+            String fieldName = field.getName();
+
+            //得到获取成员变量属性值的方法
+            String methodName = "get" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+            Object fieldValue = null;
+            try {
+                Method method = objClass.getDeclaredMethod(methodName, null);
+                //判断是否是持久层属性字段
+                Annotation annotation = field.getAnnotation(Column.class);
+                if(null != annotation){
+                    fieldValue = method.invoke(object);
+                }
+            } catch (NoSuchMethodException e) {
+                continue;
+            } catch (IllegalAccessException e) {
+                continue;
+            } catch (InvocationTargetException e) {
+                continue;
+            }
+
+            //添加成员变量属性信息键值对
+            jsonObject.put(fieldName, fieldValue);
+        }
+
+        return jsonObject;
     }
 }

@@ -3,6 +3,7 @@ package com.skylaker.yunzhi.service;
 import com.skylaker.yunzhi.pojo.db.Answer;
 import com.skylaker.yunzhi.pojo.db.AnswersList;
 import com.skylaker.yunzhi.pojo.res.BaseResult;
+import com.skylaker.yunzhi.pojo.res.IResult;
 
 /**
  * 问题回答处理逻辑定义接口
@@ -17,7 +18,7 @@ public interface IAnswerService {
      * @param answer
      * @return
      */
-    BaseResult addAnswer(Answer answer);
+    IResult addAnswer(Answer answer);
 
     /**
      * 获取问题的所有回答
