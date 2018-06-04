@@ -14,8 +14,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Properties;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -191,6 +191,29 @@ public class BaseUtil {
 
         JSONObject jsonObject = new JSONObject();
 
+        Map<Object, Object> fieldMap = getObjFieldMap(object);
+
+        Set<Map.Entry<Object, Object>> entrySet = fieldMap.entrySet();
+        for (Map.Entry<Object, Object> entry : entrySet){
+            //添加成员变量属性信息键值对
+            jsonObject.put(entry.getKey().toString(), entry.getValue());
+        }
+
+        return jsonObject;
+    }
+
+    /**
+     * 利用反射获取对象属性名称以及值
+     *
+     * @param object
+     * @return
+     */
+    public static Map<Object, Object> getObjFieldMap(Object object){
+        Class<?> objClass = object.getClass();
+        Field[] fields = objClass.getDeclaredFields();
+
+        Map<Object, Object> resultMap = new ConcurrentHashMap<>();
+
         for(Field field : fields){
             //获取成员变量属性名称
             String fieldName = field.getName();
@@ -214,9 +237,11 @@ public class BaseUtil {
             }
 
             //添加成员变量属性信息键值对
-            jsonObject.put(fieldName, fieldValue);
+            if(null != fieldName && null != fieldValue){
+                resultMap.put(fieldName, fieldValue);
+            }
         }
 
-        return jsonObject;
+        return  resultMap;
     }
 }

@@ -1,5 +1,7 @@
 package com.skylaker.yunzhi.config;
 
+import java.net.URI;
+
 /**
  * 常量定义类
  *
@@ -60,4 +62,6 @@ public class GlobalConstant {
     public static final String DELETE = "delete";
     //修改操作
     public static final String UPDATE = "update";
+    //Lucene索引库位置
+    public static final String LUCENE_INDEX_PATH = "D:\\YunZhi\\Temp";
 }
