@@ -49,9 +49,91 @@
 ![问题详情](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/question_detail.jpg "问题详情")
 
 ## 5. 数据库设计
-* 数据库表设计：这里我们先设计出系统需要的核心的表
+* MySQL数据库表设计：这里我们先设计出系统需要的核心的表
 
 ![数据库](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/sql/database.png "数据库")
+
++ Redis表设计：
+
+<table>
+	<tr>
+		<th style="width:200px">表名</th>
+		<th style="width:100px">类型</th>
+		<th style="width:200px">作用</th>
+		<th style="width:250px">键/值/权重</th>
+		<th style="width:100px">备注</th>
+	</tr> 
+	<tr>
+		<td>REDIS_HASH_PHONEVERCODE_TIME</td>
+		<td>Hash</td> 
+		<td>已申请验证码手机号</td>
+		<td>手机号&nbsp;&nbsp;|&nbsp;&nbsp;时间戳</td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td>REDIS_HASH_PHONEVERCODES</td>
+	     <td>Hash</td> 
+	     <td>手机号以及发送的验证码</td>
+	     <td>手机号&nbsp;&nbsp;|&nbsp;&nbsp;验证码</td>
+		<td>30分钟过期</td>
+	</tr>
+	<tr>
+		<td>REDIS_HASH_USER_HEAD_IMGS</td>
+	     <td>Hash</td> 
+	     <td>用户头像路径信息</td> 
+		<td>用户ID&nbsp;&nbsp;|&nbsp;&nbsp;头像相对路径</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_SET_HASREGISTERPHONE</td>
+	     <td>Set</td> 
+	     <td>已注册用户手机号</td> 
+		<td>用户手机号</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_SET_USER_QUESTIONS_人员ID</td>
+	     <td>Set</td> 
+	     <td>用户已提问问题</td> 
+		<td>问题ID</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_SET_STAR_ANSWERS_人员ID</td>
+	     <td>Set</td> 
+	     <td>用户已点赞回答</td> 
+		<td>回答ID</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_ZSET_QUESTIONS_TIME</td>
+	     <td>Sorted Set</td> 
+	     <td>新增问题信息</td> 
+		<td>问题ID&nbsp;&nbsp;|&nbsp;&nbsp;时间戳</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_ZSET_QUESTIONS_HOT</td>
+	     <td>Sorted Set</td> 
+	     <td>热门问题</td> 
+		<td>问题ID&nbsp;&nbsp;|&nbsp;&nbsp;热门指数</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_ZSET_QUESTIONS_HOT_用户ID</td>
+	     <td>Sorted Set</td> 
+	     <td>热门问题临时查询缓存</td> 
+		<td>问题ID&nbsp;&nbsp;|&nbsp;&nbsp;热门指数</td> 
+		<td></td> 
+	</tr> 
+     <tr>
+		<td>REDIS_ZSET_QUESTION_ANSWERS_问题ID</td>
+	     <td>Sorted Set</td> 
+	     <td>问题回答信息</td> 
+		<td>问题ID&nbsp;&nbsp;|&nbsp;&nbsp;点赞数</td> 
+		<td></td> 
+	</tr> 
+</table>
 
 ## 6. 环境设置
 #### 1.Tomcat  
