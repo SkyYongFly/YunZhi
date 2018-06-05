@@ -49,11 +49,9 @@
 ![问题详情](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/question_detail.jpg "问题详情")
 
 ## 5. 数据库设计
-数据库表设计 V1.0  
+* 数据库表设计：这里我们先设计出系统需要的核心的表
 
-这里我们先设计出系统需要的核心的表
-
-![数据库](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/db.jpg "数据库")
+![数据库](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/sql/database.png "数据库")
 
 ## 6. 环境设置
 #### 1.Tomcat  
