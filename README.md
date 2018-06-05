@@ -143,9 +143,9 @@ Tomcat版本8.0以上即可
 创建好数据库，执行SQL脚本创建所需表，数据库连接配置文件 database.properties 对应修改即可
 
 #### 3.Redis  
-安装好redis，建议设置密码，修改redis连接配置：springredis.xml。
+安装好Redis，建议设置密码，修改Redis连接配置：springredis.xml。
 
 这里推荐开发中使用可视化工具，方便我们追踪redis缓存情况：[https://redisdesktop.com/download](https://redisdesktop.com/download)
 
 #### 4.RabbitMQ   
-安装好rabbitmq，新建用户，授予权限，修改对应连接配置：springrabbit.xml
+安装好RabbitMQ，新建用户，授予权限，修改对应连接配置：springrabbit.xml
