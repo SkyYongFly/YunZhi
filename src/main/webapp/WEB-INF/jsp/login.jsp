@@ -58,7 +58,7 @@
                 <p class="label">密&nbsp;&nbsp;&nbsp;码</p>
             </div>
             <div class="layui-col-md4">
-                <input type="text" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
         </div>
 

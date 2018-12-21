@@ -414,19 +414,21 @@
       <artifactId>ikanalyzer</artifactId>
       <version>2012_u6</version>
     </dependency>
-
-
-
-
-
-
-
-
-
   </dependencies>
 
   <build>
     <finalName>YunZhi</finalName>
+
+    <!--编译扫描Java目录下的xml文件-->
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
