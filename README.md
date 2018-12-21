@@ -6,7 +6,7 @@
 我们将通过这个项目来检验所学的JavaWeb开发相关的知识，也是一个总结提高的过程，避免眼高手低。其实在实际的开发过程中，
 会发现很多光学习发现不到的问题。废话说多了，还是开始正文内容吧~~~
 
-不如先放个系统实际截图压压惊（系统只是个雏形版本，时间关系不继续做，后期会做SpringBoot、Spring Cloud微服务版本）~~~
+不如先放个系统实际截图压压惊（系统只是个雏形版本，时间关系不继续做，后期会做SpringBoot、Spring Cloud微服务版本，有兴趣的小伙伴可以一起哈）~~~
 ![首页](https://raw.githubusercontent.com/SkyYongFly/YunZhi/master/doc/img/%E7%B3%BB%E7%BB%9F%E9%A6%96%E9%A1%B5.png "首页")
 ## 2. 开发环境
 * JDK  : 8.0
