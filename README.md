@@ -129,7 +129,7 @@
 Tomcat版本8.0以上即可
 
 #### 2.MySQL  
-创建好数据库，执行SQL脚本（目录：/doc/sql/云知SQL.sql）创建所需表，数据库连接配置文件 database.properties 对应修改即可
+创建好数据库，执行SQL（目录：/doc/sql/云知SQL.sql）创建所需表，数据库连接配置文件 database.properties 对应修改即可
 
 #### 3.Redis  
 安装好Redis，建议设置密码，否则Redis连接会有权限等问题，默认连接密码123456，windows中redis可修改redis.windows.conf文件，具体可搜索设置方法。Redis连接配置：springredis.xml。
