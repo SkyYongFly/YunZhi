@@ -144,8 +144,6 @@ Tomcat版本8.0以上即可
 ![图片预览](https://github.com/SkyYongFly/YunZhi/blob/master/doc/img/path.png "图片预览")
 
 #### 6.IDEA设置
-* Code部署
-下载代码 ；编译输出 ；配置Tomcat;
-+ 上下文设置
-IDEA部署Tomcat访问需要设置应用上下文
+* 代码部署     下载代码 ；编译输出 ；配置Tomcat;
++ 上下文设置   IDEA部署Tomcat访问需要设置应用上下文，避免后续获取路径错误
 ![上下文](https://github.com/SkyYongFly/YunZhi/blob/master/doc/img/contextpath.png "上下文")
