@@ -142,3 +142,7 @@ Tomcat版本8.0以上即可
 #### 5.图片预览
 系统没有采用分布式文件系统，只是简单的集成文件模块，用户头像预览等需要配置Tomcat磁盘访问权限，例如用户头像文件默认放在D:\\YunZhi目录，那么需要配置Tomcat的server.xml文件如下内容：
 ![图片预览](https://github.com/SkyYongFly/YunZhi/blob/master/doc/img/path.png "图片预览")
+
+#### 6.IDEA设置
+IDEA部署Tomcat访问需要设置应用上下文
+![上下文](https://github.com/SkyYongFly/YunZhi/blob/master/doc/img/contextpath.png "上下文")
