@@ -138,3 +138,6 @@ Tomcat版本8.0以上即可
 
 #### 4.RabbitMQ   
 安装好RabbitMQ，新建用户，授予权限，修改对应连接配置：springrabbit.xml
+
+#### 5.图片预览
+系统没有采用分布式文件系统，只是简单的集成文件模块，用户头像预览等需要配置Tomcat磁盘访问权限，例如用户头像文件默认放在D:\\YunZhi目录，那么需要配置Tomcat的server.xml文件如下内容：
