@@ -132,7 +132,7 @@ Tomcat版本8.0以上即可
 创建好数据库，执行SQL脚本创建所需表，数据库连接配置文件 database.properties 对应修改即可
 
 #### 3.Redis  
-安装好Redis，建议设置密码，修改Redis连接配置：springredis.xml。
+安装好Redis，建议设置密码，否则Redis连接会有权限等问题，默认连接密码123456，windows中redis可修改redis.windows.conf文件，具体可搜索设置方法。Redis连接配置：springredis.xml。
 
 这里推荐开发中使用可视化工具，方便我们追踪redis缓存情况：[https://redisdesktop.com/download](https://redisdesktop.com/download)
 
